@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="30no2">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="30no2">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>linux学习--指令篇 · 30no2&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5585bd8db64f7d131c825e9275e8ad0c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >30no2&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">linux学习--指令篇</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>30no2's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            linux学习--指令篇
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/07/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="linux实用指令"><a href="#linux实用指令" class="headerlink" title="linux实用指令"></a>linux实用指令</h2><h3 id="帮助指令"><a href="#帮助指令" class="headerlink" title="帮助指令"></a>帮助指令</h3><h4 id="1-man"><a href="#1-man" class="headerlink" title="1.man"></a>1.man</h4><pre><code>查找函数的详细帮助文档，获得帮助信息
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man ls</span><br></pre></td></tr></table></figure>
+<h4 id="2-help"><a href="#2-help" class="headerlink" title="2.help"></a>2.help</h4><pre><code>获得shell内置命令的帮助信息
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help cd</span><br></pre></td></tr></table></figure>
+<h3 id="文档目录类"><a href="#文档目录类" class="headerlink" title="文档目录类"></a>文档目录类</h3><h4 id="1-pwd"><a href="#1-pwd" class="headerlink" title="1.pwd"></a>1.pwd</h4><pre><code>显示当前工作目录的绝对路径
+</code></pre><h4 id="2-ls"><a href="#2-ls" class="headerlink" title="2.ls"></a>2.ls</h4><pre><code>显示目录或者文件
+</code></pre><ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>-a:显示当前目录的所有文件和目录，包括隐藏的</li>
+<li>-l:以列表的方式显示信息</li>
+<li>-al:以列表的方式显示信息</li>
+</ol>
+<h4 id="3-cd"><a href="#3-cd" class="headerlink" title="3.cd"></a>3.cd</h4><pre><code>切换到指定目录
+</code></pre><ul>
+<li><p>常用选项  </p>
+</li>
+<li><p>绝对路径/相对路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 绝对路径：/home 即从根目录开始定位</span><br><span class="line">2. 相对路径： ../home 从当前工作目录开始定位到需要的目录中去</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>cd ~或者cd  回到自己的家目录</li>
+<li>cd .. 回到当前目录的上一级目录</li>
+</ol>
+<h4 id="4-mkdir"><a href="#4-mkdir" class="headerlink" title="4.mkdir"></a>4.mkdir</h4><pre><code>创建目录
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/dog</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>-p 创建多级目录用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/cat/cat1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="5-rmdir"><a href="#5-rmdir" class="headerlink" title="5.rmdir"></a>5.rmdir</h4><pre><code>删除目录
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir /home/dog</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明</li>
+</ul>
+<ol>
+<li>不能删除非空目录</li>
+<li>删除非空目录 则 rm -rf /home/cat</li>
+</ol>
+<h4 id="6-touch"><a href="#6-touch" class="headerlink" title="6.touch"></a>6.touch</h4><pre><code>创建空文件
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch hello.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明</li>
+</ul>
+<ol>
+<li>一次性创建多个文件 空格间隔<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch hello.txt hello1.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="7-cp"><a href="#7-cp" class="headerlink" title="7.cp"></a>7.cp</h4><pre><code>拷贝到指定目录 -- cp [参数] 源目录 目标目录
+</code></pre><ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li><p>-r 递归拷贝文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp -r aaa/ bbb/</span><br><span class="line"></span><br><span class="line">cp -r hello.txt bbb/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>\cp 强制覆盖  当目标目录有同名文件强制覆盖操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\cp -r aaa/ bbb/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>说明<br>强制覆盖的时候，有同名的会覆盖不同名则会复制</li>
+</ul>
+<h4 id="8-rm"><a href="#8-rm" class="headerlink" title="8.rm"></a>8.rm</h4><pre><code>删除文件或文件夹
+</code></pre><ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>-r:递归删除整个文件夹</li>
+<li>-f:强制删除不提示</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf aaa/</span><br><span class="line">rm -f hello.txt</span><br></pre></td></tr></table></figure>
+<h4 id="9-mv"><a href="#9-mv" class="headerlink" title="9.mv"></a>9.mv</h4><pre><code>移动文件目录或者重命名
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv hello.txt good.txt 重命名</span><br><span class="line">mv good.txt aaa/       移动</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明<br>移动如果当前目录有这个文件则会认为是重命名<br>如果没有则认为是移动相当于windows中的剪切</li>
+</ul>
+<h4 id="10-cat"><a href="#10-cat" class="headerlink" title="10.cat"></a>10.cat</h4><pre><code>查看文件内容
+cat [选项] 文件名    
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n /etc/profile | more</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>-n :显示行号</li>
+</ol>
+<ul>
+<li>说明<br>|more 分页显示</li>
+</ul>
+<h4 id="11-more"><a href="#11-more" class="headerlink" title="11.more"></a>11.more</h4><pre><code>基于vi编辑器的文本过滤器，它以全屏的方式按页显示文本
+</code></pre><ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>空格翻页</li>
+<li>ctrl+b 向上滚动一屏</li>
+<li>ctrl+f 向下滚动一屏</li>
+<li>= 输出当前行号</li>
+<li>:f 输出文件名和当前行号</li>
+</ol>
+<h4 id="12-less"><a href="#12-less" class="headerlink" title="12.less"></a>12.less</h4><pre><code>跟more类似，但是并不是整个加载后显示，根据需要显示
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less book.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常用选项</li>
+</ul>
+<ol>
+<li>空格 向下翻页</li>
+<li>pagedown /pageup 翻页</li>
+<li>/字串 向下查找关键字</li>
+<li>?子串 向上查找关键字</li>
+<li>q 退出文档</li>
+</ol>
+<h4 id="13-gt-指令和-gt-gt-指令"><a href="#13-gt-指令和-gt-gt-指令" class="headerlink" title="13.&gt;指令和&gt;&gt;指令"></a>13.&gt;指令和&gt;&gt;指令</h4><pre><code>&gt; 输出重定向（覆盖）
+&gt;&gt; 追加
+</code></pre><ul>
+<li>基本语法</li>
+</ul>
+<ol>
+<li>ls -l&gt;文件 （功能描述：列表中的内容写入文件a.txt中（覆盖写））</li>
+<li>ls -al&gt;&gt;文件 （功能描述：列表中的内容追加到文件aa.txt的末尾）</li>
+<li>cat 文件1&gt;文件2 （将文件1的内容覆盖到文件2）</li>
+<li>echo “内容”&gt;&gt;文件 </li>
+<li>cal &gt; a.txt(覆盖)</li>
+<li>cal &gt;&gt; a.txt(尾部追加)<h4 id="14-echo"><a href="#14-echo" class="headerlink" title="14.echo"></a>14.echo</h4> 输出内容到控制台</li>
+</ol>
+<ul>
+<li>语法<br>  echo [选项] 输出内容</li>
+<li>应用实例</li>
+</ul>
+<ol>
+<li>输出环境变量：echo $PATH</li>
+<li>输出hello world：     echo hello word.</li>
+</ol>
+<h4 id="15-head"><a href="#15-head" class="headerlink" title="15.head"></a>15.head</h4><pre><code>显示文件开头几行的内容
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n 5 hello.txt</span><br></pre></td></tr></table></figure>
+<h4 id="16-tail"><a href="#16-tail" class="headerlink" title="16.tail"></a>16.tail</h4><pre><code>用于输出文件尾部的几行
+</code></pre><ul>
+<li>基本语法</li>
+</ul>
+<ol>
+<li>tail 文件 （功能：查看文件后10行内容）</li>
+<li>tail -n 5 文件 （功能描述，查看文件后5行的内容）</li>
+<li>tail -f 文件 （功能描述：实施追踪该文件所有更新）重点</li>
+</ol>
+<h4 id="17-ln"><a href="#17-ln" class="headerlink" title="17.ln"></a>17.ln</h4><pre><code>创建软连接，也叫符号链接，类似window中的快捷方式
+</code></pre><ul>
+<li>基本语法</li>
+</ul>
+<ol>
+<li>ln -s [源文件或者目录][软链接名]</li>
+</ol>
+<ul>
+<li>应用实例</li>
+</ul>
+<ol>
+<li>创建root的软连接<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /root linktoroot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>注意<br>删除的时候一定不要加/   例如linktoroot/<br>这样会把目录下的文件都删掉不是删除这个快捷方式</li>
+</ul>
+<h4 id="18-history"><a href="#18-history" class="headerlink" title="18.history"></a>18.history</h4><pre><code>查看执行过的历史命令
+</code></pre><ul>
+<li>案例</li>
+</ul>
+<ol>
+<li><p>查看所有历史指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看最后10条指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history 10</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行历史第5条历史指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!5</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="文件目录类"><a href="#文件目录类" class="headerlink" title="文件目录类"></a>文件目录类</h3><h4 id="1-date"><a href="#1-date" class="headerlink" title="1.date"></a>1.date</h4><pre><code>显示当前日期
+</code></pre><ul>
+<li>参数</li>
+</ul>
+<ol>
+<li>date 显示时间信息   2019年 07月 24日 星期三 18:14:32 CST</li>
+<li>date “+%Y-%m-%d”  2019-07-24</li>
+<li>date -s “2018-11-11 11:22:22” 设置时间<h4 id="2-cal"><a href="#2-cal" class="headerlink" title="2.cal"></a>2.cal</h4> 查看日历</li>
+</ol>
+<h3 id="搜索查找类"><a href="#搜索查找类" class="headerlink" title="搜索查找类"></a>搜索查找类</h3><h4 id="1-find"><a href="#1-find" class="headerlink" title="1.find"></a>1.find</h4><ul>
+<li>语法<br>  find [搜索范围] [选项]</li>
+<li>选项说明</li>
+</ul>
+<ol>
+<li>-name &lt;查询方式&gt;</li>
+<li>-user&lt;用户名&gt;</li>
+<li><p>-size&lt;文件大小&gt;</p>
+<ul>
+<li><p>按照文件名查找/home目录下的hello.txt文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /home -name hello.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按照拥有者查找/home目录下,用户名为root的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /home -user root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找整个linux系统下大于20兆的文件（+n大于 -n小于 n等于）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -size +20M</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找整个linux系统下.txt文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name *.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-locate"><a href="#2-locate" class="headerlink" title="2.locate"></a>2.locate</h4><pre><code>快速定位文件路径
+</code></pre><ul>
+<li>语法<br>  locate 搜索文件</li>
+<li>特别说明<br>  在第一次运行之前，必须使用updatedb指令创建locate数据库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">updatedb</span><br><span class="line">locate hello.txt</span><br></pre></td></tr></table></figure>
+<h3 id="压缩解压类"><a href="#压缩解压类" class="headerlink" title="压缩解压类"></a>压缩解压类</h3><h4 id="1-grep指令和管道符"><a href="#1-grep指令和管道符" class="headerlink" title="1.grep指令和管道符 |"></a>1.grep指令和管道符 |</h4><ul>
+<li>语法<br>  grep [选项] 查找内容源文件</li>
+<li><p>常用选项</p>
+<ol>
+<li>-n 显示匹配行及行号</li>
+<li>-i 忽略字母大小写</li>
+</ol>
+<ul>
+<li>案例<br>1.在hello.txt中查找yes所在行，并显示行号<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat hello.txt | grep -n yes</span><br><span class="line">cat hello.txt | grep -i yes</span><br><span class="line">cat hello.txt | grep -n -i yes</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-gzip-gunzip"><a href="#2-gzip-gunzip" class="headerlink" title="2.gzip/gunzip"></a>2.gzip/gunzip</h4><p>   gzip 用于压缩文件 gunzip用于解压缩</p>
+<ul>
+<li>语法<br>gzip 文件 (只能将文件压缩为gz)<br>gunzip 文件.gz</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip hello.txt</span><br><span class="line">gunzip hello.txt.gz</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-zip-unzip"><a href="#3-zip-unzip" class="headerlink" title="3.zip/unzip"></a>3.zip/unzip</h4><pre><code>zip用于压缩文件，unzip用于解压
+</code></pre><ul>
+<li>语法<br>zip [选项] 文件名<br>unzip [选项] 文件名</li>
+<li>选项</li>
+</ul>
+<ol>
+<li>zip<ol>
+<li>-r 递归压缩</li>
+</ol>
+</li>
+<li>unzip<ol>
+<li>-d&lt;目录&gt;：指定解压后的目录  </li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>案例  </p>
+<ul>
+<li><p>将/home下的文件压缩成mypackage.zip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r mypackage.zip /home/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将mypackage.zip 解压到/opt/tmp目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -d /opt/tmp/ mypackage.zip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-tar"><a href="#4-tar" class="headerlink" title="4.tar"></a>4.tar</h4><pre><code>tar指令是打包指令，最后打包后的文件是.tar.gz的文件 
+</code></pre><ul>
+<li>基本语法<br>  tar [选项] XXX.tar.gz</li>
+<li>选项</li>
+</ul>
+<ol>
+<li>-c 产生.tar的打包文件 </li>
+<li>-v 显示详细信息</li>
+<li>-f 指定压缩后的文件名</li>
+<li>-z 打包同时压缩</li>
+<li>-x 解包。tar文件</li>
+</ol>
+<ul>
+<li><p>实例</p>
+<ol>
+<li><p>压缩多个文件a.txt b.txt 压缩成为a.tar.gz</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf a.tar.gz  a.txt b.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将home文件夹整体打包成myhome.tar.gz</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zvcf myhome.tar.gz /home/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将a.tar.gz解压到当前目录</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf a.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将a.tar.gz解压到aaa目录下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf a.tar.gz -C aaa</span><br><span class="line">//-C 必须要有否则报错</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
+            <p>原文链接：<a href="http://mr-9.github.io/2019/07/22/linux学习/">http://mr-9.github.io/2019/07/22/linux学习/</a>
+            <p>发表日期：<a href="http://mr-9.github.io/2019/07/22/linux学习/">July 22nd 2019, 12:00:00 am</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2019/07/22/linux学习/">October 10th 2019, 4:48:19 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/07/27/linux学习-实操篇/" title= "linux学习--实操篇">
+                    <div class="nextTitle">linux学习--实操篇</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/06/20/phpstorm快捷键/" title= "phpstorm快捷键">
+                    <div class="prevTitle">phpstorm快捷键</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1421122102@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/mr-9" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux实用指令"><span class="toc-number">1.</span> <span class="toc-text">linux实用指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#帮助指令"><span class="toc-number">1.1.</span> <span class="toc-text">帮助指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-man"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.man</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-help"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档目录类"><span class="toc-number">1.2.</span> <span class="toc-text">文档目录类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-pwd"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.pwd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-ls"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-cd"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-mkdir"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-rmdir"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.rmdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-touch"><span class="toc-number">1.2.6.</span> <span class="toc-text">6.touch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-cp"><span class="toc-number">1.2.7.</span> <span class="toc-text">7.cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-rm"><span class="toc-number">1.2.8.</span> <span class="toc-text">8.rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-mv"><span class="toc-number">1.2.9.</span> <span class="toc-text">9.mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-cat"><span class="toc-number">1.2.10.</span> <span class="toc-text">10.cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-more"><span class="toc-number">1.2.11.</span> <span class="toc-text">11.more</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-less"><span class="toc-number">1.2.12.</span> <span class="toc-text">12.less</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-gt-指令和-gt-gt-指令"><span class="toc-number">1.2.13.</span> <span class="toc-text">13.&gt;指令和&gt;&gt;指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-echo"><span class="toc-number">1.2.14.</span> <span class="toc-text">14.echo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-head"><span class="toc-number">1.2.15.</span> <span class="toc-text">15.head</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-tail"><span class="toc-number">1.2.16.</span> <span class="toc-text">16.tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#17-ln"><span class="toc-number">1.2.17.</span> <span class="toc-text">17.ln</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#18-history"><span class="toc-number">1.2.18.</span> <span class="toc-text">18.history</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件目录类"><span class="toc-number">1.3.</span> <span class="toc-text">文件目录类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-date"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.date</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-cal"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.cal</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索查找类"><span class="toc-number">1.4.</span> <span class="toc-text">搜索查找类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-find"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.find</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-locate"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.locate</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩解压类"><span class="toc-number">1.5.</span> <span class="toc-text">压缩解压类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-grep指令和管道符"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.grep指令和管道符 |</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-gzip-gunzip"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.gzip/gunzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-zip-unzip"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.zip/unzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-tar"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.tar</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 48
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/python学习--头部解析/" >python学习--头部解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2019/10/08/python学习--翻译/" >python学习--翻译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2019/09/30/人民的名义/" >人民的名义</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/pytharm激活码/" >python编译器pytharm激活码到2020年</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span><a class="archive-post-title" href= "/2019/09/27/phpbase64图片转码/" >phpbase64图片转码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/最新激活visio2013密钥/" >最新激活visio2013密钥</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/黑袍纠察队 第一季/" >黑袍纠察队 第一季</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/切尔诺贝利 第一季/" >切尔诺贝利</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/svn使用思路/" >svn使用思路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/全职高手/" >全职高手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/markdown.css/" >markdown.css</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/linux学习--实操篇2.0/" >linux学习--实操2.0</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span><a class="archive-post-title" href= "/2019/07/27/linux学习-实操篇/" >linux学习--实操篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href= "/2019/07/22/linux学习/" >linux学习--指令篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/20</span><a class="archive-post-title" href= "/2019/06/20/phpstorm快捷键/" >phpstorm快捷键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/markdown注册激活/" >MarkdownPad2安装汉化与注册码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2019/04/30/日记2019-04-30/" >2019/04/30</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/《php和mysql Web开发》学习笔记/" >《php和mysql Web开发》stu</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/php封装一个接口类/" >php封装一个接口类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2018/05/25/虚拟环境配置/" >虚拟域名配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/php根据url跳转/" >php页面跳转</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/格式化数据库/" >格式化数据库</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/网游特殊文字大全/" >网游特殊文字</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2018/03/22/php学习之路/" >php学习导向</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2018/01/18/详解jq的each()遍历/" >详解jq的each()遍历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2018/01/16/html5禁止 用户缩放/" >html5用户禁止缩放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/12</span><a class="archive-post-title" href= "/2018/01/12/js返回顶部/" >js返回顶部</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/手机内存卡无法格式话--蛋疼的一天/" >手机内存卡无法格式话</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/wget/" >wget用法详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/markdown/" >markdown</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2017/11/22/git用法（持续更新）/" >git 常用操作（持续更新中。。。）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/二级联动菜单 js/" >二级联动菜单</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2017/11/16/图片懒加载 jq版/" >图片懒加载jq版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2017/11/10/一款好用的图片占位符/" >一款好用的图片占位符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/09</span><a class="archive-post-title" href= "/2017/11/09/雪花飘落jq/" >雪花飘落jq</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/js页面自动刷新，再也不用f5了/" >js页面自动刷新，再也不用f5了</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/02</span><a class="archive-post-title" href= "/2017/11/02/微信公众号分享jssdk/" >微信公众号分享&jssdk</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span><a class="archive-post-title" href= "/2017/10/27/jq获取连接参数/" >jq获取连接参数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/25</span><a class="archive-post-title" href= "/2017/10/25/html 空格占位符/" >html空格占位符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/19</span><a class="archive-post-title" href= "/2017/10/19/20171019/" >oa系统1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2017/10/18/git使用及配置方法/" >使用git提交到码云</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span><a class="archive-post-title" href= "/2017/10/17/20171017/" >2017年10月17日</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
+    
+        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+    
+        <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
+    
+        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+    
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="工具"><span class="iconfont-archer">&#xe606;</span>工具</span>
+    
+        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
+    
+        <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
+    
+        <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="序"><span class="iconfont-archer">&#xe60a;</span>序</span>
+    
+        <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
+    
+        <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
+    
+        <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
+    
+        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
+    
+        <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "30no2"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
