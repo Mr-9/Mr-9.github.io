@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">809</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -412,7 +412,196 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="swoole"><a href="#swoole" class="headerlink" title="swoole"></a>swoole</h1>
+        <h1 id="swoole"><a href="#swoole" class="headerlink" title="swoole"></a>swoole</h1><h2 id="一、设计思路"><a href="#一、设计思路" class="headerlink" title="一、设计思路"></a>一、设计思路</h2><h3 id="1-设计分析"><a href="#1-设计分析" class="headerlink" title="1. 设计分析"></a>1. 设计分析</h3><ul>
+<li>用户：量大，正常用户，恶意用户（数据清洗）</li>
+<li>地区：全国范围内各地区都要访问到（cdn加速）</li>
+<li>业务流程：前台（用户能看到的部分）后台（商家或者管理者使用）</li>
+</ul>
+<h3 id="2-设计分层"><a href="#2-设计分层" class="headerlink" title="2. 设计分层"></a>2. 设计分层</h3><ul>
+<li>第一层：商品展示层（负责对应商品的展示）</li>
+<li>第二层：用户登记层（用户登记相关信息，秒杀准备）</li>
+<li>第三次：数据接入（将用户的信息接入到数据库或者处理层）</li>
+<li>第四层：数据处理层（接入层数据没有问题，存入处理层）</li>
+</ul>
+<h3 id="3-导图"><a href="#3-导图" class="headerlink" title="3. 导图"></a>3. 导图</h3><p><a href="https://postimg.cc/tZVHv689" target="_blank" rel="noopener"><img src="https://i.postimg.cc/50sN0q3Q/20191113-1.jpg" alt="20191113-1.jpg"></a></p>
+<h2 id="二、代码分析"><a href="#二、代码分析" class="headerlink" title="二、代码分析"></a>二、代码分析</h2><h3 id="1-秒杀第一层"><a href="#1-秒杀第一层" class="headerlink" title="1. 秒杀第一层"></a>1. 秒杀第一层</h3><h4 id="（1）知识点"><a href="#（1）知识点" class="headerlink" title="（1）知识点"></a>（1）知识点</h4><ul>
+<li><p>页面优化</p>
+<ul>
+<li>页面</li>
+<li>图片</li>
+<li>css</li>
+<li>js</li>
+<li>压缩</li>
+</ul>
+</li>
+<li><p>cnd网络加速</p>
+<ul>
+<li>阿里云cdn(推荐)–oss开放存储</li>
+<li>解决全国各地访问不均衡的问题</li>
+<li>内容刷新</li>
+</ul>
+</li>
+<li><p>隐藏跳转页面（重点）</p>
+<ul>
+<li><p>修改页面信息</p>
+<ul>
+<li>修改js</li>
+<li>修改页面</li>
+</ul>
+</li>
+<li><p>双页面</p>
+<ul>
+<li><p>展示页面</p>
+<ul>
+<li>倒计时<ul>
+<li>1、用服务器时间（推荐设置成东9区）</li>
+<li>2、考虑网络传输耗时（不是很明显，但是需要考虑）</li>
+<li>3、获取时间可以冲ajax响应头中获取（通过getResponsetHeader(“Date”)来获取，服务器不需要写时间生成脚本）</li>
+</ul>
+</li>
+<li>倒计时实现方案<ul>
+<li>1、原则：尽量减少服务器请求</li>
+<li>2、处理方式<ul>
+<li>刷新就获取服务器时间，然后自己累加</li>
+<li>获取服务器时间</li>
+<li>js实现递减效果</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>购买页面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一步--删除文件</span></span><br><span class="line">$file_path = <span class="string">'a.txt'</span>;</span><br><span class="line">$f = file_exists($file_path)&amp;&amp;unlink($file_path);</span><br><span class="line"><span class="comment">//第二部--生成自己需要的文件</span></span><br><span class="line">$file_path = <span class="string">'b.html'</span>;</span><br><span class="line">$myfile = fopen($file_path,<span class="string">'w'</span>);</span><br><span class="line">$txt = <span class="string">"&lt;h1&gt;大家好&lt;/h1&gt;"</span>;</span><br><span class="line">fwrite($myfile,$txt);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>端口/最大连接数</p>
+<ul>
+<li>关闭没用的端口</li>
+<li>最大连接数设置<ul>
+<li>内存</li>
+<li>cpu</li>
+<li>默认150个设置512个</li>
+</ul>
+</li>
+<li>电脑性能监控<ul>
+<li>cpu</li>
+<li>内存</li>
+<li>网络</li>
+<li>硬盘</li>
+</ul>
+</li>
+<li>版本推荐<ul>
+<li>php7</li>
+<li>apache2.4</li>
+<li>推荐理由<ul>
+<li>新品</li>
+<li>缺点：很多扩展不全</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>服务器配置<ul>
+<li>1、选择unbuntu 14.04</li>
+<li>2、安装ssh</li>
+<li>3、apt-get update</li>
+<li>4、tasksel install lmap-server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>特点</p>
+<ul>
+<li>应对高并发/高可用(主要cnd–阿里是6台机器回源，所有我们只要抗住6台机器请求就可以了)</li>
+</ul>
+</li>
+<li><p>构想</p>
+<ul>
+<li>展示状态<ul>
+<li>三种<ul>
+<li>秒杀等待倒计时页面<ul>
+<li>秒杀进行中、秒杀按钮可用状态</li>
+<li>秒杀结束提示页面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>技术难点<ul>
+<li>秒杀等待页面与秒杀按钮可用状态页面，切换的时候，不至于让秒杀登记的地址提前曝光！<ul>
+<li>方案：用linux定时任务crontab 执行shell脚本，进行文件的替换</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高并发/高可用<ul>
+<li>技术关键点<ul>
+<li>高可用<ul>
+<li>双活</li>
+<li>云解析（推荐+负载均衡）</li>
+</ul>
+</li>
+<li>高并发<ul>
+<li>负载均衡</li>
+<li>cdn加速</li>
+<li>单台调优<ul>
+<li>最大连接数</li>
+<li>可靠性能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结合当前页面的思考<ul>
+<li>页面特点<ul>
+<li>纯静态：html标签/css属性/js</li>
+<li>如果是纯静态：高并发–cnd加速</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>具体实施<ul>
+<li>页面<ul>
+<li>1.商品展示页</li>
+<li>2.商品秒杀进行中</li>
+<li>3.秒杀结束</li>
+</ul>
+</li>
+<li>知识点<ul>
+<li>切换<ul>
+<li>1-2切换 <ul>
+<li>a. linux cron定时任务</li>
+<li>b. shell脚本知识</li>
+</ul>
+</li>
+<li>2-3切换<ul>
+<li>.php文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>秒杀倒计时<ul>
+<li>js实现</li>
+</ul>
+</li>
+<li>服务器部署</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
     </article>
     <!-- license  -->
     
@@ -420,7 +609,7 @@ height:50vh;
             <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
             <p>原文链接：<a href="http://mr-9.github.io/2019/11/13/swoole学习笔记/">http://mr-9.github.io/2019/11/13/swoole学习笔记/</a>
             <p>发表日期：<a href="http://mr-9.github.io/2019/11/13/swoole学习笔记/">November 13th 2019, 12:00:00 am</a>
-            <p>更新日期：<a href="http://mr-9.github.io/2019/11/13/swoole学习笔记/">November 13th 2019, 10:00:00 am</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2019/11/13/swoole学习笔记/">November 13th 2019, 11:55:56 am</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -552,7 +741,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#swoole"><span class="toc-number">1.</span> <span class="toc-text">swoole</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#swoole"><span class="toc-number">1.</span> <span class="toc-text">swoole</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、设计思路"><span class="toc-number">1.1.</span> <span class="toc-text">一、设计思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-设计分析"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 设计分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设计分层"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 设计分层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-导图"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 导图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、代码分析"><span class="toc-number">1.2.</span> <span class="toc-text">二、代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-秒杀第一层"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 秒杀第一层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）知识点"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">（1）知识点</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -565,56 +754,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1444,17 +1583,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/svn使用思路/" >svn使用思路</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/全职高手/" >全职高手</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
         </li>
     
     
@@ -1484,7 +1623,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
         </li>
     
     
@@ -1494,7 +1633,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
         </li>
     
     
@@ -1674,9 +1813,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
     
-        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
-    
         <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
+    
+        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
@@ -1692,11 +1831,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
     
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+    
         <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
-    
-        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
     
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
@@ -1749,9 +1888,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
     
-        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
-    
         <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
