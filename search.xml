@@ -221,16 +221,17 @@
 <li><p>why——高并发流浪数据插入</p>
 <ul>
 <li>排队<ol>
-<li>微观角度<ul>
-<li>其实从硬件IP可以排序！单一排序</li>
-</ul>
-</li>
+<li>微观角度 —— 其实从硬件IP可以排序！单一排序</li>
 <li>linux底层驱动，也是从缓存池中，获取数据</li>
 </ol>
 </li>
 <li>去重</li>
 </ul>
 </li>
+</ul>
+</li>
+</ol>
+<ul>
 <li><p>如何选择</p>
 <ul>
 <li>多次任务存储<ol>
@@ -239,23 +240,101 @@
 <li>数组</li>
 </ul>
 </li>
-<li>堆栈</li>
-</ol>
+<li>堆栈<ul>
+<li>nosql</li>
+</ul>
 </li>
-<li>nosql<ol>
 <li>memcache<ul>
 <li>简单</li>
 <li>php控制逻辑+memcache控制数据</li>
 </ul>
+<ol start="2">
+<li>redis</li>
+</ol>
 </li>
 </ol>
+<ul>
+<li>php引擎<ul>
+<li>PRdies：纯php完成<ul>
+<li>phpredis：c扩展</li>
+<li>命令选择</li>
+</ul>
+</li>
+<li>列表 ——无自动去重</li>
+<li>集合<ol>
+<li>快速</li>
+<li>随机无序</li>
+</ol>
+</li>
+<li>有序集合<ul>
+<li>过期时间</li>
+<li>mysql —— 消息队列插件</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li><p>代码实现</p>
+<ul>
+<li>test_redis.php<ul>
+<li>本地</li>
+<li>阿里</li>
+</ul>
+</li>
+<li>效果展示——流程演示</li>
+<li>类封装——兼容本地以及远程的类封装</li>
+<li>最终效果封装——基于阿里</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>商品数量检测</li>
+<li>关键点：<ul>
+<li>redis封装</li>
+<li>序列号生成</li>
+</ul>
+</li>
 </ol>
-]]></content>
+<h3 id="4-秒杀第四层"><a href="#4-秒杀第四层" class="headerlink" title="4.秒杀第四层"></a>4.秒杀第四层</h3><h4 id="1）数据处理"><a href="#1）数据处理" class="headerlink" title="1）数据处理"></a>1）数据处理</h4><ul>
+<li>任务——转存nosql数据到mysql</li>
+<li>知识点——无</li>
+</ul>
+<h2 id="三、具体代码实现"><a href="#三、具体代码实现" class="headerlink" title="三、具体代码实现"></a>三、具体代码实现</h2><h3 id="1-第一层代码实现"><a href="#1-第一层代码实现" class="headerlink" title="1.第一层代码实现"></a>1.第一层代码实现</h3><h4 id="1）关键点："><a href="#1）关键点：" class="headerlink" title="1）关键点："></a>1）关键点：</h4><ul>
+<li><p>倒计时：</p>
+<ul>
+<li><p>css——背景图足够大，将倒计时固定</p>
+</li>
+<li><p>js</p>
+<ul>
+<li>倒计时js</li>
+</ul>
+<p><a href="https://postimg.cc/PvLsTfGt" target="_blank" rel="noopener"><img src="https://i.postimg.cc/PJytbN28/806-AAA95-DFE4-46-E7-82-DD-EF9-DD8-D70-F28-20191115094130.jpg" alt="806-AAA95-DFE4-46-E7-82-DD-EF9-DD8-D70-F28-20191115094130.jpg"></a></p>
+<ul>
+<li><p>根据剩余秒数显示时间</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNewSyTime</span>(<span class="params">sec</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = sec % <span class="number">60</span>;</span><br><span class="line">    sec = (sec - s)/<span class="number">60</span>;<span class="comment">//min</span></span><br><span class="line">    <span class="keyword">var</span> m - sec % <span class="number">60</span>;</span><br><span class="line">    sec = (sec - m)/<span class="number">60</span>;<span class="comment">//hour</span></span><br><span class="line">    <span class="keyword">var</span> h = sec % <span class="number">24</span>;</span><br><span class="line">    <span class="keyword">var</span> d = (sec - h) / <span class="number">24</span>;<span class="comment">//day</span></span><br><span class="line">    <span class="keyword">var</span> syTimeStr = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(d &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        syTimeStr += d.toString() + <span class="string">"天"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    syTimeStr = (<span class="string">"0"</span>+h.toString()).substr(<span class="number">-2</span>)+<span class="string">"时"</span></span><br><span class="line">    +(<span class="string">"0"</span>+m.toString()).substr(<span class="number">-2</span>)+<span class="string">"分"</span></span><br><span class="line">    +(<span class="string">"0"</span>+s.toString()).substr(<span class="number">-2</span>)+<span class="string">"秒;</span></span><br><span class="line"><span class="string">    return syTimeStr;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 秒杀结束替换脚本
+
+  1. 秒杀替换脚本
+
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/user/bin/env bash</span><br><span class="line">date&gt;&gt;/root/456.txt</span><br><span class="line">rm -rf &apos;/alidata/www/deault/index.html&apos;</span><br><span class="line">cp &apos;/alidata/www/deault/index_sale.html&apos; &apos;/alidata/www/deault/index.html&apos;</span><br></pre></td></tr></table></figure>
+
+  2. 服务器定时任务
+
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0 12 * * * root /bin/51miao.sh</span><br></pre></td></tr></table></figure>
+
+  3. php代码实现
+
+  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一步删除文件</span></span><br><span class="line">$file_path = <span class="string">'index.html'</span>;</span><br><span class="line">$f = file_exists($file_path)&amp;&amp;unlink($file_path);</span><br><span class="line"><span class="comment">//第二步：生成自己需要的文件</span></span><br><span class="line">$file_path = <span class="string">'index.html'</span>;</span><br><span class="line">$myfile = fopen($file_path,<span class="string">"w"</span>);</span><br><span class="line"><span class="comment">//获取文件内容</span></span><br><span class="line">$file_path = <span class="string">'index_over.html'</span>;</span><br><span class="line">$txt = file_get_contents(file_path);</span><br><span class="line">fwrite($myfile,$txt);</span><br></pre></td></tr></table></figure>
+</code></pre>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -590,6 +669,18 @@
       </tags>
   </entry>
   <entry>
+    <title>切尔诺贝利日记</title>
+    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>切尔诺贝利日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>权利的游戏</title>
     <url>/2019/09/01/%E6%9D%83%E5%88%A9%E7%9A%84%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h2 id="权利的游戏-第一季"><a href="#权利的游戏-第一季" class="headerlink" title="权利的游戏 第一季"></a>权利的游戏 第一季</h2><p>第1集 <a href="http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8" target="_blank" rel="noopener">http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8</a>   </p>
@@ -758,18 +849,6 @@
       </categories>
       <tags>
         <tag>权利的游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>切尔诺贝利日记</title>
-    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>切尔诺贝利日记</tag>
       </tags>
   </entry>
   <entry>
@@ -1779,14 +1858,15 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>php常用方法</title>
-    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
-      <categories>
-        <category>常用方法</category>
-      </categories>
+    <title>MarkdownPad2安装汉化与注册码</title>
+    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
+    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
+<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
+<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
+]]></content>
       <tags>
-        <tag>php</tag>
+        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
@@ -1803,15 +1883,14 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>MarkdownPad2安装汉化与注册码</title>
-    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
-    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
-<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
-<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
-]]></content>
+    <title>php常用方法</title>
+    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
+      <categories>
+        <category>常用方法</category>
+      </categories>
       <tags>
-        <tag>破解</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
