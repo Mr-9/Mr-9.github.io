@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>oa系统1 · 30no2&#39;s Blog</title>
+    <title>git log 详解 · 30no2&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -228,7 +228,7 @@
                 <a href="/" >30no2&#39;s Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">oa系统1</a>
+                <a href="#" class="post-name">git log 详解</a>
             </div>
     </div>
     
@@ -258,7 +258,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            oa系统1
+            git log 详解
             <!-- 404 -->
             
         </h1>
@@ -277,18 +277,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "工作日记">工作日记</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">258</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2017/10/19</span>
+                    <span class="post-intro-time">2019/11/15</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -412,31 +412,42 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><hr>
-<p>1、无限极分类模块（开始隐藏，点击折叠展开）<br>2、日志编写（点击目录弹出展示）<br>3、具有录入，编辑，删除，展示功能<br>4、需要有登录，注销功能<br>5、个人用户只能看到自己添加的日志，可以对自己的日志进行编辑添加删除功能<br>6、群主用户 包含上面所有功能，且可以进行栏目的添加，修改，删除。并且可以看到所有人的日志，并且可以修改，删除，添加。<br>7、管理员 包括以上所有功能，且能够进行个人用户，管理员的级别调整，且可以备份数据库，等操作  </p>
-<hr>
-<h2 id="20171019"><a href="#20171019" class="headerlink" title="20171019"></a>20171019</h2><ol>
-<li>完成 “分类编辑”的列表页面和添加页面  </li>
-<li>完成 “分类编辑”的添加控制器完成<br> -遍历上级栏目 </li>
-<li>完成 “分类编辑”的列表控制器  <ul>
-<li>完成编辑页面控制器  <ul>
-<li>遍历上级栏目</li>
-<li>完善页面</li>
-</ul>
-</li>
-<li>完成删除栏目控制器  </li>
-</ul>
-</li>
-</ol>
+        <h1 id="git-log-详解"><a href="#git-log-详解" class="headerlink" title="git log 详解"></a>git log 详解</h1><p>​     git log 可以让我们查看提交commit history,接下来我们来一起探索git log提供的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br><span class="line"></span><br><span class="line">commit acb429bfbc98803aeac030938c59c9baa8d18940</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:24:24 2019 +0800</span><br><span class="line"></span><br><span class="line">    影视链接更新</span><br><span class="line"></span><br><span class="line">commit c7fa89d84c5796959aa8942e9c704d6eb2e69911</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Thu Oct 10 23:00:45 2019 +0800</span><br><span class="line"></span><br><span class="line">    禁忌女孩电视剧</span><br></pre></td></tr></table></figure>
+<p> git log默认会输出commit hash, author, date, commit message. </p>
+<h2 id="1-–oneline"><a href="#1-–oneline" class="headerlink" title="1 –oneline"></a>1 –oneline</h2><p> 这个命令简化git log的默认的输出，仅仅输出commit hash 前7个字符串和commit message. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git log --oneline</span><br><span class="line">584f5ef (HEAD -&gt; master, origin/master, origin/HEAD) swoole学习笔记第三天</span><br><span class="line">7325466 新增电影</span><br><span class="line">acb429b 影视链接更新</span><br><span class="line">c7fa89d 禁忌女孩电视剧</span><br><span class="line">07e2ee7 python学习</span><br><span class="line">0d02e63 python学习</span><br><span class="line">f3ce343 人民的名义电视剧改1</span><br></pre></td></tr></table></figure>
+<h2 id="2-–stat"><a href="#2-–stat" class="headerlink" title="2 –stat"></a>2 –stat</h2><p> <code>--stat</code>:是在git log 的基础上输出文件增删改的统计数据。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ git log --stat</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line"> source/_posts/swoole学习笔记.md | 345 ++++++++++++++++++++++++++++++++++++</span><br><span class="line"> 1 file changed, 345 insertions(+)</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br><span class="line"></span><br><span class="line"> source/_posts/攀登者.md | 11 +++++++++++</span><br><span class="line"> 1 file changed, 11 insertions(+)</span><br></pre></td></tr></table></figure>
+<h2 id="3-p"><a href="#3-p" class="headerlink" title="3 -p"></a>3 -p</h2><p> <code>-p</code>:控制输出每个commit具体修改的内容，输出的形式以diff的形式给出。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$ git log -p</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">diff --git a/source/_posts/swoole学习笔记.md b/source/_posts/swoole学习笔记.md</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..559740f</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/source/_posts/swoole学习笔记.md</span><br><span class="line">@@ -0,0 +1,345 @@</span><br><span class="line">+---</span><br><span class="line">+title: swoole学习笔记</span><br><span class="line">+date: 2019-11-13</span><br><span class="line">+tags: php</span><br><span class="line">+categories: 学习</span><br><span class="line">+---</span><br><span class="line">+</span><br><span class="line">+# swoole</span><br><span class="line">+</span><br><span class="line">+## 一、设计思路</span><br><span class="line">+</span><br><span class="line">+### 1. 设计分析</span><br><span class="line">+</span><br><span class="line">+- 用户：量大，正常用户，恶意用户（数据清洗）</span><br><span class="line">+- 地区：全国范围内各地区都要访问到（cdn加速）</span><br><span class="line">+- 业务流程：前台（用户能看</span><br></pre></td></tr></table></figure>
+<h2 id="4-–git-show"><a href="#4-–git-show" class="headerlink" title="4 –git show"></a>4 –git show</h2><p> <code>git show</code>命令同<code>git log -p</code>输出类似，只不过它只显示一个commit的内容，如果不指定commit hash, 它默认输出HEAD指向commit的内容. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$ git show</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">diff --git a/source/_posts/swoole学习笔记.md b/source/_posts/swoole学习笔记.md</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..559740f</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/source/_posts/swoole学习笔记.md</span><br><span class="line">@@ -0,0 +1,345 @@</span><br><span class="line">+---</span><br><span class="line">+title: swoole学习笔记</span><br><span class="line">+date: 2019-11-13</span><br><span class="line">+tags: php</span><br><span class="line">+categories: 学习</span><br><span class="line">+---</span><br><span class="line">+</span><br><span class="line">+# swoole</span><br><span class="line">+</span><br><span class="line">+## 一、设计思路</span><br><span class="line">+</span><br><span class="line">+### 1. 设计分析</span><br></pre></td></tr></table></figure>
+<h2 id="5-git-shortlog"><a href="#5-git-shortlog" class="headerlink" title="5 git shortlog"></a>5 git shortlog</h2><p> 这个命令用来输出汇总信息，以作者进行分类。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ git shortlog</span><br><span class="line">30no2 (5):</span><br><span class="line">      新加一条测试用的日记</span><br><span class="line">      删了一条测试用的日记</span><br><span class="line">      添加about</span><br><span class="line">      remove .idea</span><br><span class="line">      修改名称</span><br><span class="line"></span><br><span class="line">mr-9 (52):</span><br><span class="line">      my first private hexo</span><br><span class="line">      11</span><br><span class="line">      修改git地址</span><br><span class="line">      添加日记</span><br><span class="line">      修改title</span><br><span class="line">      修改title</span><br><span class="line">      修改aboutme</span><br><span class="line">      添加常用函数文件</span><br><span class="line">      markdown注册吗</span><br><span class="line">      markdown注册吗</span><br><span class="line">      新增phpstorm快捷键文章</span><br><span class="line">      q</span><br><span class="line">      linux 学习</span><br><span class="line">      linux 学习</span><br><span class="line">      linux 学习</span><br></pre></td></tr></table></figure>
+<p><code>git shortlog -s</code>：可以用来统计每个作者的commit数量</p>
+<p><code>git shortlog -n</code>：可以用来对统计的量进行倒序排列</p>
+<h2 id="6-–gretty"><a href="#6-–gretty" class="headerlink" title="6 –gretty"></a>6 –gretty</h2><p> 我们可以用–pretty来自定义输出的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=&quot;%cn committed %h on $cd&quot;</span><br><span class="line">mr-9 committed 584f5ef on</span><br><span class="line">mr-9 committed 7325466 on</span><br><span class="line">mr-9 committed acb429b on</span><br></pre></td></tr></table></figure>
+<h2 id="7-–author"><a href="#7-–author" class="headerlink" title="7 –author"></a>7 –author</h2><p> 加<code>--author</code>用来过滤commit,限定输出给定的用户 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log --author=&quot;mr-9&quot;</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="8-n"><a href="#8-n" class="headerlink" title="8 -n"></a>8 -n</h2><p>输出log数量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log -2</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="9-–after和–before"><a href="#9-–after和–before" class="headerlink" title="9 –after和–before"></a>9 –after和–before</h2><p>限定指定日期范围的log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log --after &apos;10-1-2019&apos;</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="10-–merges和–no-merges"><a href="#10-–merges和–no-merges" class="headerlink" title="10 –merges和–no-merges"></a>10 –merges和–no-merges</h2><p>控制是否显示merge的commit</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log --no-merges</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="11-–decoreate"><a href="#11-–decoreate" class="headerlink" title="11 –decoreate"></a>11 –decoreate</h2><p> 该参数用来控制log输出时，显示对应commit所属的branch和tag信息 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git log --decorate --oneline</span><br><span class="line">584f5ef (HEAD -&gt; master, origin/master, origin/HEAD) swoole学习笔记第三天</span><br><span class="line">7325466 新增电影</span><br><span class="line">acb429b 影视链接更新</span><br><span class="line">c7fa89d 禁忌女孩电视剧</span><br><span class="line">07e2ee7 python学习</span><br><span class="line">0d02e63 python学习</span><br><span class="line">f3ce343 人民的名义电视剧改1</span><br><span class="line">de5e578 人民的名义电视剧</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
-            <p>原文链接：<a href="http://mr-9.github.io/2017/10/19/20171019/">http://mr-9.github.io/2017/10/19/20171019/</a>
-            <p>发表日期：<a href="http://mr-9.github.io/2017/10/19/20171019/">October 19th 2017, 12:00:00 am</a>
-            <p>更新日期：<a href="http://mr-9.github.io/2017/10/19/20171019/">October 10th 2019, 4:48:19 pm</a>
+            <p>原文链接：<a href="http://mr-9.github.io/2019/11/15/git-log-详解/">http://mr-9.github.io/2019/11/15/git-log-详解/</a>
+            <p>发表日期：<a href="http://mr-9.github.io/2019/11/15/git-log-详解/">November 15th 2019, 12:00:00 am</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2019/11/15/git-log-详解/">November 15th 2019, 11:01:16 am</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -444,17 +455,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2017/10/25/html 空格占位符/" title= "html空格占位符">
-                    <div class="nextTitle">html空格占位符</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2017/10/18/git使用及配置方法/" title= "使用git提交到码云">
-                    <div class="prevTitle">使用git提交到码云</div>
+                <a href= "/2019/11/13/千万级秒杀项目实战/" title= "千万级秒杀项目实战">
+                    <div class="prevTitle">千万级秒杀项目实战</div>
                 </a>
             
         </li>
@@ -573,7 +579,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目需求"><span class="toc-number">1.</span> <span class="toc-text">项目需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20171019"><span class="toc-number">2.</span> <span class="toc-text">20171019</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-log-详解"><span class="toc-number">1.</span> <span class="toc-text">git log 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-–oneline"><span class="toc-number">1.1.</span> <span class="toc-text">1 –oneline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-–stat"><span class="toc-number">1.2.</span> <span class="toc-text">2 –stat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-p"><span class="toc-number">1.3.</span> <span class="toc-text">3 -p</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-–git-show"><span class="toc-number">1.4.</span> <span class="toc-text">4 –git show</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-git-shortlog"><span class="toc-number">1.5.</span> <span class="toc-text">5 git shortlog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-–gretty"><span class="toc-number">1.6.</span> <span class="toc-text">6 –gretty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-–author"><span class="toc-number">1.7.</span> <span class="toc-text">7 –author</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-n"><span class="toc-number">1.8.</span> <span class="toc-text">8 -n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-–after和–before"><span class="toc-number">1.9.</span> <span class="toc-text">9 –after和–before</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-–merges和–no-merges"><span class="toc-number">1.10.</span> <span class="toc-text">10 –merges和–no-merges</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-–decoreate"><span class="toc-number">1.11.</span> <span class="toc-text">11 –decoreate</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

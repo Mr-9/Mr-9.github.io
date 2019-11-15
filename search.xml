@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>swoole学习笔记</title>
-    <url>/2019/11/13/swoole%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="swoole"><a href="#swoole" class="headerlink" title="swoole"></a>swoole</h1><h2 id="一、设计思路"><a href="#一、设计思路" class="headerlink" title="一、设计思路"></a>一、设计思路</h2><h3 id="1-设计分析"><a href="#1-设计分析" class="headerlink" title="1. 设计分析"></a>1. 设计分析</h3><ul>
+    <title>git log 详解</title>
+    <url>/2019/11/15/git-log-%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="git-log-详解"><a href="#git-log-详解" class="headerlink" title="git log 详解"></a>git log 详解</h1><p>​     git log 可以让我们查看提交commit history,接下来我们来一起探索git log提供的参数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br><span class="line"></span><br><span class="line">commit acb429bfbc98803aeac030938c59c9baa8d18940</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:24:24 2019 +0800</span><br><span class="line"></span><br><span class="line">    影视链接更新</span><br><span class="line"></span><br><span class="line">commit c7fa89d84c5796959aa8942e9c704d6eb2e69911</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Thu Oct 10 23:00:45 2019 +0800</span><br><span class="line"></span><br><span class="line">    禁忌女孩电视剧</span><br></pre></td></tr></table></figure>
+<p> git log默认会输出commit hash, author, date, commit message. </p>
+<h2 id="1-–oneline"><a href="#1-–oneline" class="headerlink" title="1 –oneline"></a>1 –oneline</h2><p> 这个命令简化git log的默认的输出，仅仅输出commit hash 前7个字符串和commit message. </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --oneline</span><br><span class="line">584f5ef (HEAD -&gt; master, origin/master, origin/HEAD) swoole学习笔记第三天</span><br><span class="line">7325466 新增电影</span><br><span class="line">acb429b 影视链接更新</span><br><span class="line">c7fa89d 禁忌女孩电视剧</span><br><span class="line">07e2ee7 python学习</span><br><span class="line">0d02e63 python学习</span><br><span class="line">f3ce343 人民的名义电视剧改1</span><br></pre></td></tr></table></figure>
+<h2 id="2-–stat"><a href="#2-–stat" class="headerlink" title="2 –stat"></a>2 –stat</h2><p> <code>--stat</code>:是在git log 的基础上输出文件增删改的统计数据。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --stat</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line"> source/_posts/swoole学习笔记.md | 345 ++++++++++++++++++++++++++++++++++++</span><br><span class="line"> 1 file changed, 345 insertions(+)</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br><span class="line"></span><br><span class="line"> source/_posts/攀登者.md | 11 +++++++++++</span><br><span class="line"> 1 file changed, 11 insertions(+)</span><br></pre></td></tr></table></figure>
+<h2 id="3-p"><a href="#3-p" class="headerlink" title="3 -p"></a>3 -p</h2><p> <code>-p</code>:控制输出每个commit具体修改的内容，输出的形式以diff的形式给出。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log -p</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">diff --git a/source/_posts/swoole学习笔记.md b/source/_posts/swoole学习笔记.md</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..559740f</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/source/_posts/swoole学习笔记.md</span><br><span class="line">@@ -0,0 +1,345 @@</span><br><span class="line">+---</span><br><span class="line">+title: swoole学习笔记</span><br><span class="line">+date: 2019-11-13</span><br><span class="line">+tags: php</span><br><span class="line">+categories: 学习</span><br><span class="line">+---</span><br><span class="line">+</span><br><span class="line">+# swoole</span><br><span class="line">+</span><br><span class="line">+## 一、设计思路</span><br><span class="line">+</span><br><span class="line">+### 1. 设计分析</span><br><span class="line">+</span><br><span class="line">+- 用户：量大，正常用户，恶意用户（数据清洗）</span><br><span class="line">+- 地区：全国范围内各地区都要访问到（cdn加速）</span><br><span class="line">+- 业务流程：前台（用户能看</span><br></pre></td></tr></table></figure>
+<h2 id="4-–git-show"><a href="#4-–git-show" class="headerlink" title="4 –git show"></a>4 –git show</h2><p> <code>git show</code>命令同<code>git log -p</code>输出类似，只不过它只显示一个commit的内容，如果不指定commit hash, 它默认输出HEAD指向commit的内容. </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git show</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">diff --git a/source/_posts/swoole学习笔记.md b/source/_posts/swoole学习笔记.md</span><br><span class="line">new file mode 100644</span><br><span class="line">index 0000000..559740f</span><br><span class="line">--- /dev/null</span><br><span class="line">+++ b/source/_posts/swoole学习笔记.md</span><br><span class="line">@@ -0,0 +1,345 @@</span><br><span class="line">+---</span><br><span class="line">+title: swoole学习笔记</span><br><span class="line">+date: 2019-11-13</span><br><span class="line">+tags: php</span><br><span class="line">+categories: 学习</span><br><span class="line">+---</span><br><span class="line">+</span><br><span class="line">+# swoole</span><br><span class="line">+</span><br><span class="line">+## 一、设计思路</span><br><span class="line">+</span><br><span class="line">+### 1. 设计分析</span><br></pre></td></tr></table></figure>
+<h2 id="5-git-shortlog"><a href="#5-git-shortlog" class="headerlink" title="5 git shortlog"></a>5 git shortlog</h2><p> 这个命令用来输出汇总信息，以作者进行分类。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git shortlog</span><br><span class="line">30no2 (5):</span><br><span class="line">      新加一条测试用的日记</span><br><span class="line">      删了一条测试用的日记</span><br><span class="line">      添加about</span><br><span class="line">      remove .idea</span><br><span class="line">      修改名称</span><br><span class="line"></span><br><span class="line">mr-9 (52):</span><br><span class="line">      my first private hexo</span><br><span class="line">      11</span><br><span class="line">      修改git地址</span><br><span class="line">      添加日记</span><br><span class="line">      修改title</span><br><span class="line">      修改title</span><br><span class="line">      修改aboutme</span><br><span class="line">      添加常用函数文件</span><br><span class="line">      markdown注册吗</span><br><span class="line">      markdown注册吗</span><br><span class="line">      新增phpstorm快捷键文章</span><br><span class="line">      q</span><br><span class="line">      linux 学习</span><br><span class="line">      linux 学习</span><br><span class="line">      linux 学习</span><br></pre></td></tr></table></figure>
+<p><code>git shortlog -s</code>：可以用来统计每个作者的commit数量</p>
+<p><code>git shortlog -n</code>：可以用来对统计的量进行倒序排列</p>
+<h2 id="6-–gretty"><a href="#6-–gretty" class="headerlink" title="6 –gretty"></a>6 –gretty</h2><p> 我们可以用–pretty来自定义输出的信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --pretty=&quot;%cn committed %h on $cd&quot;</span><br><span class="line">mr-9 committed 584f5ef on</span><br><span class="line">mr-9 committed 7325466 on</span><br><span class="line">mr-9 committed acb429b on</span><br></pre></td></tr></table></figure>
+<h2 id="7-–author"><a href="#7-–author" class="headerlink" title="7 –author"></a>7 –author</h2><p> 加<code>--author</code>用来过滤commit,限定输出给定的用户 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --author=&quot;mr-9&quot;</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="8-n"><a href="#8-n" class="headerlink" title="8 -n"></a>8 -n</h2><p>输出log数量</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log -2</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="9-–after和–before"><a href="#9-–after和–before" class="headerlink" title="9 –after和–before"></a>9 –after和–before</h2><p>限定指定日期范围的log</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --after &apos;10-1-2019&apos;</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="10-–merges和–no-merges"><a href="#10-–merges和–no-merges" class="headerlink" title="10 –merges和–no-merges"></a>10 –merges和–no-merges</h2><p>控制是否显示merge的commit</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --no-merges</span><br><span class="line">commit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Fri Nov 15 10:20:44 2019 +0800</span><br><span class="line"></span><br><span class="line">    swoole学习笔记第三天</span><br><span class="line"></span><br><span class="line">commit 73254660421e7a237152299cb3c7fea913d604f3</span><br><span class="line">Author: mr-9 &lt;1421122102@qq.com&gt;</span><br><span class="line">Date:   Tue Oct 29 09:31:57 2019 +0800</span><br><span class="line"></span><br><span class="line">    新增电影</span><br></pre></td></tr></table></figure>
+<h2 id="11-–decoreate"><a href="#11-–decoreate" class="headerlink" title="11 –decoreate"></a>11 –decoreate</h2><p> 该参数用来控制log输出时，显示对应commit所属的branch和tag信息 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git log --decorate --oneline</span><br><span class="line">584f5ef (HEAD -&gt; master, origin/master, origin/HEAD) swoole学习笔记第三天</span><br><span class="line">7325466 新增电影</span><br><span class="line">acb429b 影视链接更新</span><br><span class="line">c7fa89d 禁忌女孩电视剧</span><br><span class="line">07e2ee7 python学习</span><br><span class="line">0d02e63 python学习</span><br><span class="line">f3ce343 人民的名义电视剧改1</span><br><span class="line">de5e578 人民的名义电视剧</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>千万级秒杀项目实战</title>
+    <url>/2019/11/13/%E5%8D%83%E4%B8%87%E7%BA%A7%E7%A7%92%E6%9D%80%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<h1 id="千万级秒杀项目实战"><a href="#千万级秒杀项目实战" class="headerlink" title="千万级秒杀项目实战"></a>千万级秒杀项目实战</h1><h2 id="一、设计思路"><a href="#一、设计思路" class="headerlink" title="一、设计思路"></a>一、设计思路</h2><h3 id="1-设计分析"><a href="#1-设计分析" class="headerlink" title="1. 设计分析"></a>1. 设计分析</h3><ul>
 <li>用户：量大，正常用户，恶意用户（数据清洗）</li>
 <li>地区：全国范围内各地区都要访问到（cdn加速）</li>
 <li>业务流程：前台（用户能看到的部分）后台（商家或者管理者使用）</li>
@@ -334,7 +372,31 @@
   3. php代码实现
 
   <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一步删除文件</span></span><br><span class="line">$file_path = <span class="string">'index.html'</span>;</span><br><span class="line">$f = file_exists($file_path)&amp;&amp;unlink($file_path);</span><br><span class="line"><span class="comment">//第二步：生成自己需要的文件</span></span><br><span class="line">$file_path = <span class="string">'index.html'</span>;</span><br><span class="line">$myfile = fopen($file_path,<span class="string">"w"</span>);</span><br><span class="line"><span class="comment">//获取文件内容</span></span><br><span class="line">$file_path = <span class="string">'index_over.html'</span>;</span><br><span class="line">$txt = file_get_contents(file_path);</span><br><span class="line">fwrite($myfile,$txt);</span><br></pre></td></tr></table></figure>
-</code></pre>]]></content>
+</code></pre><h3 id="2-第二层"><a href="#2-第二层" class="headerlink" title="2.第二层"></a>2.第二层</h3><h4 id="1）js"><a href="#1）js" class="headerlink" title="1）js"></a>1）js</h4><ul>
+<li>对用户名手机号进行判断——value值<ul>
+<li>value值序列号加密</li>
+<li>正则手机号判断</li>
+<li>jsonp发送后台验证通过，则登记记录</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-第三层"><a href="#3-第三层" class="headerlink" title="3.第三层"></a>3.第三层</h3><ul>
+<li>php<ul>
+<li>创建token</li>
+<li>检验token</li>
+<li>给1，2，4层发送通知</li>
+<li>redis插入数值<ul>
+<li>插入数值  flag+1</li>
+</ul>
+</li>
+<li>安全过滤</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-第四层"><a href="#4-第四层" class="headerlink" title="4.第四层"></a>4.第四层</h3><ul>
+<li>redis获取数据插入到mysql中</li>
+</ul>
+<h2 id="四、演示"><a href="#四、演示" class="headerlink" title="四、演示"></a>四、演示</h2>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -871,6 +933,24 @@
       </tags>
   </entry>
   <entry>
+    <title>数据库映射</title>
+    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
+<li><p>my.ini 数据库配置文件  </p>
+<p>  开启映射</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>svn使用思路</title>
     <url>/2019/08/27/svn%E4%BD%BF%E7%94%A8%E6%80%9D%E8%B7%AF/</url>
     <content><![CDATA[<h1 id="svn使用思路"><a href="#svn使用思路" class="headerlink" title="svn使用思路"></a>svn使用思路</h1><ol>
@@ -893,24 +973,6 @@
       </categories>
       <tags>
         <tag>svn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库映射</title>
-    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
-    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
-<li><p>my.ini 数据库配置文件  </p>
-<p>  开启映射</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1870,6 +1932,17 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
+    <title>php常用方法</title>
+    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
+      <categories>
+        <category>常用方法</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>日记</title>
     <url>/2019/05/23/%E6%97%A5%E8%AE%B02019-05-23/</url>
     <content><![CDATA[<pre><code>天气：晴  
@@ -1880,17 +1953,6 @@ cat [选项] 文件名
       </categories>
       <tags>
         <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>php常用方法</title>
-    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
-      <categories>
-        <category>常用方法</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
       </tags>
   </entry>
   <entry>
