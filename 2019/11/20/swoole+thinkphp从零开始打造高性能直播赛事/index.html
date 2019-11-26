@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">643</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.8k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -545,7 +545,76 @@ height:50vh;
 </ul>
 </li>
 </ul>
-<h2 id="五、swoole服务器介绍"><a href="#五、swoole服务器介绍" class="headerlink" title="五、swoole服务器介绍"></a>五、swoole服务器介绍</h2>
+<h2 id="五、swoole服务器介绍–tcp服务"><a href="#五、swoole服务器介绍–tcp服务" class="headerlink" title="五、swoole服务器介绍–tcp服务"></a>五、swoole服务器介绍–tcp服务</h2><h3 id="1、tcp服务"><a href="#1、tcp服务" class="headerlink" title="1、tcp服务"></a>1、tcp服务</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建Server对象，监听 127.0.0.1:9501端口</span></span><br><span class="line">$serv = <span class="keyword">new</span> Swoole\Server(<span class="string">"127.0.0.1"</span>, <span class="number">9501</span>);</span><br><span class="line">$serv-&gt;set([</span><br><span class="line">    <span class="string">'worker_num'</span> =&gt; <span class="number">4</span>,    <span class="comment">//worker process num</span></span><br><span class="line">    <span class="string">'max_request'</span> =&gt; <span class="number">50</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="comment">//监听连接进入事件</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * $fd: 客户端链接的唯一标识</span></span><br><span class="line"><span class="comment"> * $reactor_id: 线程id</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Connect'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd, $reactor_id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Client: &#123;$reactor_id&#125;-&#123;$fd&#125;-Connect.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听数据接收事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Receive'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd, $from_id, $data)</span> </span>&#123;</span><br><span class="line">    $serv-&gt;send($fd, <span class="string">"Server: &#123;$from_id&#125;--&#123;$fd&#125;--&#123;$data&#125;"</span>.$data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听连接关闭事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Close'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Client: &#123;$fd&#125;Close.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动服务器</span></span><br><span class="line">$serv-&gt;start();</span><br></pre></td></tr></table></figure>
+<h3 id="2、client-php链接tcp服务"><a href="#2、client-php链接tcp服务" class="headerlink" title="2、client php链接tcp服务"></a>2、client php链接tcp服务</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//链接swoole tcp 服务</span></span><br><span class="line">$cilent = <span class="keyword">new</span> swoole_client(SWOOLE_SOCK_TCP);</span><br><span class="line"><span class="keyword">if</span>(!$cilent-&gt;connect(<span class="string">'127.0.0.1'</span>,<span class="number">9501</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'链接失败'</span>;</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//php 内置cli产量</span></span><br><span class="line">fwrite(STDOUT,<span class="string">'请输入消息'</span>);</span><br><span class="line">$msg = trim(fgets(STDIN));</span><br><span class="line"><span class="comment">//发送消息给tcp server</span></span><br><span class="line">$cilent-&gt;send($msg);</span><br><span class="line"><span class="comment">//接受来自server的数据</span></span><br><span class="line">$result = $cilent-&gt;recv();</span><br><span class="line"><span class="keyword">echo</span> $result;</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/jLXq6ftk" target="_blank" rel="noopener"><img src="https://i.postimg.cc/4xCKgvMZ/9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg" alt="9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg"></a></p>
+<h3 id="3、判断tcp有几个进程"><a href="#3、判断tcp有几个进程" class="headerlink" title="3、判断tcp有几个进程"></a>3、判断tcp有几个进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aft | grep tcp.php</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/yJFZ0PY3" target="_blank" rel="noopener"><img src="https://i.postimg.cc/bv59cC7g/9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg" alt="9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg"></a></p>
+<h2 id="六、swoole服务器–http"><a href="#六、swoole服务器–http" class="headerlink" title="六、swoole服务器–http"></a>六、swoole服务器–http</h2><h3 id="1、http服务"><a href="#1、http服务" class="headerlink" title="1、http服务"></a>1、http服务</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Swoole</span>\<span class="title">Http</span>\<span class="title">Server</span>;</span><br><span class="line"></span><br><span class="line">$http = <span class="keyword">new</span> Server(<span class="string">"0.0.0.0"</span>, <span class="number">8800</span>);</span><br><span class="line">$http-&gt;on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($request, $response)</span> </span>&#123;</span><br><span class="line">    $response-&gt;end(<span class="string">"&lt;h1&gt;Hello Swoole. #"</span>.rand(<span class="number">1000</span>, <span class="number">9999</span>)<span class="string">"&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$http-&gt;start();</span><br></pre></td></tr></table></figure>
+<h3 id="2、获取get参数"><a href="#2、获取get参数" class="headerlink" title="2、获取get参数"></a>2、获取get参数</h3><ul>
+<li>关键代码</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$array = $request-&gt;get;</span><br><span class="line">$get = json_encode($request-&gt;get);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Swoole</span>\<span class="title">Http</span>\<span class="title">Server</span>;</span><br><span class="line"></span><br><span class="line">$http = <span class="keyword">new</span> Server(<span class="string">"0.0.0.0"</span>, <span class="number">8800</span>);</span><br><span class="line">$http-&gt;on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($request, $response)</span> </span>&#123;</span><br><span class="line">    $array = $request-&gt;get;</span><br><span class="line">    $get = json_encode($request-&gt;get);</span><br><span class="line">    $response-&gt;end(<span class="string">"&lt;h1&gt;Hello Swoole. #"</span>.rand(<span class="number">1000</span>, <span class="number">9999</span>).$get.<span class="string">"&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$http-&gt;start();</span><br></pre></td></tr></table></figure>
+<h3 id="3、保存cookie"><a href="#3、保存cookie" class="headerlink" title="3、保存cookie"></a>3、保存cookie</h3><ul>
+<li>关键代码</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$response-&gt;cookie(<span class="string">'wwq'</span>,<span class="string">'scccc'</span>,time()+<span class="number">1800</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Swoole</span>\<span class="title">Http</span>\<span class="title">Server</span>;</span><br><span class="line"></span><br><span class="line">$http = <span class="keyword">new</span> Server(<span class="string">"0.0.0.0"</span>, <span class="number">8800</span>);</span><br><span class="line">$http-&gt;on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($request, $response)</span> </span>&#123;</span><br><span class="line"><span class="comment">//    print_r($request-&gt;get);</span></span><br><span class="line">    $array = $request-&gt;get;</span><br><span class="line">    $get = json_encode($request-&gt;get);</span><br><span class="line">    $response-&gt;cookie(<span class="string">'wwq'</span>,<span class="string">'scccc'</span>,time()+<span class="number">1800</span>);</span><br><span class="line">    $response-&gt;end(<span class="string">"&lt;h1&gt;Hello Swoole. #"</span>.rand(<span class="number">1000</span>, <span class="number">9999</span>).$get.<span class="string">"&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$http-&gt;start();</span><br></pre></td></tr></table></figure>
+<h3 id="4、开启swoole静态资源访问"><a href="#4、开启swoole静态资源访问" class="headerlink" title="4、开启swoole静态资源访问"></a>4、开启swoole静态资源访问</h3><ul>
+<li>关键代码</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$http-&gt;set([</span><br><span class="line">    <span class="string">'enable_static_handler'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">'document_root'</span> =&gt; <span class="string">'/var/www/my_swoole/data'</span>, <span class="comment">// v4.4.0以下版本, 此处必须为绝对路径</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Swoole</span>\<span class="title">Http</span>\<span class="title">Server</span>;</span><br><span class="line"></span><br><span class="line">$http = <span class="keyword">new</span> Server(<span class="string">"0.0.0.0"</span>, <span class="number">8811</span>);</span><br><span class="line">$http-&gt;set([</span><br><span class="line">    <span class="string">'enable_static_handler'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">'document_root'</span> =&gt; <span class="string">'/var/www/my_swoole/data'</span>, <span class="comment">// v4.4.0以下版本, 此处必须为绝对路径</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">$http-&gt;on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($request, $response)</span> </span>&#123;</span><br><span class="line"><span class="comment">//    print_r($request-&gt;get);</span></span><br><span class="line">    $array = $request-&gt;get;</span><br><span class="line">    $get = json_encode($request-&gt;get);</span><br><span class="line">    $response-&gt;cookie(<span class="string">'wwq'</span>,<span class="string">'scccc'</span>,time()+<span class="number">1800</span>);</span><br><span class="line">    $response-&gt;end(<span class="string">"&lt;h1&gt;Hello Swoole. #"</span>.rand(<span class="number">1000</span>, <span class="number">9999</span>).$get.<span class="string">"&lt;/h1&gt;"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$http-&gt;start();</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/yJdGSdzw" target="_blank" rel="noopener"><img src="https://i.postimg.cc/s29CqQHD/686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg" alt="686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg"></a></p>
+<p><a href="https://postimg.cc/t1MMdjq7" target="_blank" rel="noopener"><img src="https://i.postimg.cc/cHxGSxP7/686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg" alt="686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg"></a></p>
+<h2 id="七、swoole服务–websocket"><a href="#七、swoole服务–websocket" class="headerlink" title="七、swoole服务–websocket"></a>七、swoole服务–websocket</h2><ul>
+<li>WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工（full-duplex）通信——允许服务器主动发送信息给客户端。</li>
+<li>为什么需要websocket<ul>
+<li>缺陷：http的通信只能由客户端发起</li>
+</ul>
+</li>
+<li>websocket特点<ul>
+<li>建立在TCP协议之上</li>
+<li>性能开销小通信高效</li>
+<li>客户端可以与任意服务器通信</li>
+<li>协议标识符ws wss</li>
+<li>持久化网络通信协议</li>
+</ul>
+</li>
+</ul>
+<h3 id="1、WebSocket服务"><a href="#1、WebSocket服务" class="headerlink" title="1、WebSocket服务"></a>1、WebSocket服务</h3><ul>
+<li>服务端——ws_server.php</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$server = <span class="keyword">new</span> Swoole\WebSocket\Server(<span class="string">"0.0.0.0"</span>, <span class="number">8812</span>);</span><br><span class="line">$server-&gt;set([</span><br><span class="line">    <span class="string">'enable_static_handler'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">    <span class="string">'document_root'</span> =&gt; <span class="string">'/var/www/my_swoole/data'</span>, <span class="comment">// v4.4.0以下版本, 此处必须为绝对路径</span></span><br><span class="line">]);</span><br><span class="line"><span class="comment">//监听websocket链接打开事件</span></span><br><span class="line">$server-&gt;on(<span class="string">'open'</span>, <span class="string">'onOpen'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onOpen</span><span class="params">($server,$request)</span></span>&#123;</span><br><span class="line">    print_r($request-&gt;fd);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//监听websocket消息事件</span></span><br><span class="line">$server-&gt;on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Swoole\WebSocket\Server $server, $frame)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"receive from &#123;$frame-&gt;fd&#125;:&#123;$frame-&gt;data&#125;,opcode:&#123;$frame-&gt;opcode&#125;,fin:&#123;$frame-&gt;finish&#125;\n"</span>;</span><br><span class="line">    $server-&gt;push($frame-&gt;fd, <span class="string">"wwq - push - success!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$server-&gt;on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($ser, $fd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"client &#123;$fd&#125; closed\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$server-&gt;start();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用户——ws_client.html</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ws_client<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wwq ws server<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> wsUrl = <span class="string">"ws://192.168.72.4:8812"</span>;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> webSocket = <span class="keyword">new</span> WebSocket(wsUrl);</span></span><br><span class="line"><span class="actionscript">webSocket.onopen = <span class="keyword">new</span> WebSocket(wsUrl);</span></span><br><span class="line"><span class="actionscript"><span class="comment">//实例对象的onopen属性</span></span></span><br><span class="line"><span class="actionscript">webSocket.onopen = <span class="function"><span class="keyword">function</span> <span class="params">(evt)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">    webSocket.send(<span class="string">'hello wwq'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'content-swoole-success'</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="comment">//实例化onmwssage</span></span></span><br><span class="line"><span class="actionscript">webSocket.onmessage = <span class="function"><span class="keyword">function</span> <span class="params">(evt)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'ws-server-return-data:'</span>+evt.data);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="comment">//onclose</span></span></span><br><span class="line"><span class="actionscript">webSocket.onclose = <span class="function"><span class="keyword">function</span> <span class="params">(evt)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'close'</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="comment">//onerror</span></span></span><br><span class="line"><span class="actionscript">webSocket.onerror = <span class="function"><span class="keyword">function</span> <span class="params">(evt)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'error:'</span>+evt.data);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<p><a href="https://postimg.cc/7fCtD6k6" target="_blank" rel="noopener"><img src="https://i.postimg.cc/8P42RJXh/9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg" alt="9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg"></a></p>
+<p><a href="https://postimg.cc/14VD3NfL" target="_blank" rel="noopener"><img src="https://i.postimg.cc/zD07pC5X/9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg" alt="9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg"></a></p>
+<h3 id="2、服务优化"><a href="#2、服务优化" class="headerlink" title="2、服务优化"></a>2、服务优化</h3><ul>
+<li>ws.php</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ws优化</span></span><br><span class="line"><span class="comment"> * User: 30no2</span></span><br><span class="line"><span class="comment"> * Date: 2019/11/26</span></span><br><span class="line"><span class="comment"> * Time: 16:56</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ws</span></span>&#123;</span><br><span class="line">    <span class="keyword">CONST</span> HOST = <span class="string">"0.0.0.0"</span>;</span><br><span class="line">    <span class="keyword">CONST</span> PORT = <span class="string">'8812'</span>;</span><br><span class="line">    <span class="keyword">public</span> $ws = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;ws = <span class="keyword">new</span> swoole_websocket_server(<span class="string">"0.0.0.0"</span>,<span class="keyword">self</span>::PORT);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;ws-&gt;on(<span class="string">"open"</span>,[<span class="keyword">$this</span>,<span class="string">'onOpen'</span>]);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;ws-&gt;on(<span class="string">"message"</span>,[<span class="keyword">$this</span>,<span class="string">'onMessage'</span>]);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;ws-&gt;on(<span class="string">"close"</span>,[<span class="keyword">$this</span>,<span class="string">'onClose'</span>]);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;ws-&gt;start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 监听ws连接事件</span></span><br><span class="line"><span class="comment">     * User: 30no2</span></span><br><span class="line"><span class="comment">     * Date: 2019/11/26</span></span><br><span class="line"><span class="comment">     * Time: 17:01</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">onOpen</span><span class="params">($ws,$request)</span></span>&#123;</span><br><span class="line">        var_dump($request-&gt;fd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 监听ws消息事件</span></span><br><span class="line"><span class="comment">     * User: 30no2</span></span><br><span class="line"><span class="comment">     * Date: 2019/11/26</span></span><br><span class="line"><span class="comment">     * Time: 17:01</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">onMessage</span><span class="params">($ws,$frame)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"ser-push-message:&#123;$frame-&gt;data&#125;\n"</span>;</span><br><span class="line">        $ws-&gt;push($frame-&gt;fd,<span class="string">"server-push:"</span>.date(<span class="string">'Y-m-d H:i:s'</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ws关闭事件</span></span><br><span class="line"><span class="comment">     * User: 30no2</span></span><br><span class="line"><span class="comment">     * Date: 2019/11/26</span></span><br><span class="line"><span class="comment">     * Time: 17:06</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">onClose</span><span class="params">($ws,$fd)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"clientid:&#123;$fd&#125;\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">$obj = <span class="keyword">new</span> Ws();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<p><a href="https://postimg.cc/y3X1Nztp" target="_blank" rel="noopener"><img src="https://i.postimg.cc/gj1nNzDp/9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg" alt="9-CD66029-7549-4-FE2-8210-8-EBF42-CC3-D4-C-20191126103137.jpg"></a></p>
+<p><a href="https://postimg.cc/tYB1dhvS" target="_blank" rel="noopener"><img src="https://i.postimg.cc/kgmxmsQm/686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg" alt="686021-DF-B5-FD-47-F6-8-F73-BD9-C3125-FD73-20191126143506.jpg"></a></p>
+
     </article>
     <!-- license  -->
     
@@ -553,7 +622,7 @@ height:50vh;
             <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
             <p>原文链接：<a href="http://mr-9.github.io/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/">http://mr-9.github.io/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/</a>
             <p>发表日期：<a href="http://mr-9.github.io/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/">November 20th 2019, 12:00:00 am</a>
-            <p>更新日期：<a href="http://mr-9.github.io/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/">November 22nd 2019, 2:27:53 pm</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/">November 26th 2019, 5:15:58 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -685,7 +754,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#swoole-thinkphp从零开始打造高性能直播赛事"><span class="toc-number">1.</span> <span class="toc-text">swoole+thinkphp从零开始打造高性能直播赛事</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、swoole简介"><span class="toc-number">1.1.</span> <span class="toc-text">一、swoole简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、简介"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、应用"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、目标"><span class="toc-number">1.2.</span> <span class="toc-text">3、目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、学习Swoole的准备工作"><span class="toc-number">1.3.</span> <span class="toc-text">二、学习Swoole的准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、linux开发环境"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、linux开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、php7-swoole2-1-redis"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、php7 swoole2.1 redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、源码安装php7-源码安装swoole"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、源码安装php7 源码安装swoole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、如何学习swoole"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、如何学习swoole</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、linux环境下源码安装php"><span class="toc-number">1.4.</span> <span class="toc-text">三、linux环境下源码安装php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、官网下载-php源码包"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、官网下载 )php源码包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、上传到linux服务器"><span class="toc-number">1.4.2.</span> <span class="toc-text">2、上传到linux服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、开始安装"><span class="toc-number">1.4.3.</span> <span class="toc-text">3、开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、安装完成后的一些坑"><span class="toc-number">1.4.4.</span> <span class="toc-text">4、安装完成后的一些坑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、swoole源码安装"><span class="toc-number">1.5.</span> <span class="toc-text">四、swoole源码安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、官网下载源码"><span class="toc-number">1.5.1.</span> <span class="toc-text">1、官网下载源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、编译安装swoole"><span class="toc-number">1.5.2.</span> <span class="toc-text">2、编译安装swoole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、php-支持swoole"><span class="toc-number">1.5.3.</span> <span class="toc-text">3、php 支持swoole</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、swoole服务器介绍"><span class="toc-number">1.6.</span> <span class="toc-text">五、swoole服务器介绍</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#swoole-thinkphp从零开始打造高性能直播赛事"><span class="toc-number">1.</span> <span class="toc-text">swoole+thinkphp从零开始打造高性能直播赛事</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、swoole简介"><span class="toc-number">1.1.</span> <span class="toc-text">一、swoole简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、简介"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、应用"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、目标"><span class="toc-number">1.2.</span> <span class="toc-text">3、目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、学习Swoole的准备工作"><span class="toc-number">1.3.</span> <span class="toc-text">二、学习Swoole的准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、linux开发环境"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、linux开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、php7-swoole2-1-redis"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、php7 swoole2.1 redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、源码安装php7-源码安装swoole"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、源码安装php7 源码安装swoole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、如何学习swoole"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、如何学习swoole</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、linux环境下源码安装php"><span class="toc-number">1.4.</span> <span class="toc-text">三、linux环境下源码安装php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、官网下载-php源码包"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、官网下载 )php源码包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、上传到linux服务器"><span class="toc-number">1.4.2.</span> <span class="toc-text">2、上传到linux服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、开始安装"><span class="toc-number">1.4.3.</span> <span class="toc-text">3、开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、安装完成后的一些坑"><span class="toc-number">1.4.4.</span> <span class="toc-text">4、安装完成后的一些坑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、swoole源码安装"><span class="toc-number">1.5.</span> <span class="toc-text">四、swoole源码安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、官网下载源码"><span class="toc-number">1.5.1.</span> <span class="toc-text">1、官网下载源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、编译安装swoole"><span class="toc-number">1.5.2.</span> <span class="toc-text">2、编译安装swoole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、php-支持swoole"><span class="toc-number">1.5.3.</span> <span class="toc-text">3、php 支持swoole</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、swoole服务器介绍–tcp服务"><span class="toc-number">1.6.</span> <span class="toc-text">五、swoole服务器介绍–tcp服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、tcp服务"><span class="toc-number">1.6.1.</span> <span class="toc-text">1、tcp服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、client-php链接tcp服务"><span class="toc-number">1.6.2.</span> <span class="toc-text">2、client php链接tcp服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、判断tcp有几个进程"><span class="toc-number">1.6.3.</span> <span class="toc-text">3、判断tcp有几个进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、swoole服务器–http"><span class="toc-number">1.7.</span> <span class="toc-text">六、swoole服务器–http</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、http服务"><span class="toc-number">1.7.1.</span> <span class="toc-text">1、http服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、获取get参数"><span class="toc-number">1.7.2.</span> <span class="toc-text">2、获取get参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、保存cookie"><span class="toc-number">1.7.3.</span> <span class="toc-text">3、保存cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、开启swoole静态资源访问"><span class="toc-number">1.7.4.</span> <span class="toc-text">4、开启swoole静态资源访问</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、swoole服务–websocket"><span class="toc-number">1.8.</span> <span class="toc-text">七、swoole服务–websocket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、WebSocket服务"><span class="toc-number">1.8.1.</span> <span class="toc-text">1、WebSocket服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、服务优化"><span class="toc-number">1.8.2.</span> <span class="toc-text">2、服务优化</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -698,70 +767,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1584,12 +1589,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/禁忌女孩/" >禁忌女孩</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/python学习--头部解析/" >python学习--头部解析</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/python学习--头部解析/" >python学习--头部解析</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/禁忌女孩/" >禁忌女孩</a>
         </li>
     
     
@@ -1684,12 +1689,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
         </li>
     
     
@@ -1845,53 +1850,53 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
-    
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
     
         <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
     
         <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
     
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+    
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
     
-        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
-    
         <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
     
         <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
-        <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
-    
         <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
-    
-        <span class="sidebar-tag-name" data-tags="工具"><span class="iconfont-archer">&#xe606;</span>工具</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
+        <span class="sidebar-tag-name" data-tags="工具"><span class="iconfont-archer">&#xe606;</span>工具</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
+    
         <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+    
+        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+    
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
         <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
-    
-        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
-    
-        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
     
         <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
     
@@ -1930,25 +1935,25 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
-    
         <span class="sidebar-category-name" data-categories="序"><span class="iconfont-archer">&#xe60a;</span>序</span>
+    
+        <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
     
         <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
     
         <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
     
-        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
-    
         <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
     
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
+    
         <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
+    
+        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
     
         <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
         <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
-    
-        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
