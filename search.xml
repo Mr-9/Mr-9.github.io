@@ -325,6 +325,40 @@
 <h4 id="9）测试redis"><a href="#9）测试redis" class="headerlink" title="9）测试redis"></a><strong>9）测试redis</strong></h4><p><img src="https://img2018.cnblogs.com/blog/1502120/201810/1502120-20181012221931270-182874592.png" alt="img"></p>
 <p><strong>完成安装！</strong></p>
 <h4 id="10）如果不成功"><a href="#10）如果不成功" class="headerlink" title="10）如果不成功"></a>10）如果不成功</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.编写配置脚本 [** vim /etc/init.d/redis** ]</span><br><span class="line">#!/bin/sh</span><br><span class="line"># chkconfig: 2345 10 90</span><br><span class="line"># Simple Redis init.d script conceived to work on Linux systems</span><br><span class="line"># as it does use of the /proc filesystem.</span><br><span class="line"></span><br><span class="line">REDISPORT=6379</span><br><span class="line">EXEC=/usr/local/redis/redis-server #redis-server路径</span><br><span class="line">CLIEXEC=/usr/local/redis/redis-cli #redis-cli路径</span><br><span class="line"></span><br><span class="line">PIDFILE=/var/run/redis_$&#123;REDISPORT&#125;.pid #redis_$&#123;REDISPORT&#125;.pid路径</span><br><span class="line">CONF=&quot;/usr/local/redis/redis.conf&quot; #redis.conf路径</span><br><span class="line">AUTH=&quot;School1502&quot; #redis 密码</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">if [ -f $PIDFILE ]</span><br><span class="line">then</span><br><span class="line">echo &quot;$PIDFILE exists, process is already running or crashed&quot;</span><br><span class="line">else</span><br><span class="line">echo &quot;Starting Redis server...&quot;</span><br><span class="line">$EXEC $CONF</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">if [ ! -f $PIDFILE ]</span><br><span class="line">then</span><br><span class="line">echo &quot;$PIDFILE does not exist, process is not running&quot;</span><br><span class="line">else</span><br><span class="line">PID=$(cat $PIDFILE)</span><br><span class="line">echo &quot;Stopping ...&quot;</span><br><span class="line">$CLIEXEC -p $REDISPORT shutdown</span><br><span class="line">while [ -x /proc/$&#123;PID&#125; ]</span><br><span class="line">do</span><br><span class="line">echo &quot;Waiting for Redis to shutdown ...&quot;</span><br><span class="line">sleep 1</span><br><span class="line">done</span><br><span class="line">echo &quot;Redis stopped&quot;</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo &quot;Please use start or stop as first argument&quot;</span><br><span class="line">;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">2.修改redis.conf,打开后台运行选项</span><br><span class="line">daemonize yes</span><br><span class="line">3.修改文件执行权限</span><br><span class="line">chmod +x /etc/init.d/redis</span><br><span class="line">4.设置开机启动</span><br><span class="line"># 尝试启动或停止 redis</span><br><span class="line">service redis start</span><br><span class="line">service redis stop</span><br><span class="line"># 开启服务自启动</span><br><span class="line">chkconfig redis on</span><br><span class="line">5.reboot</span><br></pre></td></tr></table></figure>
+<h2 id="十二、进程"><a href="#十二、进程" class="headerlink" title="十二、进程"></a>十二、进程</h2><ul>
+<li>进程就是正在运行的程序的一个实例</li>
+</ul>
+<h3 id="1、process-php"><a href="#1、process-php" class="headerlink" title="1、process.php"></a>1、process.php</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$process = <span class="keyword">new</span> swoole_process(<span class="function"><span class="keyword">function</span> <span class="params">(swoole_process $pro)</span></span>&#123;</span><br><span class="line">    <span class="comment">//todo</span></span><br><span class="line">    $pro-&gt;exec(<span class="string">'/var/php/bin/php'</span>,[<span class="keyword">__DIR__</span>.<span class="string">'/../server/http_server.php'</span>]);</span><br><span class="line">&#125;,<span class="keyword">true</span>);</span><br><span class="line">$pid = $process-&gt;start();</span><br><span class="line"><span class="keyword">echo</span> $pid.PHP_EOL;</span><br><span class="line"></span><br><span class="line">swoole_process::wait();</span><br></pre></td></tr></table></figure>
+<h3 id="2、查看进程数"><a href="#2、查看进程数" class="headerlink" title="2、查看进程数"></a>2、查看进程数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install psmisc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">php process.php</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/YvpnDP8Y" target="_blank" rel="noopener"><img src="https://i.postimg.cc/kgS0G3b1/B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg" alt="B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg"></a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pstree -p 1753</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/YLMDcyk5" target="_blank" rel="noopener"><img src="https://i.postimg.cc/wMsCmSrj/B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg" alt="B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg"></a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps aft | grep http_server</span><br></pre></td></tr></table></figure>
+<p><a href="https://postimg.cc/KKF2fbHb" target="_blank" rel="noopener"><img src="https://i.postimg.cc/yN38VYhD/B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg" alt="B42-DF5-A4-E3-BD-4-B5-C-83-CF-2-D820396-E00-C-20191203170634.jpg"></a></p>
+<h3 id="3、使用场景"><a href="#3、使用场景" class="headerlink" title="3、使用场景"></a>3、使用场景</h3><ul>
+<li>curl.php</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"process_start_time"</span>.date(<span class="string">'Ymd H:i:s'</span>).PHP_EOL;</span><br><span class="line">$workers = [];</span><br><span class="line">$urls = [</span><br><span class="line">    <span class="string">'http://www.baidu.com'</span>,</span><br><span class="line">    <span class="string">'http://www.qq.com'</span>,</span><br><span class="line">    <span class="string">'https://www.baidu.com/s?wd=11'</span>,</span><br><span class="line">    <span class="string">'https://www.baidu.com/s?wd=22'</span>,</span><br><span class="line">    <span class="string">'https://www.baidu.com/s?wd=33'</span>,</span><br><span class="line">    <span class="string">'https://www.baidu.com/s?wd=44'</span>,</span><br><span class="line">    <span class="string">'https://www.baidu.com/s?wd=55'</span>,</span><br><span class="line">];</span><br><span class="line"><span class="comment">//foreach ($urls as $url)&#123;</span></span><br><span class="line"><span class="comment">//    $content[] = file_put_contents($url);</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="keyword">for</span> ($i=<span class="number">0</span>;$i&lt;<span class="number">6</span>;$i++)&#123;</span><br><span class="line">    <span class="comment">//子进程</span></span><br><span class="line">    $process = <span class="keyword">new</span> swoole_process(<span class="function"><span class="keyword">function</span> <span class="params">(swoole_process $worker)</span> <span class="title">use</span><span class="params">($i,$urls)</span></span>&#123;</span><br><span class="line">        <span class="comment">//curl</span></span><br><span class="line">        $connect = curlData($urls[$i]);</span><br><span class="line">        <span class="keyword">echo</span> $connect.PHP_EOL;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;,<span class="keyword">true</span>);</span><br><span class="line">    $pid = $process-&gt;start();</span><br><span class="line">    $workers[$pid] = $process;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> ($workers <span class="keyword">as</span> $process)&#123;</span><br><span class="line">    <span class="keyword">echo</span> $process-&gt;read();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 模拟请求url内容</span></span><br><span class="line"><span class="comment"> * User: 30no2</span></span><br><span class="line"><span class="comment"> * Date: 2019/12/3</span></span><br><span class="line"><span class="comment"> * Time: 17:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curlData</span><span class="params">($url)</span></span>&#123;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> $url.<span class="string">'success'</span>.PHP_EOL.<span class="string">'&lt;br/&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"process_end_time"</span>.date(<span class="string">'Ymd H:i:s'</span>).PHP_EOL;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<p><a href="https://postimg.cc/LY5yQcVh" target="_blank" rel="noopener"><img src="https://i.postimg.cc/Hx4fnHc0/191-DC93-E-5-ED1-42-B8-8974-93501-E0-C7454-20191204093250.jpg" alt="191-DC93-E-5-ED1-42-B8-8974-93501-E0-C7454-20191204093250.jpg"></a></p>
+<h2 id="十三、swoole内存"><a href="#十三、swoole内存" class="headerlink" title="十三、swoole内存"></a>十三、swoole内存</h2><ul>
+<li>lock</li>
+<li>buffer</li>
+<li>table</li>
+<li>atomic</li>
+<li>mmap</li>
+<li>channel</li>
+<li>serialize</li>
+</ul>
+<h3 id="1、swoole-table"><a href="#1、swoole-table" class="headerlink" title="1、swoole table"></a>1、swoole table</h3><ul>
+<li>swoole_table是一个基于共享内存和锁实现的超高性能，并发数据结构</li>
+</ul>
+<h4 id="1）table-php"><a href="#1）table-php" class="headerlink" title="1）table.php"></a>1）table.php</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建内存表</span></span><br><span class="line">$table = <span class="keyword">new</span> swoole_table(<span class="number">1024</span>);</span><br><span class="line"><span class="comment">//内存表增加一列</span></span><br><span class="line">$table-&gt;column(<span class="string">'id'</span>,$table::TYPE_INT,<span class="number">8</span>);</span><br><span class="line">$table-&gt;column(<span class="string">'name'</span>,$table::TYPE_STRING,<span class="number">255</span>);</span><br><span class="line">$table-&gt;column(<span class="string">'age'</span>,$table::TYPE_INT,<span class="number">6</span>);</span><br><span class="line">$table-&gt;create();</span><br><span class="line"></span><br><span class="line">$table-&gt;set(<span class="string">'wwq_test'</span>,[</span><br><span class="line">    <span class="string">'id'</span>=&gt;<span class="number">1</span>,</span><br><span class="line">    <span class="string">'name'</span>=&gt;<span class="string">'wwq'</span>,</span><br><span class="line">    <span class="string">'age'</span>=&gt;<span class="number">35</span>,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">print_r($table-&gt;get(<span class="string">'wwq_test'</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="2）结果"><a href="#2）结果" class="headerlink" title="2）结果"></a>2）结果</h4><p><a href="https://postimg.cc/svhvhzLm" target="_blank" rel="noopener"><img src="https://i.postimg.cc/MKsRgKbC/191-DC93-E-5-ED1-42-B8-8974-93501-E0-C7454-20191204093250.jpg" alt="191-DC93-E-5-ED1-42-B8-8974-93501-E0-C7454-20191204093250.jpg"></a></p>
+<h4 id="3）一些基本操作"><a href="#3）一些基本操作" class="headerlink" title="3）一些基本操作"></a>3）一些基本操作</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建内存表</span></span><br><span class="line">$table = <span class="keyword">new</span> swoole_table(<span class="number">1024</span>);</span><br><span class="line"><span class="comment">//内存表增加一列</span></span><br><span class="line">$table-&gt;column(<span class="string">'id'</span>,$table::TYPE_INT,<span class="number">8</span>);</span><br><span class="line">$table-&gt;column(<span class="string">'name'</span>,$table::TYPE_STRING,<span class="number">255</span>);</span><br><span class="line">$table-&gt;column(<span class="string">'age'</span>,$table::TYPE_INT,<span class="number">6</span>);</span><br><span class="line">$table-&gt;create();</span><br><span class="line"></span><br><span class="line">$table-&gt;set(<span class="string">'wwq_test'</span>,[</span><br><span class="line">    <span class="string">'id'</span>=&gt;<span class="number">1</span>,</span><br><span class="line">    <span class="string">'name'</span>=&gt;<span class="string">'wwq'</span>,</span><br><span class="line">    <span class="string">'age'</span>=&gt;<span class="number">35</span>,</span><br><span class="line">]);</span><br><span class="line">$table[<span class="string">'wwq_test2'</span>] = [</span><br><span class="line">    <span class="string">'id'</span>=&gt;<span class="number">2</span>,</span><br><span class="line">    <span class="string">'name'</span>=&gt;<span class="string">'wwq2'</span>,</span><br><span class="line">    <span class="string">'age'</span>=&gt;<span class="number">36</span>,</span><br><span class="line">];</span><br><span class="line"><span class="comment">//$table-&gt;incr('wwq_test2','age',3);//加操作</span></span><br><span class="line">$table-&gt;decr(<span class="string">'wwq_test2'</span>,<span class="string">'age'</span>,<span class="number">3</span>);<span class="comment">//减操作</span></span><br><span class="line">print_r($table[<span class="string">'wwq_test2'</span>]);</span><br><span class="line">print_r(<span class="string">'del starting....'</span>);</span><br><span class="line">$table-&gt;del(<span class="string">'wwq_test2'</span>);<span class="comment">//删除操作</span></span><br><span class="line">print_r($table[<span class="string">'wwq_test2'</span>]);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -793,45 +827,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>禁忌女孩</title>
-    <url>/2019/10/10/%E7%A6%81%E5%BF%8C%E5%A5%B3%E5%AD%A9/</url>
-    <content><![CDATA[<p>第1集 <a href="http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8</a></p>
-<p>第2集 <a href="http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8</a>  </p>
-<p>第3集 <a href="http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8</a>  </p>
-<p>第4集 <a href="http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8</a>  </p>
-<p>第5集 <a href="http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8</a>  </p>
-<p>第6集 <a href="http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8</a>  </p>
-<p>第7集 <a href="http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8</a>  </p>
-<p>第8集 <a href="http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8</a>  </p>
-<p>第9集 <a href="http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8</a>  </p>
-<p>第10集 <a href="http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8</a>  </p>
-<p>第11集 <a href="http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8</a>  </p>
-<p>第12集 <a href="http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8</a>  </p>
-<p>第13集 <a href="http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8</a>  </p>
-<hr>
-
-<p>第1集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=</a>  </p>
-<p>第2集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=</a>  </p>
-<p>第3集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=</a>  </p>
-<p>第4集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=</a>  </p>
-<p>第5集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=</a>  </p>
-<p>第6集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=</a>  </p>
-<p>第7集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=</a>  </p>
-<p>第8集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=</a>  </p>
-<p>第9集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=</a>  </p>
-<p>第10集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG</a>  </p>
-<p>第11集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG</a>  </p>
-<p>第12集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG</a>  </p>
-<p>第13集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>电视剧</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python学习--头部解析</title>
     <url>/2019/10/10/python%E5%AD%A6%E4%B9%A0--%E5%A4%B4%E9%83%A8%E8%A7%A3%E6%9E%90/</url>
     <content><![CDATA[<h2 id="python-头部解析"><a href="#python-头部解析" class="headerlink" title="python 头部解析"></a>python 头部解析</h2><table>
@@ -886,6 +881,45 @@
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>禁忌女孩</title>
+    <url>/2019/10/10/%E7%A6%81%E5%BF%8C%E5%A5%B3%E5%AD%A9/</url>
+    <content><![CDATA[<p>第1集 <a href="http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8</a></p>
+<p>第2集 <a href="http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8</a>  </p>
+<p>第3集 <a href="http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8</a>  </p>
+<p>第4集 <a href="http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8</a>  </p>
+<p>第5集 <a href="http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8</a>  </p>
+<p>第6集 <a href="http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8</a>  </p>
+<p>第7集 <a href="http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8</a>  </p>
+<p>第8集 <a href="http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8</a>  </p>
+<p>第9集 <a href="http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8</a>  </p>
+<p>第10集 <a href="http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8</a>  </p>
+<p>第11集 <a href="http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8</a>  </p>
+<p>第12集 <a href="http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8</a>  </p>
+<p>第13集 <a href="http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8</a>  </p>
+<hr>
+
+<p>第1集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=</a>  </p>
+<p>第2集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=</a>  </p>
+<p>第3集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=</a>  </p>
+<p>第4集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=</a>  </p>
+<p>第5集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=</a>  </p>
+<p>第6集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=</a>  </p>
+<p>第7集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=</a>  </p>
+<p>第8集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=</a>  </p>
+<p>第9集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=</a>  </p>
+<p>第10集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG</a>  </p>
+<p>第11集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG</a>  </p>
+<p>第12集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG</a>  </p>
+<p>第13集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>电视剧</tag>
       </tags>
   </entry>
   <entry>
@@ -1092,6 +1126,18 @@
       </tags>
   </entry>
   <entry>
+    <title>切尔诺贝利日记</title>
+    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>切尔诺贝利日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>权利的游戏</title>
     <url>/2019/09/01/%E6%9D%83%E5%88%A9%E7%9A%84%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h2 id="权利的游戏-第一季"><a href="#权利的游戏-第一季" class="headerlink" title="权利的游戏 第一季"></a>权利的游戏 第一季</h2><p>第1集 <a href="http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8" target="_blank" rel="noopener">http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8</a>   </p>
@@ -1263,18 +1309,6 @@
       </tags>
   </entry>
   <entry>
-    <title>切尔诺贝利日记</title>
-    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>切尔诺贝利日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>切尔诺贝利</title>
     <url>/2019/08/31/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%20%E7%AC%AC%E4%B8%80%E5%AD%A3/</url>
     <content><![CDATA[<h1 id="切尔诺贝利-第一季"><a href="#切尔诺贝利-第一季" class="headerlink" title="切尔诺贝利 第一季"></a>切尔诺贝利 第一季</h1><p>第1集 <a href="https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc" target="_blank" rel="noopener">https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc</a>  </p>
@@ -1291,6 +1325,24 @@
       </categories>
       <tags>
         <tag>切尔诺贝利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库映射</title>
+    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
+<li><p>my.ini 数据库配置文件  </p>
+<p>  开启映射</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1342,24 +1394,6 @@
       </categories>
       <tags>
         <tag>全职高手</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库映射</title>
-    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
-    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
-<li><p>my.ini 数据库配置文件  </p>
-<p>  开启映射</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -2281,15 +2315,16 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>MarkdownPad2安装汉化与注册码</title>
-    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
-    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
-<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
-<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
+    <title>日记</title>
+    <url>/2019/05/23/%E6%97%A5%E8%AE%B02019-05-23/</url>
+    <content><![CDATA[<pre><code>天气：晴  
+</code></pre><p>&emsp;&emsp;最近工作不忙，决定提升下自己，网上下载了一些书籍，准备温习下英语，毕竟想要提升下自己的水平，英语确实是一个短板。确定一下计划，一周之后看成果吧。<br>&emsp;&emsp;学习这种东西，最难的就是坚持。基本上一件事情要是能坚持一个月的话，就算是养成习惯了。<br>&emsp;&emsp;打气中。。。。。。  </p>
 ]]></content>
+      <categories>
+        <category>杂七杂八</category>
+      </categories>
       <tags>
-        <tag>破解</tag>
+        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
@@ -2304,16 +2339,15 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>日记</title>
-    <url>/2019/05/23/%E6%97%A5%E8%AE%B02019-05-23/</url>
-    <content><![CDATA[<pre><code>天气：晴  
-</code></pre><p>&emsp;&emsp;最近工作不忙，决定提升下自己，网上下载了一些书籍，准备温习下英语，毕竟想要提升下自己的水平，英语确实是一个短板。确定一下计划，一周之后看成果吧。<br>&emsp;&emsp;学习这种东西，最难的就是坚持。基本上一件事情要是能坚持一个月的话，就算是养成习惯了。<br>&emsp;&emsp;打气中。。。。。。  </p>
+    <title>MarkdownPad2安装汉化与注册码</title>
+    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
+    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
+<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
+<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
 ]]></content>
-      <categories>
-        <category>杂七杂八</category>
-      </categories>
       <tags>
-        <tag>日记</tag>
+        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
