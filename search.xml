@@ -1,6 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>phpstorm</title>
+    <url>/2019/12/24/phpstorm%E6%BF%80%E6%B4%BB%E7%A0%81/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AHD9079DKZ-eyJsaWNlbnNlSWQiOiJBSEQ5MDc5REtaIiwibGljZW5zZWVOYW1lIjoiSmV0IEdyb3VwcyIsImFzc2lnbmVlTmFtZSI6IiIsImFzc2lnbmVlRW1haWwiOiIiLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiIiLCJjaGVja0NvbmN1cnJlbnRVc2UiOmZhbHNlLCJwcm9kdWN0cyI6W3siY29kZSI6IklJIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0xMi0xNCIsInBhaWRVcFRvIjoiMjAyMC0xMi0xMyJ9LHsiY29kZSI6IkFDIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0xMi0xNCIsInBhaWRVcFRvIjoiMjAyMC0xMi0xMyJ9LHsiY29kZSI6IkRQTiIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMTItMTQiLCJwYWlkVXBUbyI6IjIwMjAtMTItMTMifSx7ImNvZGUiOiJQUyIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMTItMTQiLCJwYWlkVXBUbyI6IjIwMjAtMTItMTMifSx7ImNvZGUiOiJHTyIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMTItMTQiLCJwYWlkVXBUbyI6IjIwMjAtMTItMTMifSx7ImNvZGUiOiJETSIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMTItMTQiLCJwYWlkVXBUbyI6IjIwMjAtMTItMTMifSx7ImNvZGUiOiJDTCIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMTItMTQiLCJwYWlkVXBUbyI6IjIwMjAtMTItMTMifSx7ImNvZGUiOiJSUzAiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiUkMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiUkQiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiUEMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiUk0iLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiV1MiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiREIiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiREMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTEyLTE0IiwicGFpZFVwVG8iOiIyMDIwLTEyLTEzIn0seyJjb2RlIjoiUlNVIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0xMi0xNCIsInBhaWRVcFRvIjoiMjAyMC0xMi0xMyJ9XSwiaGFzaCI6IjE1ODE1MDAyLzAiLCJncmFjZVBlcmlvZERheXMiOjcsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0=-LSd4oz1ZeZGTkNgA7KqUD6dmIqKNRaJEiAdpNBN3rw86DnEZm6oUoTMdM40mxRG0jz5RpLR8E6/A2uA2b9s6fX3U1dAhzuJ7HUpha2OCk9EnYGlIoxnMmYA+ZrCjlfLU2EsLMPcmKHAY5o2excxpbIqLYsNhXN3r2MxEtvGap9Y+hBxNJJYoYjV5glFIiJ/9NNAE6s1EqRRlQk2UpFg2ODDlK1JZrQTtIJvH9squs1IFz0fY9i/okXIyR4fCUbU2LUp5XbtMn3n2lKb2mEKDWjjSly3cZizAGz7obIixE1HZuEICEPWeAZiU8qc/adRt7eUYW81KFdYjLNDXcVckbw==-MIIElTCCAn2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE4MTEwMTEyMjk0NloXDTIwMTEwMjEyMjk0NlowaDELMAkGA1UEBhMCQ1oxDjAMBgNVBAgMBU51c2xlMQ8wDQYDVQQHDAZQcmFndWUxGTAXBgNVBAoMEEpldEJyYWlucyBzLnIuby4xHTAbBgNVBAMMFHByb2QzeS1mcm9tLTIwMTgxMTAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQAF8uc+YJOHHwOFcPzmbjcxNDuGoOUIP+2h1R75Lecswb7ru2LWWSUMtXVKQzChLNPn/72W0k+oI056tgiwuG7M49LXp4zQVlQnFmWU1wwGvVhq5R63Rpjx1zjGUhcXgayu7+9zMUW596Lbomsg8qVve6euqsrFicYkIIuUu4zYPndJwfe0YkS5nY72SHnNdbPhEnN8wcB2Kz+OIG0lih3yz5EqFhld03bGp222ZQCIghCTVL6QBNadGsiN/lWLl4JdR3lJkZzlpFdiHijoVRdWeSWqM4y0t23c92HXKrgppoSV18XMxrWVdoSM3nuMHwxGhFyde05OdDtLpCv+jlWf5REAHHA201pAU6bJSZINyHDUTB+Beo28rRXSwSh3OUIvYwKNVeoBY+KwOJ7WnuTCUq1meE6GkKc4D/cXmgpOyW/1SmBz3XjVIi/zprZ0zf3qH5mkphtg6ksjKgKjmx1cXfZAAX6wcDBNaCL+Ortep1Dh8xDUbqbBVNBL4jbiL3i3xsfNiyJgaZ5sX7i8tmStEpLbPwvHcByuf59qJhV/bZOl8KqJBETCDJcY6O2aqhTUy+9x93ThKs1GKrRPePrWPluud7ttlgtRveit/pcBrnQcXOl1rHq7ByB8CFAxNotRUYL9IF5n3wJOgkPojMy6jetQA5Ogc8Sm7RG6vg1yow==</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>centos7 lamp环境安装</title>
+    <url>/2019/12/18/centos%20lamp%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="contos7-lamp环境安装"><a href="#contos7-lamp环境安装" class="headerlink" title="contos7 lamp环境安装"></a>contos7 lamp环境安装</h1><h2 id="1、apache"><a href="#1、apache" class="headerlink" title="1、apache"></a>1、apache</h2><h3 id="1）下载依赖包"><a href="#1）下载依赖包" class="headerlink" title="1）下载依赖包"></a>1）下载依赖包</h3><ul>
+<li><p>httpd的包</p>
+<ul>
+<li>Apache源码包位置：<a href="http://httpd.apache.org/" target="_blank" rel="noopener">http://httpd.apache.org/</a></li>
+</ul>
+</li>
+<li><p>依赖的包 apr、apr-util、pcre</p>
+<ul>
+<li>apr、apr-util包的位置：<a href="http://apr.apache.org/" target="_blank" rel="noopener">http://apr.apache.org/</a></li>
+<li>pcre包的位置：<a href="http://pcre.org/" target="_blank" rel="noopener">http://pcre.org/</a></li>
+</ul>
+<p><a href="https://postimg.cc/7bFPHTDy" target="_blank" rel="noopener"><img src="https://i.postimg.cc/BQ6jCxVt/81-B881-F0-0-B46-43-FF-8-FE5-9698-F0-DD84-CD-20191218152805.jpg" alt="81-B881-F0-0-B46-43-FF-8-FE5-9698-F0-DD84-CD-20191218152805.jpg"></a></p>
+</li>
+</ul>
+<h3 id="2）安装（网上找的，靠谱。）"><a href="#2）安装（网上找的，靠谱。）" class="headerlink" title="2）安装（网上找的，靠谱。）"></a>2）安装（网上找的，靠谱。）</h3><p>安装之前先将服务器的防火墙关掉。</p>
+<p>　　systemctl stop firewalld</p>
+<p>　　systemctl disable firewall</p>
+<p>第一步：</p>
+<p>　　安装apr</p>
+<p>　　　　下载：</p>
+<p>　　　　wget -c <a href="http://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.3.tar.bz2" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.3.tar.bz2</a> </p>
+<p>　　　　<em>解压该文件：</em></p>
+<p>　　　　<em>tar -jvxf apr-1.6.3.tar.bz2<br>　　　　检测：</em></p>
+<p>　　　　<em>cd apr-1.6.3<br>　　　　./configure –prefix=/usr/local/apr/<br>　　　　编译：</em></p>
+<p>　　　　<em>make<br>　　　　make install</em></p>
+<p>第二步：</p>
+<p>　　安装apr-util</p>
+<p>　　　　下载：</p>
+<p>　　　　wget -c <a href="http://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.bz2" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.bz2</a></p>
+<p>　　　　解压该文件：<br>　　　　tar -jvxf apr-util-1.6.1.tar.bz2</p>
+<p>　　　　检测：<br>　　　　cd apr-util-1.6.3<br>　　　　./configure –prefix=/usr/local/apr-util/ –with-apr=/usr/local/apr/</p>
+<p>　　　　编译：<br>　　　　make<br>　　　　make install</p>
+<p>第三步：</p>
+<p>　　安装pcre</p>
+<p>　　　　下载：</p>
+<p>　　　　wget -c <a href="http://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2" target="_blank" rel="noopener">http://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2</a></p>
+<p>　　　　解压该文件：<br>　　　　tar -jvxf pcre-8.42.tar.bz2</p>
+<p>　　　　检测：<br>　　　　cd pcre-8.42<br>　　　　./configure –prefix=/usr/local/pcre/</p>
+<p>　　　　编译：<br>　　　　make<br>　　　　make install</p>
+<p>第四步：<br>　　安装httpd</p>
+<p>　　　　下载：</p>
+<p>　　　　wget -c <a href="http://mirrors.cnnic.cn/apache/httpd/httpd-2.4.29.tar.bz2" target="_blank" rel="noopener">http://mirrors.cnnic.cn/apache/httpd/httpd-2.4.29.tar.bz2</a></p>
+<p>　　　　解压该文件：<br>　　　　tar -jvxf httpd-2.4.29.tar.bz2</p>
+<p>　　　　检测：<br>　　　　cd httpd-2.4.29<br>　　　　./configure –prefix=/usr/local/httpd/ –with-apr=/usr/local/apr/ –with-apr-util=/usr/local/apr-util/ –with-pcre=/usr/local/pcre/</p>
+<p>　　　　编译：<br>　　　　make<br>　　　　make install</p>
+<p>第五步：</p>
+<p>　　配置/usr/local/apache2/conf/httpd.conf</p>
+<p>　　　　　　ServerName <a href="http://www.examda.com:80" target="_blank" rel="noopener">www.examda.com:80</a><br>　　　　　　改为<br>　　　　　　ServerName localhost:80</p>
+<p>第六步：</p>
+<p>　　启动apache服务</p>
+<p>　　　　/usr/local/apache2/bin/apachectl start</p>
+<h3 id="3）测试"><a href="#3）测试" class="headerlink" title="3）测试"></a>3）测试</h3><p>　　使用浏览器访问本地IP</p>
+<p>　　出现It works!成功</p>
+<h3 id="4）报错处理"><a href="#4）报错处理" class="headerlink" title="4）报错处理"></a>4）报错处理</h3><p>　（1）<em>configure: error: APR not found. Please read the documentation.</em></p>
+<p>　　　　<em>这是没有安装apr或者apr安装失败导致的，重新安装apr。</em></p>
+<p>　　　　<em>安装请查看第一步。</em></p>
+<p>　（2）<em>configure: error: APR-util not found. Please read the documentation.</em></p>
+<p>　　　　<strong>这是没有安装apr-util或者apr-util安装失败导致的，重新安装apr-util。</strong></p>
+<p>　　　　<strong>安装请查看第二步。</strong></p>
+<p>　（3）<em>configure: error: no acceptable C compiler found in $PATH</em></p>
+<p>　　　　<strong>这是没有安装gcc编译器或者gcc编译器安装失败导致的，重新安装gcc。</strong></p>
+<p>　　　　<strong>yum install -y gcc</strong></p>
+<p>　（4）<em>xml/apr_xml.c:35:19: 致命错误：expat.h：没有那个文件或目录</em></p>
+<p>　　　　<strong>这是没有安装expat-devel或者expat-devel安装失败导致的，重新安装expat-devel。</strong></p>
+<p>　　　　<strong>yum install -y expat-devel</strong></p>
+<p>　（5）<em>configure: error: Invalid C++ compiler or C++ compiler flags</em></p>
+<p>　　　　<strong>这是没有安装gcc-c++或者</strong>gcc-c++<strong>安装失败导致的，重新安装</strong>gcc-c++<strong>。</strong></p>
+<p>　　　　<strong>yum install -y gcc-c++</strong></p>
+<p>　（6）<em>configure: error: pcre-config for libpcre not found. PCRE is required and available from <a href="http://pcre.org/" target="_blank" rel="noopener">http://pcre.org/</a></em></p>
+<p>　　　　<strong>这是没有安装pcre或者pcre安装失败导致的，重新安装pcre。</strong></p>
+<p>　　　　<strong>安装请查看第三步。</strong></p>
+<p>​    （7）make[1]: Entering directory `/deployment/apr-util-1.6.0’</p>
+<p>​                xml/apr_xml.c:411: error: ‘apr_xml_parser’ has no member named ‘xp’</p>
+<p>​                <strong>解决办法：</strong></p>
+<p>​                <strong>yum install expat-devel </strong></p>
+<p>​       (8)  rm: cannot remove ‘libtoolT’: No such file or directory</p>
+<p>​                <strong>解决办法</strong></p>
+<p>​                <strong>1.使用如下命令打开<code>configure</code>文件</strong></p>
+<p>​                <strong>2.找到<code>RM=&#39;$RM&#39;</code>修改为<code>RM=&#39;$RM -f&#39;</code></strong></p>
+<h3 id="5）设置开机启动"><a href="#5）设置开机启动" class="headerlink" title="5）设置开机启动"></a>5）设置开机启动</h3><p>将apache添加为开机启动有两个方法：</p>
+<p>1、在/etc/rc.d/rc.local内加入启动命令 /usr/local/apache2/bin/apachectl start</p>
+<p>2、将http添加为系统服务 </p>
+<p>cp /usr/local/apache2/bin/apachectl /etc/rc.d/init.d/httpd</p>
+<p>chmod +x /etc/rc.d/init.d/httpd</p>
+<p>[root@localhost ~]# chkconfig –add httpd<br>[root@localhost ~]# chkconfig –list|grep httpd<br>httpd      0:关闭 1:关闭 2:关闭 3:关闭 4:关闭 5:关闭 6:关闭</p>
+<p>[root@localhost ~]# chkconfig –level 345 httpd on<br>[root@localhost ~]# chkconfig –list|grep httpd</p>
+<p>httpd      0:关闭 1:关闭 2:关闭 3:启用 4:启用 5:启用 6:关闭</p>
+<p>如果出现[root@localhost ~]# chkconfig –add httpd<br>        httpd 服务不支持 chkconfig</p>
+<p>解决过程如下：</p>
+<p>编辑/etc/rc.d/init.d/httpd</p>
+<p>#!/bin/bash<br>#chkconfig:345 61 61  //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)</p>
+<p>#description:Apache httpd  //此行必写,描述服务.</p>
+<p>添加红色部分就可以拉！</p>
+<p>再[root@localhost ~]# chkconfig –add httpd<br>[root@localhost ~]# chkconfig –list|grep httpd<br>httpd      0:关闭 1:关闭 2:关闭 3:关闭 4:关闭 5:关闭 6:关闭</p>
+<p>[root@localhost ~]# chkconfig –level 345 httpd on<br>[root@localhost ~]# chkconfig –list|grep httpd<br>httpd      0:关闭 1:关闭 2:关闭 3:启用 4:启用 5:启用 6:关闭</p>
+<h3 id="6）查看端口状态"><a href="#6）查看端口状态" class="headerlink" title="6）查看端口状态"></a>6）查看端口状态</h3><p>netstat -anpt|grep 80</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>swoole+thinkphp从零开始打造高性能直播赛事</title>
     <url>/2019/11/20/swoole+thinkphp%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%93%E9%80%A0%E9%AB%98%E6%80%A7%E8%83%BD%E7%9B%B4%E6%92%AD%E8%B5%9B%E4%BA%8B/</url>
     <content><![CDATA[<h1 id="swoole-thinkphp从零开始打造高性能直播赛事"><a href="#swoole-thinkphp从零开始打造高性能直播赛事" class="headerlink" title="swoole+thinkphp从零开始打造高性能直播赛事"></a>swoole+thinkphp从零开始打造高性能直播赛事</h1><h2 id="一、swoole简介"><a href="#一、swoole简介" class="headerlink" title="一、swoole简介"></a>一、swoole简介</h2><h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><ul>
@@ -134,6 +250,9 @@
 <p><a href="https://postimg.cc/2bZD40RN" target="_blank" rel="noopener"><img src="https://i.postimg.cc/V67kPhKv/CB49-B733-32-B6-4008-848-C-D82-E7-DA8-B81-C-20191122140455.jpg" alt="CB49-B733-32-B6-4008-848-C-D82-E7-DA8-B81-C-20191122140455.jpg"></a></p>
 </li>
 </ul>
+</li>
+<li><p>查看swoole版本</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">php --ri swoole</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="五、swoole服务器介绍–tcp服务"><a href="#五、swoole服务器介绍–tcp服务" class="headerlink" title="五、swoole服务器介绍–tcp服务"></a>五、swoole服务器介绍–tcp服务</h2><h3 id="1、tcp服务"><a href="#1、tcp服务" class="headerlink" title="1、tcp服务"></a>1、tcp服务</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//创建Server对象，监听 127.0.0.1:9501端口</span></span><br><span class="line">$serv = <span class="keyword">new</span> Swoole\Server(<span class="string">"127.0.0.1"</span>, <span class="number">9501</span>);</span><br><span class="line">$serv-&gt;set([</span><br><span class="line">    <span class="string">'worker_num'</span> =&gt; <span class="number">4</span>,    <span class="comment">//worker process num</span></span><br><span class="line">    <span class="string">'max_request'</span> =&gt; <span class="number">50</span>,</span><br><span class="line">]);</span><br><span class="line"><span class="comment">//监听连接进入事件</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * $fd: 客户端链接的唯一标识</span></span><br><span class="line"><span class="comment"> * $reactor_id: 线程id</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Connect'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd, $reactor_id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Client: &#123;$reactor_id&#125;-&#123;$fd&#125;-Connect.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听数据接收事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Receive'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd, $from_id, $data)</span> </span>&#123;</span><br><span class="line">    $serv-&gt;send($fd, <span class="string">"Server: &#123;$from_id&#125;--&#123;$fd&#125;--&#123;$data&#125;"</span>.$data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听连接关闭事件</span></span><br><span class="line">$serv-&gt;on(<span class="string">'Close'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($serv, $fd)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Client: &#123;$fd&#125;Close.\n"</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动服务器</span></span><br><span class="line">$serv-&gt;start();</span><br></pre></td></tr></table></figure>
@@ -328,7 +447,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#设置开机启动</span><br><span class="line">chkconfig redis on</span><br><span class="line">#然后可以使用命令 来开启或者关闭redis了</span><br><span class="line">service redis start/stop</span><br><span class="line">ps -ef | grep redis </span><br><span class="line">/usr/local/redis/redis-cli//</span><br><span class="line">vi ~/.bash_profile</span><br></pre></td></tr></table></figure>
 <p><a href="https://postimg.cc/n9Vfxj7G" target="_blank" rel="noopener"><img src="https://i.postimg.cc/Y0Yr1QCZ/A249-CA06-DF3-F-4-B8-B-99-B9-99-EAA6-A24-A67-20191209143520.jpg" alt="A249-CA06-DF3-F-4-B8-B-99-B9-99-EAA6-A24-A67-20191209143520.jpg"></a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 将 Redis 注册成为服务</span><br><span class="line">[root@localhost init.d]# chkconfig --add redis </span><br><span class="line">注意： 如果报  reids不支持chkconfig 错误  </span><br><span class="line">解决方案： vim /ect/init.d/redis </span><br><span class="line">按i,进入编辑模式 </span><br><span class="line">在文档头部添加#chkconfig：2345 80 90 </span><br><span class="line"></span><br><span class="line">如： </span><br><span class="line">#!/bin/sh </span><br><span class="line">#chkconfig: 2345 80 90 </span><br><span class="line">保存后： 输入 [root@localhost init.d]# chkconfig --add redis </span><br><span class="line"></span><br><span class="line">kill redis || kill -9 0000 //停止redis</span><br><span class="line"></span><br><span class="line">//重启</span><br><span class="line">ps -ef | grep redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 将 Redis 注册成为服务</span><br><span class="line">[root@localhost init.d]# chkconfig --add redis </span><br><span class="line">注意： 如果报  reids不支持chkconfig 错误  </span><br><span class="line">解决方案： vim /ect/init.d/redis </span><br><span class="line">按i,进入编辑模式 </span><br><span class="line">在文档头部添加#chkconfig：2345 80 90 </span><br><span class="line"></span><br><span class="line">如： </span><br><span class="line"># chkconfig:   2345 90 10</span><br><span class="line"></span><br><span class="line"># description:  Redis is a persistent key-value database</span><br><span class="line">保存后： 输入 [root@localhost init.d]# chkconfig --add redis </span><br><span class="line"></span><br><span class="line">kill redis || kill -9 0000 //停止redis</span><br><span class="line"></span><br><span class="line">//重启</span><br><span class="line">ps -ef | grep redis</span><br></pre></td></tr></table></figure>
 <h4 id="12）关键"><a href="#12）关键" class="headerlink" title="12）关键"></a>12）关键</h4><p>由于我之前安装过redis配置了开机启动。后来就一直不成功</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find / -name redis-server</span><br><span class="line">rm -rf /etc/systemd/system/multi-user.target.wants/redis.service</span><br><span class="line">rm -rf /usr/lib/systemd/system/redis.service</span><br></pre></td></tr></table></figure>
 <p>终于成功了！</p>
@@ -848,45 +967,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>禁忌女孩</title>
-    <url>/2019/10/10/%E7%A6%81%E5%BF%8C%E5%A5%B3%E5%AD%A9/</url>
-    <content><![CDATA[<p>第1集 <a href="http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8</a></p>
-<p>第2集 <a href="http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8</a>  </p>
-<p>第3集 <a href="http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8</a>  </p>
-<p>第4集 <a href="http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8</a>  </p>
-<p>第5集 <a href="http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8</a>  </p>
-<p>第6集 <a href="http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8</a>  </p>
-<p>第7集 <a href="http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8</a>  </p>
-<p>第8集 <a href="http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8</a>  </p>
-<p>第9集 <a href="http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8</a>  </p>
-<p>第10集 <a href="http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8</a>  </p>
-<p>第11集 <a href="http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8</a>  </p>
-<p>第12集 <a href="http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8</a>  </p>
-<p>第13集 <a href="http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8</a>  </p>
-<hr>
-
-<p>第1集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=</a>  </p>
-<p>第2集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=</a>  </p>
-<p>第3集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=</a>  </p>
-<p>第4集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=</a>  </p>
-<p>第5集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=</a>  </p>
-<p>第6集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=</a>  </p>
-<p>第7集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=</a>  </p>
-<p>第8集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=</a>  </p>
-<p>第9集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=</a>  </p>
-<p>第10集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG</a>  </p>
-<p>第11集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG</a>  </p>
-<p>第12集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG</a>  </p>
-<p>第13集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>电视剧</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python学习--头部解析</title>
     <url>/2019/10/10/python%E5%AD%A6%E4%B9%A0--%E5%A4%B4%E9%83%A8%E8%A7%A3%E6%9E%90/</url>
     <content><![CDATA[<h2 id="python-头部解析"><a href="#python-头部解析" class="headerlink" title="python 头部解析"></a>python 头部解析</h2><table>
@@ -941,6 +1021,45 @@
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>禁忌女孩</title>
+    <url>/2019/10/10/%E7%A6%81%E5%BF%8C%E5%A5%B3%E5%AD%A9/</url>
+    <content><![CDATA[<p>第1集 <a href="http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/a3a02dddc849682e6c8de889548cac43/1561348123/index.m3u8</a></p>
+<p>第2集 <a href="http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/aadff48273e8eb36b3b8a2eb708f006d/1561350356/index.m3u8</a>  </p>
+<p>第3集 <a href="http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/498ef016fd2fc232a178369d45469548/1561350801/index.m3u8</a>  </p>
+<p>第4集 <a href="http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/08683106a7b6b69c91610f30e77b1307/1561351300/index.m3u8</a>  </p>
+<p>第5集 <a href="http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/bbafc0d27eafae9e2a3008ef9a708980/1561351815/index.m3u8</a>  </p>
+<p>第6集 <a href="http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/04070b1e83cf393160d5ce8832ac96aa/1561352270/index.m3u8</a>  </p>
+<p>第7集 <a href="http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/8736c5e8b1efc971785a3c00caedeb6d/1561352723/index.m3u8</a>  </p>
+<p>第8集 <a href="http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/cb316c076770e241ad6f7e5bbf1a6264/1561353169/index.m3u8</a>  </p>
+<p>第9集 <a href="http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/47d5b7382149c74152ec6df0bb9fe24e/1561353595/index.m3u8</a>  </p>
+<p>第10集 <a href="http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/481af83ca176bc96dd86dd6389481d34/1561348599/index.m3u8</a>  </p>
+<p>第11集 <a href="http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/fcdcb97b2923845e8400520ec8d2e66b/1561349031/index.m3u8</a>  </p>
+<p>第12集 <a href="http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/281f0b075ed476da70bb5767ee05f5d8/1561349484/index.m3u8</a>  </p>
+<p>第13集 <a href="http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8" target="_blank" rel="noopener">http://cn3.download05.com/hls/20190624/87ede760c2171df20a1de975649203d3/1561349949/index.m3u8</a>  </p>
+<hr>
+
+<p>第1集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDHpm4Y=</a>  </p>
+<p>第2集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDLpm4Y=</a>  </p>
+<p>第3集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDPpm4Y=</a>  </p>
+<p>第4集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDTpm4Y=</a>  </p>
+<p>第5集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDXpm4Y=</a>  </p>
+<p>第6集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDbpm4Y=</a>  </p>
+<p>第7集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDfpm4Y=</a>  </p>
+<p>第8集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDjpm4Y=</a>  </p>
+<p>第9集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDnpm4Y=</a>  </p>
+<p>第10集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEw6ZuG</a>  </p>
+<p>第11集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEx6ZuG</a>  </p>
+<p>第12集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEy6ZuG</a>  </p>
+<p>第13集 <a href="http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG" target="_blank" rel="noopener">http://qiaozhen.com.cn/share/MTk1NDMzJOesrDEz6ZuG</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>电视剧</tag>
       </tags>
   </entry>
   <entry>
@@ -1147,6 +1266,18 @@
       </tags>
   </entry>
   <entry>
+    <title>切尔诺贝利日记</title>
+    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>切尔诺贝利日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>权利的游戏</title>
     <url>/2019/09/01/%E6%9D%83%E5%88%A9%E7%9A%84%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h2 id="权利的游戏-第一季"><a href="#权利的游戏-第一季" class="headerlink" title="权利的游戏 第一季"></a>权利的游戏 第一季</h2><p>第1集 <a href="http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8" target="_blank" rel="noopener">http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8</a>   </p>
@@ -1318,18 +1449,6 @@
       </tags>
   </entry>
   <entry>
-    <title>切尔诺贝利日记</title>
-    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>切尔诺贝利日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>切尔诺贝利</title>
     <url>/2019/08/31/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%20%E7%AC%AC%E4%B8%80%E5%AD%A3/</url>
     <content><![CDATA[<h1 id="切尔诺贝利-第一季"><a href="#切尔诺贝利-第一季" class="headerlink" title="切尔诺贝利 第一季"></a>切尔诺贝利 第一季</h1><p>第1集 <a href="https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc" target="_blank" rel="noopener">https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc</a>  </p>
@@ -1346,24 +1465,6 @@
       </categories>
       <tags>
         <tag>切尔诺贝利</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库映射</title>
-    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
-    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
-<li><p>my.ini 数据库配置文件  </p>
-<p>  开启映射</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1440,6 +1541,24 @@
       </categories>
       <tags>
         <tag>svn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库映射</title>
+    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
+<li><p>my.ini 数据库配置文件  </p>
+<p>  开启映射</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -2336,15 +2455,14 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>MarkdownPad2安装汉化与注册码</title>
-    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
-    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
-<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
-<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
-]]></content>
+    <title>php常用方法</title>
+    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
+      <categories>
+        <category>常用方法</category>
+      </categories>
       <tags>
-        <tag>破解</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
@@ -2361,14 +2479,15 @@ cat [选项] 文件名
       </tags>
   </entry>
   <entry>
-    <title>php常用方法</title>
-    <url>/2019/05/23/php%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id><a href="#" class="headerlink" title="*"></a>*</h1><h2 id="test1"><a href="#test1" class="headerlink" title="test1"></a>test1</h2>]]></content>
-      <categories>
-        <category>常用方法</category>
-      </categories>
+    <title>MarkdownPad2安装汉化与注册码</title>
+    <url>/2019/05/23/markdown%E6%B3%A8%E5%86%8C%E6%BF%80%E6%B4%BB/</url>
+    <content><![CDATA[<h1 id="1、markdown下载地址"><a href="#1、markdown下载地址" class="headerlink" title="1、markdown下载地址"></a>1、markdown下载地址</h1><p><a href="http://www.markdownpad.com/" target="_blank" rel="noopener">http://www.markdownpad.com/</a></p>
+<h1 id="2、破解密码"><a href="#2、破解密码" class="headerlink" title="2、破解密码"></a>2、破解密码</h1><p>点击 Enter Key<br>Email address: <a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a><br>License Key:    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
+<h1 id="3、汉化"><a href="#3、汉化" class="headerlink" title="3、汉化"></a>3、汉化</h1><p>选择Option-&gt;选择设置中文<br>重启后生效</p>
+]]></content>
       <tags>
-        <tag>php</tag>
+        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
