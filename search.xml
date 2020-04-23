@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>php秒杀系统</title>
+    <url>/2020/04/22/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9Fphp%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="php-秒杀系统"><a href="#php-秒杀系统" class="headerlink" title="php 秒杀系统"></a>php 秒杀系统</h1><h2 id="一、特点"><a href="#一、特点" class="headerlink" title="一、特点"></a>一、特点</h2><ul>
+<li>人多商品少</li>
+<li>时间短流量高</li>
+<li>外挂机器</li>
+</ul>
+<h2 id="二、技术分析"><a href="#二、技术分析" class="headerlink" title="二、技术分析"></a>二、技术分析</h2><ul>
+<li>瞬时高并发处理能力</li>
+<li>多层次的分布式处理能力</li>
+<li>人机交互与对抗</li>
+</ul>
+<h2 id="三、系统环境搭建"><a href="#三、系统环境搭建" class="headerlink" title="三、系统环境搭建"></a>三、系统环境搭建</h2><h3 id="1、-技术选型分析之基础服务"><a href="#1、-技术选型分析之基础服务" class="headerlink" title="1、 技术选型分析之基础服务"></a>1、 技术选型分析之基础服务</h3><ul>
+<li>Linux+Nginx+PHP+Mysql+redis</li>
+<li>开源，免费</li>
+<li>大众普及</li>
+</ul>
+<h3 id="2、技术选型分析之环境搭建"><a href="#2、技术选型分析之环境搭建" class="headerlink" title="2、技术选型分析之环境搭建"></a>2、技术选型分析之环境搭建</h3><ul>
+<li>CDN，智能DNS</li>
+<li>分布式缓存，全国多节点</li>
+<li>多线路接入</li>
+</ul>
+<h3 id="3、技术选型分析之负载均衡"><a href="#3、技术选型分析之负载均衡" class="headerlink" title="3、技术选型分析之负载均衡"></a>3、技术选型分析之负载均衡</h3><ul>
+<li>负载均衡LVS</li>
+<li>大型web集群</li>
+<li>高效稳定</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/22/4YJc2VTkLO9aXCm.jpg" alt="1.jpg"></p>
+<h3 id="3、开发环境搭建"><a href="#3、开发环境搭建" class="headerlink" title="3、开发环境搭建"></a>3、开发环境搭建</h3><ul>
+<li><p>开发环境准备</p>
+<ul>
+<li>开发工具：Eclipse for php developers/phpstrom/editplus</li>
+</ul>
+</li>
+<li><p>部署开发环境</p>
+<ul>
+<li>XAMPP/macos brew安装工具/Linux yum</li>
+</ul>
+</li>
+<li>代码管理器<ul>
+<li>Git/SVN</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、系统环境搭建"><a href="#4、系统环境搭建" class="headerlink" title="4、系统环境搭建"></a>4、系统环境搭建</h3><ul>
+<li><p>Mysql封装类</p>
+<ul>
+<li>更安全的pdo组件</li>
+<li>封装常用的增删改查</li>
+<li>详情参见项目代码</li>
+</ul>
+<p><img src="https://i.loli.net/2020/04/22/wjx71afoIgUZse4.jpg" alt="2.jpg"></p>
+</li>
+<li><p>redis 封装类</p>
+<ul>
+<li>PHP客户端：phpredis/Predis</li>
+<li>封装基本的redis资源链接和命令</li>
+<li>详情参见项目代码</li>
+</ul>
+</li>
+<li><p>调试封装类</p>
+<ul>
+<li>封装资源类调用：mysql,redis,curl等</li>
+<li>定制日志，调试日志等</li>
+<li>详情参见项目代码</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sublime text3 注册码</title>
     <url>/2020/03/18/sublime%20text3%20%E6%B3%A8%E5%86%8C%E7%A0%81/</url>
     <content><![CDATA[<h1 id="sublime-text3注册码"><a href="#sublime-text3注册码" class="headerlink" title="sublime text3注册码"></a>sublime text3注册码</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----- BEGIN LICENSE -----</span><br><span class="line">Member J2TeaM</span><br><span class="line">Single User License</span><br><span class="line">EA7E-1011316</span><br><span class="line">D7DA350E 1B8B0760 972F8B60 F3E64036</span><br><span class="line">B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD</span><br><span class="line">FA0A2ABE 25F65BD8 D51458E5 3923CE80</span><br><span class="line">87428428 79079A01 AA69F319 A1AF29A4</span><br><span class="line">A684C2DC 0B1583D4 19CBD290 217618CD</span><br><span class="line">5653E0A0 BACE3948 BB2EE45E 422D2C87</span><br><span class="line">DD9AF44B 99C49590 D2DBDEE1 75860FD2</span><br><span class="line">8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864</span><br><span class="line">------ END LICENSE ------​</span><br></pre></td></tr></table></figure>]]></content>
@@ -1312,18 +1389,6 @@
       </tags>
   </entry>
   <entry>
-    <title>切尔诺贝利日记</title>
-    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
-]]></content>
-      <categories>
-        <category>影视</category>
-      </categories>
-      <tags>
-        <tag>切尔诺贝利日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>权利的游戏</title>
     <url>/2019/09/01/%E6%9D%83%E5%88%A9%E7%9A%84%E6%B8%B8%E6%88%8F/</url>
     <content><![CDATA[<h2 id="权利的游戏-第一季"><a href="#权利的游戏-第一季" class="headerlink" title="权利的游戏 第一季"></a>权利的游戏 第一季</h2><p>第1集 <a href="http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8" target="_blank" rel="noopener">http://cn4.5311444.com/hls/20181119/f906b9b89a74c9135f5cdd89f5c5c1f2/1542620202/index.m3u8</a>   </p>
@@ -1495,6 +1560,18 @@
       </tags>
   </entry>
   <entry>
+    <title>切尔诺贝利日记</title>
+    <url>/2019/09/01/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="切尔诺贝利日记"><a href="#切尔诺贝利日记" class="headerlink" title="切尔诺贝利日记"></a>切尔诺贝利日记</h1><p>第1集 <a href="https://v2.szjal.cn/share/Z5SamlNVisau8Okc" target="_blank" rel="noopener">https://v2.szjal.cn/share/Z5SamlNVisau8Okc</a></p>
+]]></content>
+      <categories>
+        <category>影视</category>
+      </categories>
+      <tags>
+        <tag>切尔诺贝利日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>切尔诺贝利</title>
     <url>/2019/08/31/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%20%E7%AC%AC%E4%B8%80%E5%AD%A3/</url>
     <content><![CDATA[<h1 id="切尔诺贝利-第一季"><a href="#切尔诺贝利-第一季" class="headerlink" title="切尔诺贝利 第一季"></a>切尔诺贝利 第一季</h1><p>第1集 <a href="https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc" target="_blank" rel="noopener">https://v2.szjal.cn/share/XWH1eZs2dmgX0Jjc</a>  </p>
@@ -1511,6 +1588,49 @@
       </categories>
       <tags>
         <tag>切尔诺贝利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库映射</title>
+    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
+<li><p>my.ini 数据库配置文件  </p>
+<p>  开启映射</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>svn使用思路</title>
+    <url>/2019/08/27/svn%E4%BD%BF%E7%94%A8%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="svn使用思路"><a href="#svn使用思路" class="headerlink" title="svn使用思路"></a>svn使用思路</h1><ol>
+<li><p>新建版本库，①trunk文件夹存放基础版本  ②branches开发新功能分支 ③tags版本完成分支</p>
+</li>
+<li><p>主分支开始开发 并完成提交版本v1.0-测试版本并且提交</p>
+</li>
+<li><p>主分支继续开发中 这时上线版本需要进行一些修改bug，以及功能的完善 branches上建立分支，并且切换到该分支下进行开发。</p>
+</li>
+<li><p>开发测试完成后，则于线上版本v1.0进行合并。</p>
+</li>
+<li><p>切换回主分支trunk下，将branches上的功能进行合并。遇到有冲突的文件需要右键点击冲突文件后编辑冲突，手动合并代码后保存，并且更改为已经解决</p>
+</li>
+<li><p>编辑好后重新上传到新的版本库中，完成一个合并操作。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>svn</category>
+      </categories>
+      <tags>
+        <tag>svn</tag>
       </tags>
   </entry>
   <entry>
@@ -1562,49 +1682,6 @@
       </categories>
       <tags>
         <tag>全职高手</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库映射</title>
-    <url>/2019/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84/</url>
-    <content><![CDATA[<h1 id="数据库映射"><a href="#数据库映射" class="headerlink" title="数据库映射"></a>数据库映射</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `organization_chart` (</span><br><span class="line">  `organization_chart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT &apos;部门ID&apos;,</span><br><span class="line">  `organization_chart_name` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;部门名称&apos;,</span><br><span class="line">  `time` int(11) DEFAULT &apos;0&apos; COMMENT &apos;添加时间&apos;,</span><br><span class="line">  `organization_chart_level` int(11) DEFAULT &apos;0&apos; COMMENT &apos;部门等级&apos;,</span><br><span class="line">  `organization_chart_pid` int(11) DEFAULT &apos;0&apos; COMMENT &apos;上级部门ID&apos;,</span><br><span class="line">  `stor` int(11) DEFAULT &apos;0&apos; COMMENT &apos;排序&apos;,</span><br><span class="line">  `organization_chart_content` varchar(600) DEFAULT &apos;&apos; COMMENT &apos;部门描述&apos;,</span><br><span class="line">  `infos_id` int(11) DEFAULT &apos;0&apos; COMMENT &apos;关联平台ID&apos;,</span><br><span class="line">  PRIMARY KEY (`organization_chart_id`)</span><br><span class="line">) ENGINE=FEDERATED    </span><br><span class="line">CONNECTION=&apos;mysql://root:123456@192.168.2.210:3306/zhypt/organization_chart&apos; COMMENT &apos;部门映射表&apos;;</span><br></pre></td></tr></table></figure>
-<h2 id="修改数据库配置文件"><a href="#修改数据库配置文件" class="headerlink" title="修改数据库配置文件"></a>修改数据库配置文件</h2><ul>
-<li><p>my.ini 数据库配置文件  </p>
-<p>  开启映射</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">federated</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>svn使用思路</title>
-    <url>/2019/08/27/svn%E4%BD%BF%E7%94%A8%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="svn使用思路"><a href="#svn使用思路" class="headerlink" title="svn使用思路"></a>svn使用思路</h1><ol>
-<li><p>新建版本库，①trunk文件夹存放基础版本  ②branches开发新功能分支 ③tags版本完成分支</p>
-</li>
-<li><p>主分支开始开发 并完成提交版本v1.0-测试版本并且提交</p>
-</li>
-<li><p>主分支继续开发中 这时上线版本需要进行一些修改bug，以及功能的完善 branches上建立分支，并且切换到该分支下进行开发。</p>
-</li>
-<li><p>开发测试完成后，则于线上版本v1.0进行合并。</p>
-</li>
-<li><p>切换回主分支trunk下，将branches上的功能进行合并。遇到有冲突的文件需要右键点击冲突文件后编辑冲突，手动合并代码后保存，并且更改为已经解决</p>
-</li>
-<li><p>编辑好后重新上传到新的版本库中，完成一个合并操作。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>svn</category>
-      </categories>
-      <tags>
-        <tag>svn</tag>
       </tags>
   </entry>
   <entry>
