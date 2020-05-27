@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="30no2">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="30no2">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>我编程我快乐 · 30no2&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5585bd8db64f7d131c825e9275e8ad0c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >30no2&#39;s Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">我编程我快乐</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>30no2's Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            我编程我快乐
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">5.4k</span>阅读时长: <span class="post-count reading-time">18 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/05/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p># </p>
+<h2 id="一、选择市场"><a href="#一、选择市场" class="headerlink" title="一、选择市场"></a>一、选择市场</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作为软件开发人员，用这种投机取巧的方式来编程显然不是什么好主意。但是很多人正是让偶然来决定职业道路上的各种选择。我们应该在哪种技术上投资？应该专注于哪个领域?是英国扩展知识面，还是深入学习一门学问？这些问题都是值得我们细细斟酌的。</span><br></pre></td></tr></table></figure>
+<h3 id="1、稳定型还是技术型"><a href="#1、稳定型还是技术型" class="headerlink" title="1、稳定型还是技术型"></a>1、稳定型还是技术型</h3><pre><code>在有目的地选择投资哪种技术和领域时，风险收益平衡是一个很重要的权衡因素。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择是把双刃剑，决定权还是在你手机。</span><br></pre></td></tr></table></figure>
+<h3 id="2、供应和需求"><a href="#2、供应和需求" class="headerlink" title="2、供应和需求"></a>2、供应和需求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">主流外包公司不会着手新技术，他们等技术服务市场平衡，然后再用极其廉价的编程成本打入这个市场。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从供求规律中，我们可以学到重要的一点——需求的增长会加剧价格的竞争。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我需要做的是了解行业中哪些高需求技术已经被使用，但是还没有流入外包市场中的技术。思考多久才能为相应市场提供服务。这个时间就是市场不平衡阶段。</span><br></pre></td></tr></table></figure>
+<h3 id="3、只会编程是不够的"><a href="#3、只会编程是不够的" class="headerlink" title="3、只会编程是不够的"></a>3、只会编程是不够的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你想站稳脚跟，必须要深入了解你所处的领域</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的行业经历应该成为你的重要才能。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">或许你是一个程序员，但是如果你能用客户所处行业的专业语言与他们交流，那这就是一项非常重要的技能。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要在所处的行业中，沉淀下来。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与业内人士吃饭，并了解他们如何工作的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看行业内杂志，了解大事件和专题</span><br></pre></td></tr></table></figure>
+<h3 id="4、做团队中最差的"><a href="#4、做团队中最差的" class="headerlink" title="4、做团队中最差的"></a>4、做团队中最差的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">试图做团队最差的可以让你不再小看自己，可能你的能力应在在甲等乐团演出，但你自己确认为在乙等乐队。你清楚的知道自己不是最好的，就不会担心别人发现你不是最优秀的。而事实上，你尝试做最差的，但你并不是。</span><br></pre></td></tr></table></figure>
+<h3 id="5、在思维上投资"><a href="#5、在思维上投资" class="headerlink" title="5、在思维上投资"></a>5、在思维上投资</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果在一种新的还未稳定的技术上花费时间和精力，就会显得很愚蠢。特别是如果你之前并没打算开发的技术。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">尝试去学习一门新的语言，换一种思维方式。</span><br></pre></td></tr></table></figure>
+<h3 id="6、不要听从父母"><a href="#6、不要听从父母" class="headerlink" title="6、不要听从父母"></a>6、不要听从父母</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">出于担心的职业规划不会让你走向成功，而是会局限你的发展。没错这条路很安全，但毫无乐趣可言。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在职业道路上，需要一些有目的性的冒险。别让恐惧征服了你。如果在工作中没有感到乐趣，那你就不可能出色的工作。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">等我老了，驾鹤西游之前，回想过去我希望我会说“上帝，这辈子真是险象环生啊！”而不是“嗯，这辈子过得还算稳稳当当。</span><br></pre></td></tr></table></figure>
+<h3 id="7、做一名通才"><a href="#7、做一名通才" class="headerlink" title="7、做一名通才"></a>7、做一名通才</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怎么才能成为这些生意人遇到困难时首先想到的”英雄呢“？答案就是--能够解决一切可能出现的难题。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你想在这个行业站稳脚跟，那我建议你要成为通才。</span><br></pre></td></tr></table></figure>
+<h3 id="8、成为一名专家"><a href="#8、成为一名专家" class="headerlink" title="8、成为一名专家"></a>8、成为一名专家</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">已经处理过我们工作中可能遇到的80%的问题，并且拥有足够的知识来应付另外还未出现的20%的问题。不仅可以处理高水平的抽象，同时应该了解实现高端抽象的低端细节。</span><br></pre></td></tr></table></figure>
+<h3 id="9、切记孤注一掷"><a href="#9、切记孤注一掷" class="headerlink" title="9、切记孤注一掷"></a>9、切记孤注一掷</h3><blockquote>
+<p>不要把自己的职业规划放到一门特定的技术上，我们应该把他当作一门生意来做。如果说必须要一心一意投资在一项特定的技术里面的话，考虑开源项目。而不是选择商业性质的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你应该下载一个开源的JBoss或者Geronimo服务器，留出时间来学习这些服务器的内部是如何运转的，而不是学习如何操作。</span><br></pre></td></tr></table></figure>
+<h3 id="10、热爱它，不然就离开它"><a href="#10、热爱它，不然就离开它" class="headerlink" title="10、热爱它，不然就离开它"></a>10、热爱它，不然就离开它</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你想在工作中做出成绩，那么就必须对工作充满激情；如果不在乎这份工作，那后果会显现出来。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一门技术或者一个商业领域可能会使你感到兴奋；相反，或许是某一特定技术或者商业领域拖累了你。也许你更适合一个小团队或者大团队，而你处在不适合的组织里；或者是在挑选偏呆板或者偏灵活上出了差错。不管什么原因，想想自己到底适合什么。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">短时间内你可能可以伪装，但是缺少热情总会影响你和你的工作。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不要用自己的技术来定位自己，而是用我做过的或者是将要做的事情来定位自己，技术只是一种做事的方法。</p>
+</blockquote>
+<h2 id="二、在产品中投资"><a href="#二、在产品中投资" class="headerlink" title="二、在产品中投资"></a>二、在产品中投资</h2><blockquote>
+<p>如果想要拥有一个有竞争力与众不同的产品，就必须要在这个产品中投资。商业中，有想法有天赋的人很多。只有在产品中投入心血，汗水，眼泪和资金，才能使它真正具有价值。</p>
+</blockquote>
+<h3 id="11、学习钓鱼"><a href="#11、学习钓鱼" class="headerlink" title="11、学习钓鱼"></a>11、学习钓鱼</h3><blockquote>
+<p>Don`t wait to be told. Ask!</p>
+</blockquote>
+<h3 id="12、学习行业是如何运转的"><a href="#12、学习行业是如何运转的" class="headerlink" title="12、学习行业是如何运转的"></a>12、学习行业是如何运转的</h3><blockquote>
+<p>只有了解一个行业后，你才能创造性的有所建树。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">了解你公司的财务运作可以让你做出有意义的转变，而不是茫然无知地专注于某一事情，却主观的认为这样就是对的。</span><br></pre></td></tr></table></figure>
+<h3 id="13、寻找良师"><a href="#13、寻找良师" class="headerlink" title="13、寻找良师"></a>13、寻找良师</h3><blockquote>
+<p>可以依赖别人，但要确保这个人是靠的住的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">良师还是值得信任的朋友，他们可以观察并判断你做出的决定和取得的进步。</span><br></pre></td></tr></table></figure>
+<h3 id="14、做一名良师"><a href="#14、做一名良师" class="headerlink" title="14、做一名良师"></a>14、做一名良师</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要想真正学点东西，就要试着向别人传授这些知识。</span><br></pre></td></tr></table></figure>
+<h3 id="15、练习，练习，再练习"><a href="#15、练习，练习，再练习" class="headerlink" title="15、练习，练习，再练习"></a>15、练习，练习，再练习</h3><blockquote>
+<p>在极限处练习</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">训练思维敏捷和提高即兴编码技术的好方法是通过自我限制的方式来练习。</span><br></pre></td></tr></table></figure>
+<p>书中推荐网站：</p>
+<ul>
+<li>Topcoder.com  —— 编程竞技网站</li>
+<li>Code Kata —— 《程序员修炼之道》Dave Thomas 创造的小练习。</li>
+</ul>
+<h3 id="16、做事的方法"><a href="#16、做事的方法" class="headerlink" title="16、做事的方法"></a>16、做事的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个成功的软件开发步骤。必须是由使用它的人来参与定制的。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>方法论听上去很空洞，但是对软件开发本身很有帮助，即使研究你不需要做的事情。如果你很擅长软件开发，那你就拥有了一个有力的证据证明你的团队如何才能更好的工作。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找一个能够设计出软件开发步骤的人要比做这个软件的人要难的多。</span><br></pre></td></tr></table></figure>
+<p>项目管理相应的网站：</p>
+<ul>
+<li><a href="http://www.pmi.org" target="_blank" rel="noopener">http://www.pmi.org</a>  —— “Project Management Book of Knowledge”</li>
+<li><a href="http://www.isixsigma.com/" target="_blank" rel="noopener">http://www.isixsigma.com/</a> —— “六西格玛方法论”</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">唯一找到项目管理与软件管理混合方法的办法是研究可用的方法论，从真正的实践中不断提炼总结。</span><br></pre></td></tr></table></figure>
+<h3 id="17、站在巨人的肩膀上"><a href="#17、站在巨人的肩膀上" class="headerlink" title="17、站在巨人的肩膀上"></a>17、站在巨人的肩膀上</h3><blockquote>
+<p>从现有的程序中得到领悟——用现有程序来反思自己的程序</p>
+</blockquote>
+<p>设计模式相应书籍的推荐:</p>
+<ul>
+<li>Design Patterns —— 《设计模式：可复用面上对象软件的基础》</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当你读这些程序时，你会发现某些你可能永远都不会去实践的工作，甚至你想都没想过的。</span><br><span class="line">他为什么这么做？他是怎么想的？</span><br><span class="line">即使你读到的是不怎么样的程序，通过批判的角度研究它，你也会有不获。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当你以一种批判的角度去看这些程序时，你就会开始培养自己的品味。</span><br></pre></td></tr></table></figure>
+<h3 id="18、在工作中，将自己自动化"><a href="#18、在工作中，将自己自动化" class="headerlink" title="18、在工作中，将自己自动化"></a>18、在工作中，将自己自动化</h3><ul>
+<li>封装一些经常使用的类库。不用考虑效率，只需要确保这个能节省时间。想办法提高生成代码的抽象等级。</li>
+<li>研究模型驱动架构。（MAD）并在日常生活中来应用MAD概念。</li>
+</ul>
+<h2 id="三、执行"><a href="#三、执行" class="headerlink" title="三、执行"></a>三、执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在成功的道路上，你的能力在没有得到实践之前不能带你走太远。</span><br></pre></td></tr></table></figure>
+<h3 id="19、就是现在"><a href="#19、就是现在" class="headerlink" title="19、就是现在"></a>19、就是现在</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据帕金森定律：工作会自动膨胀到占满所有可用的时间。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>随时问问自己：现在我能做些什么。</p>
+</blockquote>
+<h3 id="20、读心术"><a href="#20、读心术" class="headerlink" title="20、读心术"></a>20、读心术</h3><blockquote>
+<p>在与经理或者客户交流时，认真倾听分析他们说过的话。尤其是他们不经意间表达出要做的事情，即使他们自己有时候都没有意识到。将这些事情添加到代办事情中去，看看是不是可行。如果执行起来不是很困难，那就去做。</p>
+</blockquote>
+<p>风险：</p>
+<ul>
+<li>做错了怎么办？先从小事做，尽量用业余时间完成。</li>
+<li>如果做了，会影响原有的系统，并且恢复起来很难，就不要做了。如果改变带来的影响很大，需要做商业决定了，而这并不是一个程序员能权衡的。</li>
+<li>也许客户提出了某些改动，你按照他的要求变化了，但出乎意料的弱化了系统的功能，这并不是客户想看到的。所以在做之前一定要特别小心。</li>
+</ul>
+<blockquote>
+<p>在做项目之前，要先试着做些笔记，试着记录下客户想要你做的事情。</p>
+<p>然后在接到项目后看看自己命中了多少。</p>
+</blockquote>
+<h3 id="21、每日成绩"><a href="#21、每日成绩" class="headerlink" title="21、每日成绩"></a>21、每日成绩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你最后一次做分外的事是什么时候？你的经理知道么？你又怎么能让他知道你做的工作呢？</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>每天要有可汇报的成绩</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">制定目标（每日、每周或者无论什么你能做到的）并且记录下来可以彻底改变你工作中的表现的工作内容。当你开始追寻骄人的业绩时，你自然而然地会根据你工作领域的商业价值，对你的行为做出评价，将工作花费优先顺序。</span><br></pre></td></tr></table></figure>
+<p>测试:</p>
+<ul>
+<li>流出半小时，用一只铅笔，一张纸安静的坐在无人打扰的地方，想想哪些时一些吹毛求疵的小问题。哪些烦人的任务，确要耽误整个团队好几分钟。却没人来有精力完成，记录下来</li>
+<li>现在的项目中哪些时可以自动完成的，确要手动完成。。。</li>
+</ul>
+<h3 id="22、别忘了你在为谁工作"><a href="#22、别忘了你在为谁工作" class="headerlink" title="22、别忘了你在为谁工作"></a>22、别忘了你在为谁工作</h3><blockquote>
+<p>确保你的目标和工作与你公司的目标一致.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要想直接对公司业绩造成影响就像是想把大海里的水煮沸,可以把整片大海海水分解成一个一个的可以煮沸的小水坑。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你做的事情虽小，但却是在为完成整个公司的目标出力。这就是你工作的目标，也是你工作的意义所在。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>经理的成功就是你们的成功</p>
+</blockquote>
+<p>测试：</p>
+<ul>
+<li>安排一次与经理的会面，目的是了解经理对整个团队下个月，下个季度以及来年的目标。</li>
+</ul>
+<h3 id="23、安分守己"><a href="#23、安分守己" class="headerlink" title="23、安分守己"></a>23、安分守己</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你把所有时间都花费在想要得到的某种东西，可是欲望同满足时对立的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比起只专注在目标上的做法，专注于现在的工作会使你离最终的目标更近。</span><br></pre></td></tr></table></figure>
+<h3 id="24、今天我能把工作做到多好？"><a href="#24、今天我能把工作做到多好？" class="headerlink" title="24、今天我能把工作做到多好？"></a>24、今天我能把工作做到多好？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">越糟糕的环境越能激发出我们最优秀的一面</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">问你自己，“我今天能把工作做到多好？”你发现你会更喜欢自己的工作，你的工作也会喜欢上你。</span><br></pre></td></tr></table></figure>
+<h3 id="25、你的价值是多少"><a href="#25、你的价值是多少" class="headerlink" title="25、你的价值是多少"></a>25、你的价值是多少</h3><blockquote>
+<p>如果你创造的价值是你现在工资的两倍，那你公司还是会破产。因为公司在你身上的投入不只有工资，还有保险等等福利，这些不是在工资中体现的，粗略的讲公司在你身上的投入应该为工资的两倍。记住这个数字：2倍的薪水，在达到这个目标前，千万不要放弃。</p>
+</blockquote>
+<h3 id="26、一桶水中的鹅卵石"><a href="#26、一桶水中的鹅卵石" class="headerlink" title="26、一桶水中的鹅卵石"></a>26、一桶水中的鹅卵石</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个人的离开对公司来说造成的影响非常小，即使是这个员工处在非常重要的职位，造成的影响也会非常小。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>永远不要高枕无忧，也许哪天就会被公司辞掉，可能就是今天。</p>
+</blockquote>
+<blockquote>
+<p>小心！别让成功冲昏了头脑。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你越是成功，就越有可能犯下重大错误。当你得到很多肯定时，就会很少质疑自己的决定。你使用方法屡试不爽的时候，就可能会忽略会有更好的方法。你开始变的傲慢。人一旦傲慢，就会产生盲点。越认为自己无可替代，就越有可能被取代。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">想要让自己不可替代，就要建立一种友好的工作关系。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>写代码要尽量把一些别人不容易理解的加上注释，说明，看起来更友好的代码，并分享给你的同事。</p>
+</blockquote>
+<h3 id="27、爱上维护"><a href="#27、爱上维护" class="headerlink" title="27、爱上维护"></a>27、爱上维护</h3><blockquote>
+<p>维护也可以成为自由和创造的沃土</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">评估，改进，评估——在你所维护的所有重要应用程序和代码中，把所有可以评估程序质量的元素列举出来。</span><br><span class="line">从中选择最重要的特征，开始对它进行评估。在有了一个基本的测量准线后，确定一个可实现的目标，改进这个应用程序表现以达到这个既定目标。</span><br></pre></td></tr></table></figure>
+<h3 id="28、8小时的激情燃烧"><a href="#28、8小时的激情燃烧" class="headerlink" title="28、8小时的激情燃烧"></a>28、8小时的激情燃烧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作的时候不容一丝松懈，高度集中，以至于连续工作的时间无法超越8小时。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当工作的时间非常宽裕的时候，工作的时间价值就会降低。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>好好规划你的工作时间。减少工作时间，你的收获会更多。当你离开工作一段时间后，才会更喜欢工作。</p>
+</blockquote>
+<h3 id="29、学习如何失败"><a href="#29、学习如何失败" class="headerlink" title="29、学习如何失败"></a>29、学习如何失败</h3><blockquote>
+<p>每个错误的音调离正确的音调不过一步之遥</p>
+</blockquote>
+<ul>
+<li>发现问题，第一时间提出了，不要试图隐瞒，越早发现错误，造成的问题会越少</li>
+<li>接受批评，即使不完全是你的问题，你也要承担责任后继续工作</li>
+<li><p>提供解决方案。如果你没有想到解决的办法，就提供一份有计划性的进程。</p>
+</li>
+<li><p>寻求帮助。拒绝别人的帮助，只会使情况更糟糕</p>
+</li>
+</ul>
+<blockquote>
+<p>充满压力的时候是赢得忠诚的最好时机。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公司对错误处理方式的不同，会产生不同的结果。问题处理得好，会使客户对其产品更加忠诚，甚至比碰到问题之前，更加信任这家公司。要是处理不好，那就摧毁了客户的信任。工作中犯错误的时候，要时刻谨记客户的这一心理。</span><br></pre></td></tr></table></figure>
+<h3 id="30、说”不“"><a href="#30、说”不“" class="headerlink" title="30、说”不“"></a>30、说”不“</h3><blockquote>
+<p>清楚的知道自己无法做到却还依然做的承诺，最不容易实现。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">说”是“是个上瘾却具有毁灭性的习惯。”能够胜任的态度“和歪曲某人的能力有很大的不同。后者不仅给自己造成麻烦，也会给你所承受的对象制造麻烦。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当我的团队无法完成某项工作时，有勇气说”不“，那当他们说”是“的时候我会更信任他们。</span><br></pre></td></tr></table></figure>
+<h3 id="31、不要恐慌"><a href="#31、不要恐慌" class="headerlink" title="31、不要恐慌"></a>31、不要恐慌</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">现实生活中，不管做出怎样完美的计划，我的职业生涯还是有一连串的突发事件和灾难。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在惊慌之前克制住它，事后分析自己对问题时的反应。每天用日记记录下使你惊慌的事情，哪怕是一点点。也不要放过。每周回顾上一周的日记。分析是否值得恐慌。这样反复练习后，会发现再遇到事情，就会理智分析。</p>
+</blockquote>
+<h3 id="32、说出来，行动，展示"><a href="#32、说出来，行动，展示" class="headerlink" title="32、说出来，行动，展示"></a>32、说出来，行动，展示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从不做出承诺最容易导致一事无成。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>状态报告可以推销自己。</p>
+</blockquote>
+<blockquote>
+<p>完成一轮计划后，与你上司讨论你的计划。一开始按照周与上司交流，你觉得适应了这个过程之后，按照30天，60天，90天时间安排，把长期计划按照提案的方式陈述给你的领导，并要求他们反馈。时间长了，你会发现哪些项目经理不会提出异议，哪些他们会提出较多异议。经理对你提出的计划也会越来越少。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的上司希望你具有独立性和归属感。制作计划，执行计划以及与上司就计划进行沟通，都会帮助你找到工作的独立性和归属感。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果让我开选择两种能使我取得进步的方法，我会选择失败和模仿。</p>
+</blockquote>
+<h2 id="四、推销。。。不仅仅是迎合"><a href="#四、推销。。。不仅仅是迎合" class="headerlink" title="四、推销。。。不仅仅是迎合"></a>四、推销。。。不仅仅是迎合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">很多软件开发人员，特别是哪些自以为是的开发人员，都认为自己的能力在同行和上司眼中是不证自明的，他们可以自然的将这个谎言掩藏于虚构的道德逻辑中：不显示自己的能力，是因为自己过于谦虚，炫耀自己的能力会像是阿谀奉承。有自尊心的程序员是不会在老板面前讨好卖乖的。</span><br><span class="line">事实上，这都是他们恐慌的接口。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">掩藏你的能力都是非常愚蠢的。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>宣传自己有两个目标，让别人知道你的存在，以及让他们知道，当你遇到难题时，你是那个可以解决问题的人。</p>
+</blockquote>
+<h3 id="33、不要忽视感觉"><a href="#33、不要忽视感觉" class="headerlink" title="33、不要忽视感觉"></a>33、不要忽视感觉</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你应该在乎别人的看法，别人对你的认识是现实，好好解决它。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你知道你比哪个同事出色，那这点应该表现在你的工作表现评价，工作评分和工资中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当你明确地了解他人判断你的因素后，你就会更加明确如何让他们满意。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>找出身边的人，分组，然后罗列出你的哪些特质会影响他们对你的感觉，根据表格做出改变。</p>
+</blockquote>
+<h3 id="34、探索向导"><a href="#34、探索向导" class="headerlink" title="34、探索向导"></a>34、探索向导</h3><blockquote>
+<p>他们寻找的是可以帮助他们完成项目的人。</p>
+</blockquote>
+<blockquote>
+<p>决定升值的人员安排的时候，你最有力的支持者就是一个无法离开你的客户。</p>
+</blockquote>
+<blockquote>
+<p>找一个陌生的，自己知之甚少的境况。感受下你会需要队友如何与你沟通。</p>
+</blockquote>
+<h3 id="35、学会沟通，善于写作"><a href="#35、学会沟通，善于写作" class="headerlink" title="35、学会沟通，善于写作"></a>35、学会沟通，善于写作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">写作能力不但非常必要，并且还很紧缺。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">沟通，特别是以文字的方式进行沟通，是你所有绝妙想法必须要通过的瓶颈。你就是你要解释的内容。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>开始记录开发日记，每天写一点。记录你做了什么工作。解释你的设计决定，检查棘手的技术和专业决策。</p>
+</blockquote>
+<h3 id="36、到场"><a href="#36、到场" class="headerlink" title="36、到场"></a>36、到场</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在工作中，近距离的接触是一种优势。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过面对面的互动，我们不仅提高了工作效率，增进了沟通，还形成了更加紧密的人际关系。</span><br></pre></td></tr></table></figure>
+<h3 id="37、适当的言语"><a href="#37、适当的言语" class="headerlink" title="37、适当的言语"></a>37、适当的言语</h3><blockquote>
+<p>用行业术语推销你的成就。</p>
+</blockquote>
+<p>练习：</p>
+<ul>
+<li>罗列出你近期完成的工作，并写出每项工作的商业意义。</li>
+<li>准备好你的“电梯演讲”</li>
+</ul>
+<h3 id="38、改变世界"><a href="#38、改变世界" class="headerlink" title="38、改变世界"></a>38、改变世界</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你想在高消费城市里做一名软件开发师，你就必须带着任务来上班。你必须要做出变化，这种变化不只是你自身或者是你工作的改变。你所作的改变必须让你的团队、组织或者公司看到。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果你不知道要做的改变是什么，那你就没有在做任何改变。如果你没有主动让自己获得承认，那你就没有获得承认。</span><br></pre></td></tr></table></figure>
+<h3 id="39、让人们听到你的声音"><a href="#39、让人们听到你的声音" class="headerlink" title="39、让人们听到你的声音"></a>39、让人们听到你的声音</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把目标放在更远一些。不要把自己局限在某一特定公司中的程序员————毕竟，你不太可能永远在一个公司里工作————因此要把你当作一个行业的人员。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>第一步： 阅读网络日志。挑选几位喜欢的技术类书籍的作者，看他们的网络日志。订阅并记录。</p>
+</li>
+<li><p>第二部： 写自己的网络日志。要抱着你最喜欢的杂志写专栏文章的态度，撰写网络日志。随着你写作技巧增加，你也会越来越自信。</p>
+</li>
+<li><p>第三步：将你写的网络日志在社区网站，杂志等地发表。人际关系也会随之扩展。</p>
+</li>
+</ul>
+<p>练习：</p>
+<ul>
+<li>创建网络日志</li>
+<li>列出可能的网络日志话题，不要局限在宏大的观点上。尝试10到20分钟就可以写出相关文件的小想法。</li>
+</ul>
+<h3 id="40、创建自己的商标"><a href="#40、创建自己的商标" class="headerlink" title="40、创建自己的商标"></a>40、创建自己的商标</h3><blockquote>
+<p>创建商标分为两部分：认知和尊重。创立自己id商标，让他们认识它，然后确保与之关联的都是积极的特征。</p>
+</blockquote>
+<blockquote>
+<p> 你的名字就是你的商标，竭尽所能捍卫你的商标。别让自己的行为回了它的名誉。你的商标就是你的一切。</p>
+</blockquote>
+<h3 id="41、发布你编写的程序"><a href="#41、发布你编写的程序" class="headerlink" title="41、发布你编写的程序"></a>41、发布你编写的程序</h3>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
+            <p>原文链接：<a href="http://mr-9.github.io/2020/05/14/我编程我快乐/">http://mr-9.github.io/2020/05/14/我编程我快乐/</a>
+            <p>发表日期：<a href="http://mr-9.github.io/2020/05/14/我编程我快乐/">May 14th 2020, 12:00:00 am</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2020/05/14/我编程我快乐/">May 26th 2020, 10:33:13 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/04/22/秒杀系统php学习/" title= "php秒杀系统">
+                    <div class="prevTitle">php秒杀系统</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:1421122102@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/mr-9" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、选择市场"><span class="toc-number">1.</span> <span class="toc-text">一、选择市场</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、稳定型还是技术型"><span class="toc-number">1.1.</span> <span class="toc-text">1、稳定型还是技术型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、供应和需求"><span class="toc-number">1.2.</span> <span class="toc-text">2、供应和需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、只会编程是不够的"><span class="toc-number">1.3.</span> <span class="toc-text">3、只会编程是不够的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、做团队中最差的"><span class="toc-number">1.4.</span> <span class="toc-text">4、做团队中最差的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、在思维上投资"><span class="toc-number">1.5.</span> <span class="toc-text">5、在思维上投资</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、不要听从父母"><span class="toc-number">1.6.</span> <span class="toc-text">6、不要听从父母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、做一名通才"><span class="toc-number">1.7.</span> <span class="toc-text">7、做一名通才</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、成为一名专家"><span class="toc-number">1.8.</span> <span class="toc-text">8、成为一名专家</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、切记孤注一掷"><span class="toc-number">1.9.</span> <span class="toc-text">9、切记孤注一掷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、热爱它，不然就离开它"><span class="toc-number">1.10.</span> <span class="toc-text">10、热爱它，不然就离开它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、在产品中投资"><span class="toc-number">2.</span> <span class="toc-text">二、在产品中投资</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11、学习钓鱼"><span class="toc-number">2.1.</span> <span class="toc-text">11、学习钓鱼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12、学习行业是如何运转的"><span class="toc-number">2.2.</span> <span class="toc-text">12、学习行业是如何运转的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13、寻找良师"><span class="toc-number">2.3.</span> <span class="toc-text">13、寻找良师</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14、做一名良师"><span class="toc-number">2.4.</span> <span class="toc-text">14、做一名良师</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15、练习，练习，再练习"><span class="toc-number">2.5.</span> <span class="toc-text">15、练习，练习，再练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16、做事的方法"><span class="toc-number">2.6.</span> <span class="toc-text">16、做事的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17、站在巨人的肩膀上"><span class="toc-number">2.7.</span> <span class="toc-text">17、站在巨人的肩膀上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18、在工作中，将自己自动化"><span class="toc-number">2.8.</span> <span class="toc-text">18、在工作中，将自己自动化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、执行"><span class="toc-number">3.</span> <span class="toc-text">三、执行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#19、就是现在"><span class="toc-number">3.1.</span> <span class="toc-text">19、就是现在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20、读心术"><span class="toc-number">3.2.</span> <span class="toc-text">20、读心术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21、每日成绩"><span class="toc-number">3.3.</span> <span class="toc-text">21、每日成绩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22、别忘了你在为谁工作"><span class="toc-number">3.4.</span> <span class="toc-text">22、别忘了你在为谁工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23、安分守己"><span class="toc-number">3.5.</span> <span class="toc-text">23、安分守己</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24、今天我能把工作做到多好？"><span class="toc-number">3.6.</span> <span class="toc-text">24、今天我能把工作做到多好？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25、你的价值是多少"><span class="toc-number">3.7.</span> <span class="toc-text">25、你的价值是多少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26、一桶水中的鹅卵石"><span class="toc-number">3.8.</span> <span class="toc-text">26、一桶水中的鹅卵石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27、爱上维护"><span class="toc-number">3.9.</span> <span class="toc-text">27、爱上维护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28、8小时的激情燃烧"><span class="toc-number">3.10.</span> <span class="toc-text">28、8小时的激情燃烧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29、学习如何失败"><span class="toc-number">3.11.</span> <span class="toc-text">29、学习如何失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30、说”不“"><span class="toc-number">3.12.</span> <span class="toc-text">30、说”不“</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#31、不要恐慌"><span class="toc-number">3.13.</span> <span class="toc-text">31、不要恐慌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32、说出来，行动，展示"><span class="toc-number">3.14.</span> <span class="toc-text">32、说出来，行动，展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、推销。。。不仅仅是迎合"><span class="toc-number">4.</span> <span class="toc-text">四、推销。。。不仅仅是迎合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#33、不要忽视感觉"><span class="toc-number">4.1.</span> <span class="toc-text">33、不要忽视感觉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34、探索向导"><span class="toc-number">4.2.</span> <span class="toc-text">34、探索向导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35、学会沟通，善于写作"><span class="toc-number">4.3.</span> <span class="toc-text">35、学会沟通，善于写作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36、到场"><span class="toc-number">4.4.</span> <span class="toc-text">36、到场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37、适当的言语"><span class="toc-number">4.5.</span> <span class="toc-text">37、适当的言语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38、改变世界"><span class="toc-number">4.6.</span> <span class="toc-text">38、改变世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39、让人们听到你的声音"><span class="toc-number">4.7.</span> <span class="toc-text">39、让人们听到你的声音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40、创建自己的商标"><span class="toc-number">4.8.</span> <span class="toc-text">40、创建自己的商标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41、发布你编写的程序"><span class="toc-number">4.9.</span> <span class="toc-text">41、发布你编写的程序</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 62
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/我编程我快乐/" >我编程我快乐</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2020/04/22/秒杀系统php学习/" >php秒杀系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span><a class="archive-post-title" href= "/2020/03/18/sublime text3 注册码/" >sublime text3 注册码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/java学习笔记/" >java学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/设计模式学习/" >java设计模式学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2020/01/03/thinkphp5.1源码学习/" >thinkphp5.1源码学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2019/12/24/phpstorm激活码/" >phpstorm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2019/12/18/centos lamp环境安装/" >centos7 lamp环境安装</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/" >swoole+thinkphp从零开始打造高性能直播赛事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2019/11/15/git-log-详解/" >git log 详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/13</span><a class="archive-post-title" href= "/2019/11/13/千万级秒杀项目实战/" >千万级秒杀项目实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/29</span><a class="archive-post-title" href= "/2019/10/29/攀登者/" >攀登者</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/python学习--头部解析/" >python学习--头部解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/禁忌女孩/" >禁忌女孩</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2019/10/08/python学习--翻译/" >python学习--翻译</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2019/09/30/人民的名义/" >人民的名义</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/pytharm激活码/" >python编译器pytharm激活码到2020年</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span><a class="archive-post-title" href= "/2019/09/27/phpbase64图片转码/" >phpbase64图片转码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/最新激活visio2013密钥/" >最新激活visio2013密钥</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/黑袍纠察队 第一季/" >黑袍纠察队 第一季</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/切尔诺贝利 第一季/" >切尔诺贝利</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/全职高手/" >全职高手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/svn使用思路/" >svn使用思路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/31</span><a class="archive-post-title" href= "/2019/07/31/markdown.css/" >markdown.css</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/linux学习--实操篇2.0/" >linux学习--实操2.0</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span><a class="archive-post-title" href= "/2019/07/27/linux学习-实操篇/" >linux学习--实操篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href= "/2019/07/22/linux学习/" >linux学习--指令篇</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/20</span><a class="archive-post-title" href= "/2019/06/20/phpstorm快捷键/" >phpstorm快捷键</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/markdown注册激活/" >MarkdownPad2安装汉化与注册码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2019/04/30/日记2019-04-30/" >2019/04/30</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/《php和mysql Web开发》学习笔记/" >《php和mysql Web开发》stu</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/php封装一个接口类/" >php封装一个接口类</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2018/05/25/虚拟环境配置/" >虚拟域名配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/php根据url跳转/" >php页面跳转</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/格式化数据库/" >格式化数据库</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/网游特殊文字大全/" >网游特殊文字</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2018/03/22/php学习之路/" >php学习导向</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2018/01/18/详解jq的each()遍历/" >详解jq的each()遍历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2018/01/16/html5禁止 用户缩放/" >html5用户禁止缩放</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/12</span><a class="archive-post-title" href= "/2018/01/12/js返回顶部/" >js返回顶部</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/手机内存卡无法格式话--蛋疼的一天/" >手机内存卡无法格式话</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/wget/" >wget用法详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/markdown/" >markdown</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2017/11/22/git用法（持续更新）/" >git 常用操作（持续更新中。。。）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/二级联动菜单 js/" >二级联动菜单</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2017/11/16/图片懒加载 jq版/" >图片懒加载jq版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2017/11/10/一款好用的图片占位符/" >一款好用的图片占位符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/09</span><a class="archive-post-title" href= "/2017/11/09/雪花飘落jq/" >雪花飘落jq</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/js页面自动刷新，再也不用f5了/" >js页面自动刷新，再也不用f5了</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/02</span><a class="archive-post-title" href= "/2017/11/02/微信公众号分享jssdk/" >微信公众号分享&jssdk</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span><a class="archive-post-title" href= "/2017/10/27/jq获取连接参数/" >jq获取连接参数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/25</span><a class="archive-post-title" href= "/2017/10/25/html 空格占位符/" >html空格占位符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/19</span><a class="archive-post-title" href= "/2017/10/19/20171019/" >oa系统1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2017/10/18/git使用及配置方法/" >使用git提交到码云</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span><a class="archive-post-title" href= "/2017/10/17/20171017/" >2017年10月17日</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
+    
+        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="工具"><span class="iconfont-archer">&#xe606;</span>工具</span>
+    
+        <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+    
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
+    
+        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
+    
+        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
+    
+        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+    
+        <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
+    
+        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
+    
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+    
+        <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
+    
+        <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="linux"><span class="iconfont-archer">&#xe60a;</span>linux</span>
+    
+        <span class="sidebar-category-name" data-categories="序"><span class="iconfont-archer">&#xe60a;</span>序</span>
+    
+        <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
+    
+        <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
+    
+        <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
+    
+        <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
+    
+        <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
+    
+        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
+    
+        <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "30no2"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
