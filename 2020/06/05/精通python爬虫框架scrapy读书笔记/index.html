@@ -283,7 +283,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">136</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -425,12 +425,123 @@ height:50vh;
 <h3 id="2、使用XPath选择HTML元素"><a href="#2、使用XPath选择HTML元素" class="headerlink" title="2、使用XPath选择HTML元素"></a>2、使用XPath选择HTML元素</h3><p>/html——[<html>…</html>]</p>
 <p>/html/body——[<bodyl>…]</bodyl></p>
 <p>//a——会选择所有的连接</p>
-<p>//a@href——可以使用符号@来访问该属性</p>
+<p>//a/@href——可以使用符号@来访问该属性</p>
+<p>//a/text()——只选取文本</p>
+<p>//a[@href=”<a href="https://www.iana.org/domains/example&quot;]" target="_blank" rel="noopener">https://www.iana.org/domains/example&quot;]</a> ——选择href为这个的超链接</p>
 <ul>
-<li><p>在线文档</p>
-<p><a href="https://www.w3school.com.cn/xpath/index.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/xpath/index.asp</a></p>
+<li><p>例子：</p>
+<ul>
+<li><p>获取id为“firstHeading”的h1标签下span中的text</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//h1[@id=&quot;firstHeading&quot;]/span/text()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取id为‘toc’的div标签内的无序列表ul中的所有链接的url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div[@id=&quot;toc&quot;]/ul//a/@href</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取class属性包含“ltr”以及class属性包含“skin-vector”的任意元素内所有标题元素（h1）中的文本。这两个字符串可能在同一个class中，也可能在不同的class中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//*[contains(@class,&quot;ltr&quot;) and contains(@class,&quot;skin-vector&quot;)]//h1/text()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>contains()函数可以让你选择包含指定类的所有元素</p>
+<ul>
+<li><p>选择class属性值为“infobox”的表格中第一张图片的url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//table[@class=&quot;infobox&quot;]//img[1]/@src</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择class属性以“reflist”开头的div标签中所有的url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div[starts-with(@class,&quot;reflist&quot;)]//a/@href</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择子元素包含文本“References”的元素之后的div元素中所有链接的URL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//*[text()=&quot;References&quot;]/../following-sibling::div//a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取页面中每张图片的url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//img/@src</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ID通常是最可靠的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//*[@id=&quot;more_info&quot;]//text()</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>在线文档</p>
+<p><a href="https://www.w3school.com.cn/xpath/index.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/xpath/index.asp</a> </p>
+</li>
+</ul>
+<h2 id="三、爬虫基础"><a href="#三、爬虫基础" class="headerlink" title="三、爬虫基础"></a>三、爬虫基础</h2><h3 id="1、安装scrapy"><a href="#1、安装scrapy" class="headerlink" title="1、安装scrapy"></a>1、安装scrapy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scrapy</span><br></pre></td></tr></table></figure>
+<h3 id="2、升级scrapy"><a href="#2、升级scrapy" class="headerlink" title="2、升级scrapy"></a>2、升级scrapy</h3><ul>
+<li>升级</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade Scrapy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>降级</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Scrapy==1.0.0</span><br></pre></td></tr></table></figure>
+<h3 id="3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常"><a href="#3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常" class="headerlink" title="3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常"></a>3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell --pdb &quot;https//gumtree.com&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="4、Item"><a href="#4、Item" class="headerlink" title="4、Item"></a>4、Item</h3><ul>
+<li>需要对爬取的数据进行清洗，来替换extract()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.xpath(&quot;..h1&quot;).re(&apos;&lt;h1&gt;(.*?)&lt;/h1&gt;&apos;)[-1]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>说明</p>
+<p>xpath和css都会返回选择器，只有当调用extract()或者re()方法才会得到真是的文本数组</p>
+</li>
+</ul>
+<h3 id="5、一个真正的Scrapy项目"><a href="#5、一个真正的Scrapy项目" class="headerlink" title="5、一个真正的Scrapy项目"></a>5、一个真正的Scrapy项目</h3><ul>
+<li>创建一个项目</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject properties</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>声明item</p>
+<ul>
+<li>重新定义PropertiesItem类</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class BilispiderItem(scrapy.Item):</span><br><span class="line">    # define the fields for your item here like:</span><br><span class="line">    title = scrapy.Field()</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<ul>
+<li>爬虫中引入item</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">item = BilispiderItem()</span><br><span class="line">item[&apos;title&apos;] = response.xpath(&apos;//h1/span/text()&apos;).extract()</span><br><span class="line">return item</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>​        我们在输出记录中看到，没有包含字段值的DEBUG了，这是因为scrapy是围绕着Item的概念构建的，可以使用管道，对其进行过滤和丰富了，并通过“Feed  exports”将其以不同的格式输出存储到不同的地方。</p>
+<ul>
+<li>保存文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl bili2 -o item.json</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上传文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl bili2 -o &quot;ftp://user:pass@ftp.scrapybook.com/items.json&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ItemLoader</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = ItemLoader(BilispiderItem(),response=response)</span><br><span class="line">l.add_xpath(&apos;title&apos;,&apos;//h1/span/text()&apos;)</span><br><span class="line">return l.load_item()</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>​        ItemLoader 提供了许多有趣的结合数据以及对数据进行格式化和清洗的方式。Item通过不同的处理器传递XPath/Css表达式的值。处理器是一个快速而又简单的函数。例如Join()可以将//p结合成一个条目。MapCompose()。可以使用Python函数或者函数链。例如MapCompose(float)可以将字符串数据转换为数值，而MapCompose(Unicode.strip,Unicode.title)可以删除多余空白符。等等。</p>
+<p>​        ItemLoader和处理器是基于编写并支持了成千上万个爬虫的人们的抓取需求而开发的工具包。</p>
+<ul>
+<li>创建contract</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contract有点像为爬虫设计的单元测试。它可以快速知道哪里有运行异常。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot; This is Function parses a property page.</span><br><span class="line">@url http://www.bilibili.com/video/BV1K54y1972N?p=147</span><br><span class="line">@returns items 1</span><br><span class="line">@scrapes title</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>运行contract</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy check bili2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抽取更多的url</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">start_urls = (</span><br><span class="line">	&apos;http://www.bilibili.com/video/BV1K54y1972N?p=147&apos;,</span><br><span class="line">	&apos;http://www.bilibili.com/video/BV1K54y1972N?p=148&apos;,</span><br><span class="line">	&apos;http://www.bilibili.com/video/BV1K54y1972N?p=149&apos;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取文件作为url的源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start_url = [i.strip() for i in open(&apos;todo.urls.txt&apos;).read]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取链接地址urljoin的使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">from urllib.parse import urljoin</span><br><span class="line">#获取next</span><br><span class="line">urls = response.xpath(&quot;//li[@class=&apos;next&apos;]/a/@href&quot;).extract() # [&apos;/blogs?page=2&apos;]</span><br><span class="line">next = [urljoin(response.url,i) for i in urls] #[&apos;https://segmentfault.com/blogs?page=2&apos;]</span><br><span class="line">#获取网站列表</span><br><span class="line">urls = response.xpath(&quot;//div[@class=&apos;summary&apos;]/h2/a/@href&quot;).extract()</span><br><span class="line">lists = [urljoin(response.url,i) for i in urls]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编写垂直和水平双向抓取网页</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def parse(self,response):</span><br><span class="line">	#Get next index URLs and yield Requests</span><br><span class="line">	next_selector = response.xpath(&quot;//li[@class=&apos;next&apos;]/a/@href&quot;).extract()</span><br><span class="line">	for url in next_selector:</span><br><span class="line">		yield Request(urljoin(resoinse.url,url))</span><br><span class="line">    #Get item URLs and yield Requests</span><br><span class="line">    item_selector = response.xpath(&quot;//div[@class=&apos;summary&apos;]/h2/a/@href&quot;).extract()</span><br><span class="line">    for url in item_selector:</span><br><span class="line">    	yield Request(urljoin(resoinse.url,url),callback=self.parse_item)</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
@@ -439,7 +550,7 @@ height:50vh;
             <p>原文作者：<a href="http://mr-9.github.io">30no2</a>
             <p>原文链接：<a href="http://mr-9.github.io/2020/06/05/精通python爬虫框架scrapy读书笔记/">http://mr-9.github.io/2020/06/05/精通python爬虫框架scrapy读书笔记/</a>
             <p>发表日期：<a href="http://mr-9.github.io/2020/06/05/精通python爬虫框架scrapy读书笔记/">June 5th 2020, 12:00:00 am</a>
-            <p>更新日期：<a href="http://mr-9.github.io/2020/06/05/精通python爬虫框架scrapy读书笔记/">June 5th 2020, 4:55:58 pm</a>
+            <p>更新日期：<a href="http://mr-9.github.io/2020/06/05/精通python爬虫框架scrapy读书笔记/">June 24th 2020, 10:29:46 am</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -576,7 +687,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#精通python爬虫框架scrapy读书笔记"><span class="toc-number">1.</span> <span class="toc-text">精通python爬虫框架scrapy读书笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、初识Scrapy"><span class="toc-number">1.1.</span> <span class="toc-text">一、初识Scrapy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Scrapy能够识别残缺的HTML"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、Scrapy能够识别残缺的HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、社区"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、社区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、更新"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、理解HTML和XPath"><span class="toc-number">1.2.</span> <span class="toc-text">二、理解HTML和XPath</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、树表示法"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、树表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、使用XPath选择HTML元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、使用XPath选择HTML元素</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#精通python爬虫框架scrapy读书笔记"><span class="toc-number">1.</span> <span class="toc-text">精通python爬虫框架scrapy读书笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、初识Scrapy"><span class="toc-number">1.1.</span> <span class="toc-text">一、初识Scrapy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Scrapy能够识别残缺的HTML"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、Scrapy能够识别残缺的HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、社区"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、社区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、更新"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、理解HTML和XPath"><span class="toc-number">1.2.</span> <span class="toc-text">二、理解HTML和XPath</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、树表示法"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、树表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、使用XPath选择HTML元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、使用XPath选择HTML元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、爬虫基础"><span class="toc-number">1.3.</span> <span class="toc-text">三、爬虫基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装scrapy"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、安装scrapy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、升级scrapy"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、升级scrapy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常"><span class="toc-number">1.3.3.</span> <span class="toc-text">3、scrapy调试问题，可以使用–pdb参数启动交换试，以避免发生异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、Item"><span class="toc-number">1.3.4.</span> <span class="toc-text">4、Item</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、一个真正的Scrapy项目"><span class="toc-number">1.3.5.</span> <span class="toc-text">5、一个真正的Scrapy项目</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1630,70 +1741,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 66
+        Total : 67
         </div>
         <!-- search  -->
         
@@ -1706,6 +1756,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2020/07/16/与青春有关的日子/" >与青春有关的日子</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1848,12 +1903,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
         </li>
     
     
@@ -1903,17 +1958,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/markdown注册激活/" >MarkdownPad2安装汉化与注册码</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/php一些常用方法/" >php常用方法</a>
         </li>
     
     
@@ -2069,25 +2124,25 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
-    
         <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
+    
+        <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
     
         <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
-        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
-    
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
-    
         <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
         <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
     
@@ -2105,13 +2160,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
-        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+    
+        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
+        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
     
-        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
         <span class="sidebar-tag-name" data-tags="电影集合"><span class="iconfont-archer">&#xe606;</span>电影集合</span>
     
@@ -2122,8 +2179,6 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
-    
-        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
     
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
@@ -2160,9 +2215,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="序"><span class="iconfont-archer">&#xe60a;</span>序</span>
-    
         <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
+    
+        <span class="sidebar-category-name" data-categories="序"><span class="iconfont-archer">&#xe60a;</span>序</span>
     
         <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
     
@@ -2178,9 +2233,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
     
-        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
-    
         <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
+    
+        <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
     
         <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
     
