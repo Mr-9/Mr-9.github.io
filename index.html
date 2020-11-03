@@ -370,14 +370,92 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/17/php_Md5Rsa/" >
+        <a class="abstract-title" href = "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >
             
-                <span>php——Md5Rsa加密</span>
+                <span>Oracle Vm VirtualBox桥接网络配置</span>
         </a>
         <div class="abstract-content">
-            Md5Rsa加密
-Md5rsa.php
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;?phpnamespace libs;class Md5rsa&#123;    /**     * 利用约定数据和私钥生成数字签名     * @param $data 待签数据     * @return String ...
+            Oracle Vm VirtualBox桥接网络配置添加全局nat网络管理【F】-&gt;全局设定【ctrl+G】-&gt;网络-&gt;添加（右侧的绿色加号）-&gt;双击NatNetwork-&gt;去掉“支持DHCP”前的勾
+添加网卡1选择网络地址转换（NAT）——用于访问外网
+添加网卡2选择仅主机（Host-Only）网络
+网络配置
+ifcfg-enp0s3
+主要设置BOOTPROTO=dhcp 访问外网桥接自动获取
+123456789101112131415161718TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >
+            
+                <span>鸟哥的linux私房菜《第四版》——读后感</span>
+        </a>
+        <div class="abstract-content">
+            一、主机的规划与磁盘分区1、linux与硬件的搭配
+各个组件或者装置在linux底下都是一个文件。
+开机流程
+BIOS：开机主动执行的韧体，会认识第一个可开机的装置
+MBR：第一个可开机的装置的第一个扇区内的主要启动记录区块，内含开机管理程序
+开机股那里程序（boot loader）：一支可读取核心文件来执行的软件
+提供选单：用户可以选择不同的开机项目，这也是多重引导的重要功能！
+载入核心文件：直接指向可开机的程序区段来开始操作系统
+转交其他loader：将开机管理功能转交给其他loader负责
+
+
+核心文件：开始操作系统的功能。。。
+
+
+
+2、磁盘分区
+目录树结构：整个目录树架构最重要...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/10/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/08/17/php无限极分类/" >
+            
+                <span>php无限极分类</span>
+        </a>
+        <div class="abstract-content">
+            无限极分类12345678910111213141516171819202122232425public function getTree()&#123;    $data = [        ['id'=&gt;1,'name'=&gt;'x1','pid'=&gt;0],        ['id'=&gt;2,'name'=&gt;'x2','pid'=&gt;1],        ['id'=&gt;3,'name'=&gt;'x3','pid'=&gt;0],        ['id'=&gt;4,'name'=&gt;'x4','pid'=&gt;2],        ['i...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -401,12 +479,14 @@ Md5rsa.php
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/08/17/php无限极分类/" >
+        <a class="abstract-title" href = "/2020/08/17/php_Md5Rsa/" >
             
-                <span>php无限极分类</span>
+                <span>php——Md5Rsa加密</span>
         </a>
         <div class="abstract-content">
-            无限极分类12345678910111213141516171819202122232425public function getTree()&#123;    $data = [        ['id'=&gt;1,'name'=&gt;'x1','pid'=&gt;0],        ['id'=&gt;2,'name'=&gt;'x2','pid'=&gt;1],        ['id'=&gt;3,'name'=&gt;'x3','pid'=&gt;0],        ['id'=&gt;4,'name'=&gt;'x4','pid'=&gt;2],        ['i...
+            Md5Rsa加密
+Md5rsa.php
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;?phpnamespace libs;class Md5rsa&#123;    /**     * 利用约定数据和私钥生成数字签名     * @param $data 待签数据     * @return String ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -639,102 +719,10 @@ s就是Super User的意思，这里存放的是系统管理员使用的系统管
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/04/22/秒杀系统php学习/" >
-            
-                <span>php秒杀系统</span>
-        </a>
-        <div class="abstract-content">
-            php 秒杀系统一、特点
-人多商品少
-时间短流量高
-外挂机器
-
-二、技术分析
-瞬时高并发处理能力
-多层次的分布式处理能力
-人机交互与对抗
-
-三、系统环境搭建1、 技术选型分析之基础服务
-Linux+Nginx+PHP+Mysql+redis
-开源，免费
-大众普及
-
-2、技术选型分析之环境搭建
-CDN，智能DNS
-分布式缓存，全国多节点
-多线路接入
-
-3、技术选型分析之负载均衡
-负载均衡LVS
-大型web集群
-高效稳定
-
-
-3、开发环境搭建
-开发环境准备
-
-开发工具：Eclipse for php developers/phpstrom/editplus
-
-
-部署开发环境
-
-XAMPP/m...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/03/18/sublime text3 注册码/" >
-            
-                <span>sublime text3 注册码</span>
-        </a>
-        <div class="abstract-content">
-            sublime text3注册码12345678910111213----- BEGIN LICENSE -----Member J2TeaMSingle User LicenseEA7E-1011316D7DA350E 1B8B0760 972F8B60 F3E64036B9B4E234 F356F38F 0AD1E3B7 0E9C5FADFA0A2ABE 25F65BD8 D51458E5 3923CE8087428428 79079A01 AA69F319 A1AF29A4A684C2DC 0B1583D4 19CBD290 217618CD5653E0A0 BACE3948 BB...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "工具">工具</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1868,85 +1856,9 @@ XAMPP/m...
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 69
+        Total : 71
         </div>
         <!-- search  -->
         
@@ -1962,27 +1874,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php无限极分类/" >php无限极分类</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2020/07/16/与青春有关的日子/" >与青春有关的日子</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2020/06/09/电影2020-6-9/" >电影</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2020/06/05/精通python爬虫框架scrapy读书笔记/" >精通python爬虫框架scrapy读书笔记</a>
         </li>
     
     
@@ -1997,32 +1889,12 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/我编程我快乐/" >我编程我快乐</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2020/04/22/秒杀系统php学习/" >php秒杀系统</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/18</span><a class="archive-post-title" href= "/2020/03/18/sublime text3 注册码/" >sublime text3 注册码</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/java学习笔记/" >java学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/设计模式学习/" >java设计模式学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/03</span><a class="archive-post-title" href= "/2020/01/03/thinkphp5.1源码学习/" >thinkphp5.1源码学习</a>
         </li>
     
     
@@ -2046,27 +1918,12 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/" >swoole+thinkphp从零开始打造高性能直播赛事</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2019/11/15/git-log-详解/" >git log 详解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/13</span><a class="archive-post-title" href= "/2019/11/13/千万级秒杀项目实战/" >千万级秒杀项目实战</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/29</span><a class="archive-post-title" href= "/2019/10/29/攀登者/" >攀登者</a>
         </li>
     
     
@@ -2081,17 +1938,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/禁忌女孩/" >禁忌女孩</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2019/10/08/python学习--翻译/" >python学习--翻译</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2019/09/30/人民的名义/" >人民的名义</a>
         </li>
     
     
@@ -2106,42 +1953,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/最新激活visio2013密钥/" >最新激活visio2013密钥</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/黑袍纠察队 第一季/" >黑袍纠察队 第一季</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/切尔诺贝利 第一季/" >切尔诺贝利</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/svn使用思路/" >svn使用思路</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/全职高手/" >全职高手</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
         </li>
     
     
@@ -2180,16 +1992,6 @@ XAMPP/m...
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2019/04/30/日记2019-04-30/" >2019/04/30</a>
-        </li>
-    
-    
     
     
     
@@ -2200,17 +2002,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/《php和mysql Web开发》学习笔记/" >《php和mysql Web开发》stu</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/php封装一个接口类/" >php封装一个接口类</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2018/05/25/虚拟环境配置/" >虚拟域名配置</a>
         </li>
     
     
@@ -2220,22 +2012,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/格式化数据库/" >格式化数据库</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/网游特殊文字大全/" >网游特殊文字</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2018/03/22/php学习之路/" >php学习导向</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2018/01/18/详解jq的each()遍历/" >详解jq的each()遍历</a>
         </li>
     
     
@@ -2259,16 +2036,6 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/手机内存卡无法格式话--蛋疼的一天/" >手机内存卡无法格式话</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/wget/" >wget用法详解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/markdown/" >markdown</a>
         </li>
     
@@ -2279,32 +2046,7 @@ XAMPP/m...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/二级联动菜单 js/" >二级联动菜单</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2017/11/16/图片懒加载 jq版/" >图片懒加载jq版</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2017/11/10/一款好用的图片占位符/" >一款好用的图片占位符</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/09</span><a class="archive-post-title" href= "/2017/11/09/雪花飘落jq/" >雪花飘落jq</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/js页面自动刷新，再也不用f5了/" >js页面自动刷新，再也不用f5了</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/02</span><a class="archive-post-title" href= "/2017/11/02/微信公众号分享jssdk/" >微信公众号分享&jssdk</a>
         </li>
     
     
@@ -2332,6 +2074,231 @@ XAMPP/m...
             <span class="archive-post-date">10/17</span><a class="archive-post-title" href= "/2017/10/17/20171017/" >2017年10月17日</a>
         </li>
     
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2020/01/03/thinkphp5.1源码学习/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >鸟哥的linux私房菜《第四版》——读后感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span><a class="archive-post-title" href= "/2020/07/16/与青春有关的日子/" >与青春有关的日子</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2020/06/09/电影2020-6-9/" >电影</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2020/06/05/精通python爬虫框架scrapy读书笔记/" >精通python爬虫框架scrapy读书笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2020/05/14/我编程我快乐/" >我编程我快乐</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2020/04/22/秒杀系统php学习/" >php秒杀系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/设计模式学习/" >java设计模式学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/" >swoole+thinkphp从零开始打造高性能直播赛事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/13</span><a class="archive-post-title" href= "/2019/11/13/千万级秒杀项目实战/" >千万级秒杀项目实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/29</span><a class="archive-post-title" href= "/2019/10/29/攀登者/" >攀登者</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/禁忌女孩/" >禁忌女孩</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/2019/09/30/人民的名义/" >人民的名义</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span><a class="archive-post-title" href= "/2019/09/17/最新激活visio2013密钥/" >最新激活visio2013密钥</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/黑袍纠察队 第一季/" >黑袍纠察队 第一季</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/切尔诺贝利日记/" >切尔诺贝利日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/权利的游戏/" >权利的游戏</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/切尔诺贝利 第一季/" >切尔诺贝利</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/全职高手/" >全职高手</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href= "/2019/08/27/数据库映射/" >数据库映射</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/日记2019-05-23/" >日记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/2019/04/30/日记2019-04-30/" >2019/04/30</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2018/11/08/《php和mysql Web开发》学习笔记/" >《php和mysql Web开发》stu</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2018/05/25/虚拟环境配置/" >虚拟域名配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/格式化数据库/" >格式化数据库</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2018/04/11/网游特殊文字大全/" >网游特殊文字</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2018/01/18/详解jq的each()遍历/" >详解jq的each()遍历</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/手机内存卡无法格式话--蛋疼的一天/" >手机内存卡无法格式话</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/wget/" >wget用法详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/二级联动菜单 js/" >二级联动菜单</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2017/11/16/图片懒加载 jq版/" >图片懒加载jq版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2017/11/10/一款好用的图片占位符/" >一款好用的图片占位符</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/09</span><a class="archive-post-title" href= "/2017/11/09/雪花飘落jq/" >雪花飘落jq</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/02</span><a class="archive-post-title" href= "/2017/11/02/微信公众号分享jssdk/" >微信公众号分享&jssdk</a>
+        </li>
+    
     </div>
   </div>
         <div class="sidebar-panel-tags">
@@ -2339,17 +2306,17 @@ XAMPP/m...
     
         <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
     
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+    
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
-    
         <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
     
-        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
@@ -2361,23 +2328,25 @@ XAMPP/m...
     
         <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
     
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+    
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
         <span class="sidebar-tag-name" data-tags="工具"><span class="iconfont-archer">&#xe606;</span>工具</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
-    
         <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
-        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
-    
         <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+    
+        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
@@ -2388,8 +2357,6 @@ XAMPP/m...
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
         <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
-    
-        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
     
         <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
     
@@ -2432,17 +2399,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="学习"><span class="iconfont-archer">&#xe60a;</span>学习</span>
     
-        <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
-    
         <span class="sidebar-category-name" data-categories="linux"><span class="iconfont-archer">&#xe60a;</span>linux</span>
     
+        <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
+    
         <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
         <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
     
         <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
-    
-        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
