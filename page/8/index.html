@@ -370,36 +370,373 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2017/10/17/20171017/" >
+        <a class="abstract-title" href = "/2017/12/25/wget/" >
             
-                <span>2017年10月17日</span>
+                <span>wget用法详解</span>
         </a>
         <div class="abstract-content">
-            开篇这是一个序
-作为一个每天15个小时以上坐在电脑面前的人来说，第一次知道有mardown这个写作神器还真心不容易。心血来潮也来尝试一下，算是作为之前的不作为的一点补偿吧。
-&emsp;&emsp;刚开始用还是有些不太习惯，很多的用法，还有一些标记不太会用。不知道什么时候能够习惯这种用法了。
-&emsp;&emsp;看了一些文档，mark一下。
+            需要下载某个目录下面的所有文件。命令如下1wget -c -r -p -np -k 网址
 
-Markdown语法说明
-Markdow新手指南
+参数说明
+
+-c  – 断点续传
+-r  – 会按照递归的方法，下载服务器上所有的目录和文件，要注意的是，下载网站指向的所有地址同样会被下载下来
+-p  – 下载网页所有文件，图片等
+-np   – 递归下载的时候不会下载上一级的目录 
+-k  – 将目标网站的相对链接转为绝对链接
 
 
-Markdown简介
-Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。   —— 百度百科
+更多：
 
-一些常用的用法文本样式
-链接...
+启动  -V,  –version           显示wget的版本后退出  -h,  –help              打印语法帮助  -b,  –background        启动后转...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/10/17</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/25</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "日记">日记</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/12/14/markdown/" >
+            
+                <span>markdown</span>
+        </a>
+        <div class="abstract-content">
+            markdown自从知道了有markdown这个之后，突然觉得原来写东西可以这么的happy!
+编辑器篇至于编辑器我用过一些，最终选择了markdownpad 2，因为他真的很好用啊。  
+
+下载地址
+  飞机
+
+设置
+
+刚安装完之后是英文版的。想更换成中文版则：
+
+想设置代码样式，从这里更改：
+
+修改markdown样式，则这样：
+我就是按照这个样式修改的
+
+破解
+邮件地址Soar360@live.com
+授权码
+GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/22/git用法（持续更新）/" >
+            
+                <span>git 常用操作（持续更新中。。。）</span>
+        </a>
+        <div class="abstract-content">
+            一、git全局设置git config --global user.name &quot;用户名&quot;  
+git config --global user.email &quot;用户邮箱&quot;  
+二、创建git仓库git init  ----创建空白版本库  
+touch README.md   ----创建readme文件  
+git commit -m &quot;first commit&quot;  ----委托管理  
+git remote add origin https://gitee.com/mr-9/1121.git    ----添加远程仓库地址  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/20/二级联动菜单 js/" >
+            
+                <span>二级联动菜单</span>
+        </a>
+        <div class="abstract-content">
+            ##二级联动菜单  
+
+js写二级联动菜单  
+html代码&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;表单联动&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;表单联动&lt;/h1&gt;
+&lt;form action=&quot;&quot;&gt;
+    请选择城市：
+    &lt;select name=&qu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/16/图片懒加载 jq版/" >
+            
+                <span>图片懒加载jq版</span>
+        </a>
+        <div class="abstract-content">
+            图片懒加载jq版一. 引入jq文件  
+&lt;script src=&quot;http://libs.baidu.com/jquery/2.0.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+二. 引入jq代码  
+&lt;script type=&quot;text/javascript&quot;&gt;
+        //调用
+        visibleImgLazyload();
+        //触发滚动 防止第一屏不加载
+        $(&quot;body,html&quot;).scrollTop(1);
+        ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/10/一款好用的图片占位符/" >
+            
+                <span>一款好用的图片占位符</span>
+        </a>
+        <div class="abstract-content">
+            一款好用的图片占位符&#12288;&#12288;前端开发的时候，很多情况下素材并没有准备好，或者说需要根据网站的显示效果给客户展示需要什么样的素材图片。而这个时候，图片占位符就很好用了。&#12288;&#12288;这里介绍一个非常好用的图片占位符插件–holder。加入图片soEasy
+只需要引入jq和holder.js
+然后再想要图片的地方按照下面这样来写
+&lt;img data-src=&quot;holder.js/300x200&quot;&gt;
+300*200表示插入图片大小，这里是单位是像素
+想要换颜色等操作也是很简单的，    
+提供6个颜色可以选择
+这里的颜色...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/09/雪花飘落jq/" >
+            
+                <span>雪花飘落jq</span>
+        </a>
+        <div class="abstract-content">
+            html代码&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/07/js页面自动刷新，再也不用f5了/" >
+            
+                <span>js页面自动刷新，再也不用f5了</span>
+        </a>
+        <div class="abstract-content">
+            js页面自动刷新，再也不用f5了&#12288;&#12288;我们在前端开发的过程中，经常会遇到这种事情，修改完一处之后想要看到效果，不得不刷新页面,如果经常性的这样重复工作，不免会让人很烦躁。。。。。。前端怎么能这么无趣。  
+福利来了。。。用js就可以简单实现  
+页面自动刷新代码head部分&lt;meta http-equiv=&quot;refresh&quot; content=&quot;20&quot;&gt;  
+
+将上面代码加到head区，20是指20秒  
+页面跳转&lt;meta http-equiv=&quot;refresh&quot; content=&q...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/02/微信公众号分享jssdk/" >
+            
+                <span>微信公众号分享&amp;jssdk</span>
+        </a>
+        <div class="abstract-content">
+            微信公众号分享&amp;jssdk
+&#12288;&#12288;最近遇到了网页的分享到微信的需求，想着之前做过，所以就没有放在心上，可谁知鼓捣了半天，还是那丑陋的分享链接。没有办法，只能自己百度找各种原因，不出所料，很多都是垃圾，在众多垃圾中找一个自己需要的还真是不容啊。花费了半天，终于知道了什么原因。。。可是时间就是金钱啊，没有办法，自己决定总结一下，方便自己以后能够用起来有个参考。
+
+一、登录自己的微信公众号平台，完成相应的配置
+登录你的微信平台，点击“公众号设置”。
+点击“功能设置”，然后点击“设置”。 
+填写js安全域名，这里填写的是一级域名，即不带www的，如xxx.com...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/10/27/jq获取连接参数/" >
+            
+                <span>jq获取连接参数</span>
+        </a>
+        <div class="abstract-content">
+            jq获取连接参数jq获取地址中的参数很简单  
+正则表达式获取地址栏参数function GetQueryString(name)
+{
+     var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}  
+
+alert(GetQueryString(&qu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/10/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "技术文章">技术文章</a>
     
 </div>
             
@@ -409,7 +746,7 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/7/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+        <a class="extend prev" rel="prev" href="/page/7/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1561,9 +1898,242 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 84
         </div>
         <!-- search  -->
         
@@ -1574,17 +2144,56 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2021/05/25/vue.js笔记四/" >vue.js笔记四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/Spring黑马学习笔记五/" >Spring黑马学习笔记五</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Spring黑马学习笔记四/" >Spring黑马学习笔记四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2021/04/25/Spring黑马学习笔记三/" >Spring黑马学习笔记三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/Spring黑马学习笔记二/" >Spring黑马学习笔记二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/Spring黑马学习笔记一/" >Spring黑马学习笔记一</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2020/12/15/Head First Java——笔记/" >《Head First Java》——笔记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
         </li>
     
     
@@ -1609,6 +2218,21 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/25</span><a class="archive-post-title" href= "/2020/01/25/java学习——抽象类和接口/" >java学习——抽象类/接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2020/01/21/java学习——封装继承重写多态/" >java学习——封装/继承/重写/多态</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2020/01/21/java学习——面向对象/" >java学习——面向对象</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/java学习笔记/" >java学习</a>
         </li>
     
@@ -1629,11 +2253,6 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2019/12/18/centos lamp环境安装/" >centos7 lamp环境安装</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
         </li>
     
     
@@ -1809,12 +2428,41 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
         </ul>
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/vue.js笔记三/" >vue.js笔记三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/vue.js笔记二/" >vue.js笔记二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2021/05/18/vue.js笔记一/" >vue.js笔记一</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >鸟哥的linux私房菜《第四版》——读后感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
         </li>
     
     
@@ -1859,6 +2507,11 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/" >swoole+thinkphp从零开始打造高性能直播赛事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
         </li>
     
     
@@ -2011,29 +2664,35 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
         <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
     
-        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
     
-        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="spring"><span class="iconfont-archer">&#xe606;</span>spring</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
+        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
+    
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+        <span class="sidebar-tag-name" data-tags="狂神说学习笔记"><span class="iconfont-archer">&#xe606;</span>狂神说学习笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
     
         <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
+        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+    
         <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
     
-        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2041,29 +2700,31 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
+    
         <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
-        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
-    
         <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
     
-        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
         <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
     
-        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="电影集合"><span class="iconfont-archer">&#xe606;</span>电影集合</span>
     
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
-    
         <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
     
@@ -2106,19 +2767,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="linux"><span class="iconfont-archer">&#xe60a;</span>linux</span>
     
-        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
-    
         <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
     
         <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
         <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
     
         <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
     
-        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
-    
         <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
         <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
     

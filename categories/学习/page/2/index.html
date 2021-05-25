@@ -357,24 +357,29 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/15/git-log-详解/" >
+        <a class="abstract-title" href = "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >
             
-                <span>git log 详解</span>
+                <span>Oracle Vm VirtualBox桥接网络配置</span>
         </a>
         <div class="abstract-content">
-            git log 详解​     git log 可以让我们查看提交commit history,接下来我们来一起探索git log提供的参数。
-123456789101112131415161718192021222324$ git logcommit 584f5efe98641504ff422068783ae12683801a22 (HEAD -&gt; master, origin/master, origin/HEAD)Author: mr-9 &lt;1421122102@qq.com&gt;Date:   Fri Nov 15 10:20:44 2019 +0800    sw...
+            Oracle Vm VirtualBox桥接网络配置添加全局nat网络管理【F】-&gt;全局设定【ctrl+G】-&gt;网络-&gt;添加（右侧的绿色加号）-&gt;双击NatNetwork-&gt;去掉“支持DHCP”前的勾
+添加网卡1选择网络地址转换（NAT）——用于访问外网
+添加网卡2选择仅主机（Host-Only）网络
+网络配置
+ifcfg-enp0s3
+主要设置BOOTPROTO=dhcp 访问外网桥接自动获取
+123456789101112131415161718TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/15</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/11/03</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
     
 </div>
             
@@ -387,40 +392,62 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/13/千万级秒杀项目实战/" >
+        <a class="abstract-title" href = "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >
             
-                <span>千万级秒杀项目实战</span>
+                <span>鸟哥的linux私房菜《第四版》——读后感</span>
         </a>
         <div class="abstract-content">
-            千万级秒杀项目实战一、设计思路1. 设计分析
-用户：量大，正常用户，恶意用户（数据清洗）
-地区：全国范围内各地区都要访问到（cdn加速）
-业务流程：前台（用户能看到的部分）后台（商家或者管理者使用）
+            一、主机的规划与磁盘分区1、linux与硬件的搭配
+各个组件或者装置在linux底下都是一个文件。
+开机流程
+BIOS：开机主动执行的韧体，会认识第一个可开机的装置
+MBR：第一个可开机的装置的第一个扇区内的主要启动记录区块，内含开机管理程序
+开机股那里程序（boot loader）：一支可读取核心文件来执行的软件
+提供选单：用户可以选择不同的开机项目，这也是多重引导的重要功能！
+载入核心文件：直接指向可开机的程序区段来开始操作系统
+转交其他loader：将开机管理功能转交给其他loader负责
 
-2. 设计分层
-第一层：商品展示层（负责对应商品的展示）
-第二层：用户登记层（用户登记相关信息，秒杀准备）
-第三次：数据接入（将用户的信息接入到数据库或者处理层）
-第四层：数据处理层（接入层数据没有问题，存入处理层）
 
-3. 导图
-二、代码分析1. 秒杀第一层（展示页面）1）页面优化
-页面
+核心文件：开始操作系统的功能。。。
 
-图片
 
-css
-js
-压缩
 
-2）cnd网络加速
-阿里云cdn(推荐)–oss开放存储
-解决全国各...
+2、磁盘分区
+目录树结构：整个目录树架构最重要...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/10/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/08/17/php无限极分类/" >
+            
+                <span>php无限极分类</span>
+        </a>
+        <div class="abstract-content">
+            无限极分类12345678910111213141516171819202122232425public function getTree()&#123;    $data = [        ['id'=&gt;1,'name'=&gt;'x1','pid'=&gt;0],        ['id'=&gt;2,'name'=&gt;'x2','pid'=&gt;1],        ['id'=&gt;3,'name'=&gt;'x3','pid'=&gt;0],        ['id'=&gt;4,'name'=&gt;'x4','pid'=&gt;2],        ['i...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/17</span>
             </div>
             <!-- tags  -->
             
@@ -439,69 +466,25 @@ js
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/10/python学习--头部解析/" >
+        <a class="abstract-title" href = "/2020/08/17/php_Md5Rsa/" >
             
-                <span>python学习--头部解析</span>
+                <span>php——Md5Rsa加密</span>
         </a>
         <div class="abstract-content">
-            python 头部解析
-
-
-参数
-说明 
-
-
-
-
-Accept
-表示浏览器可接受的MIME类型  
-
-
-Accept-Encoding
-表示浏览器能够进行的编码方式  
-
-
-Accept-Language
-表示浏览器的语言种类
-
-
-Cache-Control
-表示控制网页的缓存
-
-
-Connection
-表示是否可以处理持久的链接
-
-
-Cookie
-将cookies返回到服务器
-
-
-Host
-初始化url的主机和端口
-
-
-Upgrade-Insecure-Requests:
-通知服务器可以处理https协议
-
-
-User-Agent
-用于识别浏览器的类型
-
-
-
-
+            Md5Rsa加密
+Md5rsa.php
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485&lt;?phpnamespace libs;class Md5rsa&#123;    /**     * 利用约定数据和私钥生成数字签名     * @param $data 待签数据     * @return String ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/10</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/17</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
 </div>
             
@@ -514,23 +497,41 @@ User-Agent
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/08/python学习--翻译/" >
+        <a class="abstract-title" href = "/2020/06/01/Linux学习--复习篇/" >
             
-                <span>python学习--翻译</span>
+                <span>Linux学习--复习篇</span>
         </a>
         <div class="abstract-content">
-            python 翻译（学习for循环）12345678910111213141516171819letter = &#123;    "hello" : "你好",    "world" : "世界",    "python" : "PYTHON"&#125;def mytranslate(phrase):    translatetion = ''    for ii in phrase.split():        if ii in letter:            for index in letter:                if ii ==index:       ...
+            Linux 复习一、Linux目录结构1、目录结构管理类目录
+/bin 【重点】 (/usr/bin、/usr/local/bin)
+是Binary的缩写，这个目录存放最经常使用的目录
+
+
+/boot 【重点】
+存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。
+
+
+/sbin （/usr/sbin、/usr/local/sbin）
+s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序
+
+
+/home 【重点】
+存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。
+
+
+/var【重点】
+这个目录中...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/08</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/01</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "python">python</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
     
 </div>
             
@@ -543,35 +544,57 @@ User-Agent
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/29/linux学习--实操篇2.0/" >
+        <a class="abstract-title" href = "/2020/04/22/秒杀系统php学习/" >
             
-                <span>linux学习--实操2.0</span>
+                <span>php秒杀系统</span>
         </a>
         <div class="abstract-content">
-            1、crond任务调度1.1 概述：1.1.1任务调度：是指系统在某个时间执行的特定的命令或者程序。
-任务调度分类：1. 系统工作：一些系统的工作必须周而复始的执行。如病毒扫描。
-2. 个别用户的工作：个别用户可能希望执行某些程序，比如对mysql的数据库备份等。
+            php 秒杀系统一、特点
+人多商品少
+时间短流量高
+外挂机器
+
+二、技术分析
+瞬时高并发处理能力
+多层次的分布式处理能力
+人机交互与对抗
+
+三、系统环境搭建1、 技术选型分析之基础服务
+Linux+Nginx+PHP+Mysql+redis
+开源，免费
+大众普及
+
+2、技术选型分析之环境搭建
+CDN，智能DNS
+分布式缓存，全国多节点
+多线路接入
+
+3、技术选型分析之负载均衡
+负载均衡LVS
+大型web集群
+高效稳定
 
 
-1.2 基本语法crontab [选项]
-1.3 常用选项
--e：编辑crontab定时任务
--l：查询crontab定时任务
--r：删除当前用户所有的crontab定时任务
+3、开发环境搭建
+开发环境准备
 
-1.4 快速入门案例
-设置任务调度文件 /etc/crontab,设置个人任务调度。执行crontab -e命令。接着输入任务到调度文件如：   ...
+开发工具：Eclipse for php developers/phpstrom/editplus
+
+
+部署开发环境
+
+XAMPP/m...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
 </div>
             
@@ -584,35 +607,44 @@ User-Agent
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/27/linux学习-实操篇/" >
+        <a class="abstract-title" href = "/2020/01/25/java学习——抽象类和接口/" >
             
-                <span>linux学习--实操篇</span>
+                <span>java学习——抽象类/接口</span>
         </a>
         <div class="abstract-content">
-            一、组管理和权限管理linux组基本介绍
-linux中的每个用户必须属于一个组，不能独立于组外。在linux中每个文件有所有者，所在组，其他组的概念。  
-所有者
-所在组
-其他组
-改变用户所在组文件目录的所有者
+            一、抽象类1、说明
+抽象类关键词 abstract
+单继承
+抽象方法，只有方法名，没有方法的实现
 
+2、注意
+不能new这个抽象类，只能靠子类来约束他
+抽象类中可以写普通的方法
+抽象方法必须在抽象类中
 
-一般谁创建了该文件谁就是文件的所有者
-查看文件的所有者
+二、接口1、说明
+接口就是规范，定义的是一组规则
+接口的本质是契约，制定好后大家都遵守
+OO的精髓是对象的抽象，最能体现这一点的是接口。
+声明类的关键字是class 声明接口的关键字是abstract
 
-指令： ls -ahl
-应用实例： 创建一个组的police,再创建一个用户tom,然后使用tom来创建一个文件，看看情况如何。tory 1234567891. 创建组    groupadd police2. 创建用户    groupadd user -g police tom3. 更新密码    passwd t...
+2、作用
+约束
+定义一些方法，让不同的人实现
+接口的方法默认都是 public abstract
+接口的常量默认是public static final
+接口不能被实例化，接口中没有构造...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/27</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/25</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "狂神说学习笔记">狂神说学习笔记</a>
     
 </div>
             
@@ -625,47 +657,40 @@ linux中的每个用户必须属于一个组，不能独立于组外。在linux�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/22/linux学习/" >
+        <a class="abstract-title" href = "/2020/01/21/java学习——封装继承重写多态/" >
             
-                <span>linux学习--指令篇</span>
+                <span>java学习——封装/继承/重写/多态</span>
         </a>
         <div class="abstract-content">
-            linux实用指令帮助指令1.man查找函数的详细帮助文档，获得帮助信息
-1man ls
-2.help获得shell内置命令的帮助信息
-1help cd
-文档目录类1.pwd显示当前工作目录的绝对路径
-2.ls显示目录或者文件
+            一、封装1、封装概念
+高内聚，低耦合
+禁止直接访问一个对象中数据的实际表示，而通过操作接口来访问，这称为隐藏信息
+属性私有，get/set
 
-常用选项
+2、特点
+提高程序的安全性，保护数据
+隐藏代码的实现细节
+统一接口
+系统可维护性增加了
 
-
--a:显示当前目录的所有文件和目录，包括隐藏的
--l:以列表的方式显示信息
--al:以列表的方式显示信息
-
-3.cd切换到指定目录
-
-常用选项  
-
-绝对路径/相对路径
-121. 绝对路径：/home 即从根目录开始定位2. 相对路径： ../home 从当前工作目录开始定位到需要的目录中去
-
-
-
-cd ~或者cd  回到自己的家目录
-cd .. ...
+二、继承1、基本概念
+继承的本质是对某一批类的抽象，从而实现对现实世界更好的建模
+extands的意思是扩展，子类是父类的扩展
+Java类中只有单继承没有多继承
+Java类所有的类都直接或者间接继承object
+继承是类和类之间的一种关系，除此之外类和类之间的关系还有依赖，组合，聚合等
+继承关系的两个类，一个为子类（派生类）一个为父类（基类），子类继承父类，使...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/21</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "狂神说学习笔记">狂神说学习笔记</a>
     
 </div>
             
@@ -678,55 +703,78 @@ cd .. ...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/03/22/php学习之路/" >
+        <a class="abstract-title" href = "/2020/01/21/java学习——面向对象/" >
             
-                <span>php学习导向</span>
+                <span>java学习——面向对象</span>
         </a>
         <div class="abstract-content">
-            路线图
-THML5
-PHP 3小时光速入门
-PHP 基础
-MYSQL 基础  
-PHP 操作MYSQL
-案例 留言板
-javascript 基础
-许愿墙
-PHP 加强
-MYSQL 加强
-Blog 项目实战
-面向对象
-Smarty
-正则
-HTTP协议
-ThinkPHP商城实战
-javascript
-AJAX 
-jquery
-linux
-nginx
-svn
-git
-bootstrap
-HTML5深入
-memcached 集群
-设计模式
-javascript 高级
-mysql 优化
-x框架
+            1、面向对象概念
+面向对象本质：以类的方式组织代码，以对象的组织封装数据
+抽象
+三大特性：封装，继承，多态
+
+2、类与对象的关系
+类是一种抽象的数据类型，它是对某一类事务整体描述/定义，但是并不能代表某一个具体的事物
+例如人，动物
 
 
+对象是抽象概念的具体实现
+例如张三是人的一个具体实例，张三家旺财是狗的一个具体实例
+能够体现出特点，展现出功能的是具体的实例，而不是一个抽象的概念。 
+
+
+
+3、构造器
+必须和类的名字相同
+必须没有返回类型也不能有void 
+没有返回值
+作用
+new 的本质在调用构造方法
+初始化对象的值
+
+
+注意点：
+定义有参构造之后，如果想用无参构造，需要手动定义一个无...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/21</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "开发">开发</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "狂神说学习笔记">狂神说学习笔记</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/16/java学习笔记/" >
+            
+                <span>java学习</span>
+        </a>
+        <div class="abstract-content">
+            1、java
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
     
 </div>
             
@@ -736,7 +784,7 @@ x框架
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/学习/">&#60; PREV</a><a class="page-number" href="/categories/学习/">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="/categories/学习/">&#60; PREV</a><a class="page-number" href="/categories/学习/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/学习/page/3/">3</a><a class="page-number" href="/categories/学习/page/4/">4</a><a class="extend next" rel="next" href="/categories/学习/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1791,9 +1839,242 @@ x框架
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 71
+        Total : 84
         </div>
         <!-- search  -->
         
@@ -1804,17 +2085,56 @@ x框架
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2021/05/25/vue.js笔记四/" >vue.js笔记四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href= "/2021/04/28/Spring黑马学习笔记五/" >Spring黑马学习笔记五</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2021/04/26/Spring黑马学习笔记四/" >Spring黑马学习笔记四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href= "/2021/04/25/Spring黑马学习笔记三/" >Spring黑马学习笔记三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2021/04/22/Spring黑马学习笔记二/" >Spring黑马学习笔记二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2021/04/21/Spring黑马学习笔记一/" >Spring黑马学习笔记一</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href= "/2020/12/15/Head First Java——笔记/" >《Head First Java》——笔记</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
         </li>
     
     
@@ -1839,6 +2159,21 @@ x框架
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/25</span><a class="archive-post-title" href= "/2020/01/25/java学习——抽象类和接口/" >java学习——抽象类/接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2020/01/21/java学习——封装继承重写多态/" >java学习——封装/继承/重写/多态</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2020/01/21/java学习——面向对象/" >java学习——面向对象</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2020/01/16/java学习笔记/" >java学习</a>
         </li>
     
@@ -1859,11 +2194,6 @@ x框架
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2019/12/18/centos lamp环境安装/" >centos7 lamp环境安装</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
         </li>
     
     
@@ -2039,12 +2369,41 @@ x框架
     
         </ul>
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/vue.js笔记三/" >vue.js笔记三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2021/05/19/vue.js笔记二/" >vue.js笔记二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2021/05/18/vue.js笔记一/" >vue.js笔记一</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >鸟哥的linux私房菜《第四版》——读后感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php_Md5Rsa/" >php——Md5Rsa加密</a>
         </li>
     
     
@@ -2089,6 +2448,11 @@ x框架
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2019/11/20/swoole+thinkphp从零开始打造高性能直播赛事/" >swoole+thinkphp从零开始打造高性能直播赛事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span><a class="archive-post-title" href= "/2019/11/18/swoole学习笔记/" >swoole学习笔记</a>
         </li>
     
     
@@ -2241,29 +2605,35 @@ x框架
     
         <span class="sidebar-tag-name" data-tags="日记"><span class="iconfont-archer">&#xe606;</span>日记</span>
     
-        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
+        <span class="sidebar-tag-name" data-tags="工作日记"><span class="iconfont-archer">&#xe606;</span>工作日记</span>
     
-        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="spring"><span class="iconfont-archer">&#xe606;</span>spring</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
+        <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
+    
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
+        <span class="sidebar-tag-name" data-tags="狂神说学习笔记"><span class="iconfont-archer">&#xe606;</span>狂神说学习笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
     
         <span class="sidebar-tag-name" data-tags="破解"><span class="iconfont-archer">&#xe606;</span>破解</span>
     
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
     
+        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+    
         <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
     
-        <span class="sidebar-tag-name" data-tags="开发"><span class="iconfont-archer">&#xe606;</span>开发</span>
+        <span class="sidebar-tag-name" data-tags="phpstorm"><span class="iconfont-archer">&#xe606;</span>phpstorm</span>
     
         <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
@@ -2271,29 +2641,31 @@ x框架
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
+    
         <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
-        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
-    
         <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
     
-        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
+        <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
         <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
     
-        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="电影集合"><span class="iconfont-archer">&#xe606;</span>电影集合</span>
     
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
-        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
-    
         <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+    
+        <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
     
@@ -2336,19 +2708,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="linux"><span class="iconfont-archer">&#xe60a;</span>linux</span>
     
-        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
-    
         <span class="sidebar-category-name" data-categories="常用方法"><span class="iconfont-archer">&#xe60a;</span>常用方法</span>
     
         <span class="sidebar-category-name" data-categories="markdown"><span class="iconfont-archer">&#xe60a;</span>markdown</span>
+    
+        <span class="sidebar-category-name" data-categories="杂七杂八"><span class="iconfont-archer">&#xe60a;</span>杂七杂八</span>
     
         <span class="sidebar-category-name" data-categories="工具"><span class="iconfont-archer">&#xe60a;</span>工具</span>
     
         <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
     
-        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
-    
         <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
+    
+        <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
         <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
     
