@@ -602,7 +602,7 @@ height:50vh;
 <ul>
 <li>用户——ws_client.html</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ws_client<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wwq ws server<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> wsUrl = <span class="string">"ws://192.168.72.4:8812"</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> webSocket = <span class="keyword">new</span> WebSocket(wsUrl);</span></span><br><span class="line"><span class="javascript">webSocket.onopen = <span class="keyword">new</span> WebSocket(wsUrl);</span></span><br><span class="line"><span class="javascript"><span class="comment">//实例对象的onopen属性</span></span></span><br><span class="line"><span class="javascript">webSocket.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    webSocket.send(<span class="string">'hello wwq'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'content-swoole-success'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="javascript"><span class="comment">//实例化onmwssage</span></span></span><br><span class="line"><span class="javascript">webSocket.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'ws-server-return-data:'</span>+evt.data);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="javascript"><span class="comment">//onclose</span></span></span><br><span class="line"><span class="javascript">webSocket.onclose = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'close'</span>);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="javascript"><span class="comment">//onerror</span></span></span><br><span class="line"><span class="javascript">webSocket.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">'error:'</span>+evt.data);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ws_client<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>wwq ws server<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">var wsUrl = "ws://192.168.72.4:8812";</span></span><br><span class="line"><span class="undefined">var webSocket = new WebSocket(wsUrl);</span></span><br><span class="line"><span class="undefined">webSocket.onopen = new WebSocket(wsUrl);</span></span><br><span class="line"><span class="undefined">//实例对象的onopen属性</span></span><br><span class="line"><span class="undefined">webSocket.onopen = function (evt) &#123;</span></span><br><span class="line"><span class="undefined">    webSocket.send('hello wwq');</span></span><br><span class="line"><span class="undefined">    console.log('content-swoole-success');</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">//实例化onmwssage</span></span><br><span class="line"><span class="undefined">webSocket.onmessage = function (evt) &#123;</span></span><br><span class="line"><span class="undefined">    console.log('ws-server-return-data:'+evt.data);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">//onclose</span></span><br><span class="line"><span class="undefined">webSocket.onclose = function (evt) &#123;</span></span><br><span class="line"><span class="undefined">    console.log('close');</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">//onerror</span></span><br><span class="line"><span class="undefined">webSocket.onerror = function (evt) &#123;</span></span><br><span class="line"><span class="undefined">    console.log('error:'+evt.data);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>结果</li>
 </ul>
@@ -2099,50 +2099,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 84
+        Total : 85
         </div>
         <!-- search  -->
         
@@ -2155,11 +2114,6 @@ top:50vh;
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2021/05/25/vue.js笔记四/" >vue.js笔记四</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -2203,11 +2157,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2020/11/03/Oracle Vm VirtualBox桥接网络配置/" >Oracle Vm VirtualBox桥接网络配置</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php无限极分类/" >php无限极分类</a>
         </li>
     
     
@@ -2350,11 +2299,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/php根据url跳转/" >php页面跳转</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/22</span><a class="archive-post-title" href= "/2018/03/22/php学习之路/" >php学习导向</a>
         </li>
     
@@ -2442,6 +2386,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/26</span><a class="archive-post-title" href= "/2021/05/26/vue.js笔记五/" >vue.js笔记五</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span><a class="archive-post-title" href= "/2021/05/25/vue.js笔记四/" >vue.js笔记四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/21</span><a class="archive-post-title" href= "/2021/05/21/vue.js笔记三/" >vue.js笔记三</a>
         </li>
     
@@ -2467,6 +2421,11 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/鸟哥的linux私房菜《第四版》——笔记/" >鸟哥的linux私房菜《第四版》——读后感</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2020/08/17/php无限极分类/" >php无限极分类</a>
         </li>
     
     
@@ -2609,6 +2568,11 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2018/05/22/php根据url跳转/" >php页面跳转</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/格式化数据库/" >格式化数据库</a>
         </li>
     
@@ -2681,15 +2645,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="spring"><span class="iconfont-archer">&#xe606;</span>spring</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="技术文章"><span class="iconfont-archer">&#xe606;</span>技术文章</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="狂神说学习笔记"><span class="iconfont-archer">&#xe606;</span>狂神说学习笔记</span>
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="狂神说学习笔记"><span class="iconfont-archer">&#xe606;</span>狂神说学习笔记</span>
     
         <span class="sidebar-tag-name" data-tags="笔记,git,码云"><span class="iconfont-archer">&#xe606;</span>笔记,git,码云</span>
     
@@ -2711,29 +2675,29 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
-        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
-    
         <span class="sidebar-tag-name" data-tags="php和mysql Web开发"><span class="iconfont-archer">&#xe606;</span>php和mysql Web开发</span>
+    
+        <span class="sidebar-tag-name" data-tags="电视剧"><span class="iconfont-archer">&#xe606;</span>电视剧</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利</span>
     
-        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
+        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
     
         <span class="sidebar-tag-name" data-tags="切尔诺贝利日记"><span class="iconfont-archer">&#xe606;</span>切尔诺贝利日记</span>
     
-        <span class="sidebar-tag-name" data-tags="人民的名义"><span class="iconfont-archer">&#xe606;</span>人民的名义</span>
+        <span class="sidebar-tag-name" data-tags="全职高手"><span class="iconfont-archer">&#xe606;</span>全职高手</span>
     
         <span class="sidebar-tag-name" data-tags="攀登者"><span class="iconfont-archer">&#xe606;</span>攀登者</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="电影集合"><span class="iconfont-archer">&#xe606;</span>电影集合</span>
-    
         <span class="sidebar-tag-name" data-tags="权利的游戏"><span class="iconfont-archer">&#xe606;</span>权利的游戏</span>
     
-        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
+        <span class="sidebar-tag-name" data-tags="电影集合"><span class="iconfont-archer">&#xe606;</span>电影集合</span>
     
         <span class="sidebar-tag-name" data-tags="游戏"><span class="iconfont-archer">&#xe606;</span>游戏</span>
+    
+        <span class="sidebar-tag-name" data-tags="jq"><span class="iconfont-archer">&#xe606;</span>jq</span>
     
         <span class="sidebar-tag-name" data-tags="黑袍纠察队 第一季"><span class="iconfont-archer">&#xe606;</span>黑袍纠察队 第一季</span>
     
@@ -2786,13 +2750,13 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="svn"><span class="iconfont-archer">&#xe60a;</span>svn</span>
     
-        <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
-    
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
-        <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
+        <span class="sidebar-category-name" data-categories="影视"><span class="iconfont-archer">&#xe60a;</span>影视</span>
     
         <span class="sidebar-category-name" data-categories="数据库"><span class="iconfont-archer">&#xe60a;</span>数据库</span>
+    
+        <span class="sidebar-category-name" data-categories="读书笔记"><span class="iconfont-archer">&#xe60a;</span>读书笔记</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue.js笔记五]]></title>
+    <url>%2F2021%2F05%2F26%2Fvue.js%E7%AC%94%E8%AE%B0%E4%BA%94%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue.js笔记四]]></title>
     <url>%2F2021%2F05%2F25%2Fvue.js%E7%AC%94%E8%AE%B0%E5%9B%9B%2F</url>
-    <content type="text"><![CDATA[一、slot插槽]]></content>
+    <content type="text"><![CDATA[一、slot插槽1、基本使用1234567891011121314151617181920212223242526&lt;div id="app"&gt; &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt; &lt;cpn&gt;&lt;span&gt;hehe&lt;/span&gt;&lt;/cpn&gt; &lt;cpn&gt;&lt;button&gt;hehe&lt;/button&gt;&lt;/cpn&gt;&lt;/div&gt;&lt;template id="cpn"&gt; &lt;div&gt; &lt;h2&gt;测试&lt;/h2&gt; &lt;slot&gt;&lt;/slot&gt; &lt;/div&gt;&lt;/template&gt;&lt;!--导入vue.js--&gt;&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"&gt;&lt;/script&gt;&lt;script&gt; const app = new Vue(&#123; el:'#app', data:&#123; message:"hello vue" &#125;, components:&#123; cpn:&#123; template:`#cpn` &#125; &#125; &#125;);&lt;/script&gt; 2、默认值 如果设定了默认值，则当没有值的时候，显示默认值，并且可以通过name属性修改某个默认值 123456789101112131415161718192021222324252627&lt;div id="app"&gt; &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt; &lt;cpn&gt;&lt;span slot="left"&gt;sss&lt;/span&gt;&lt;/cpn&gt;&lt;/div&gt;&lt;template id="cpn"&gt; &lt;div&gt; &lt;h2&gt;测试&lt;/h2&gt; &lt;slot name="left"&gt;左边&lt;/slot&gt; &lt;slot&gt;中间&lt;/slot&gt; &lt;slot&gt;右边&lt;/slot&gt; &lt;/div&gt;&lt;/template&gt;&lt;!--导入vue.js--&gt;&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"&gt;&lt;/script&gt;&lt;script&gt; const app = new Vue(&#123; el:'#app', data:&#123; message:"hello vue" &#125;, components:&#123; cpn:&#123; template:`#cpn` &#125; &#125; &#125;);&lt;/script&gt; 3、作用域 插槽中的数值在自己作用域中表示 12345678910111213141516171819202122232425262728293031&lt;div id="app"&gt; &lt;div v-show="isShow"&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt; &lt;npc&gt;&lt;/npc&gt;&lt;/div&gt;&lt;template id="npc"&gt; &lt;div&gt; &lt;h2 v-show="isShow"&gt;hhhh&lt;/h2&gt; &lt;/div&gt;&lt;/template&gt;&lt;!--导入vue.js--&gt;&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"&gt;&lt;/script&gt;&lt;script&gt; const app = new Vue(&#123; el:'#app', data:&#123; message:"hello vue", isShow: true &#125;, components:&#123; npc:&#123; template:`#npc`, data()&#123; return &#123; isShow:false &#125; &#125; &#125; &#125; &#125;);&lt;/script&gt; 4、子插槽传递数值 1234567891011121314151617181920212223242526272829303132333435363738394041&lt;div id="app"&gt; &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt; &lt;cpn&gt;&lt;!-- 目的是获取子组件中的planguage--&gt; &lt;template slot-scope="slot"&gt;&lt;!-- &lt;span v-for="item in slot.data"&gt;&#123;&#123;item&#125;&#125;-&lt;/span&gt;--&gt; &lt;span&gt;&#123;&#123;slot.data.join(' - ')&#125;&#125;&lt;/span&gt; &lt;/template&gt; &lt;/cpn&gt;&lt;/div&gt;&lt;template id="cpn"&gt; &lt;div&gt;&lt;!-- 通过：data属性将planguage传递给父值 data名字可以随便取--&gt; &lt;slot :data="planguage"&gt; &lt;ul&gt; &lt;li v-for="item in planguage"&gt;&#123;&#123;item&#125;&#125;-&lt;/li&gt; &lt;/ul&gt; &lt;/slot&gt; &lt;/div&gt;&lt;/template&gt;&lt;!--导入vue.js--&gt;&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"&gt;&lt;/script&gt;&lt;script&gt; const app = new Vue(&#123; el:'#app', data:&#123; message:"hello vue" &#125;, components:&#123; cpn:&#123; template:`#cpn`, data()&#123; return &#123; planguage:['no1','no2','no3'] &#125; &#125; &#125; &#125; &#125;);&lt;/script&gt;]]></content>
       <categories>
         <category>学习</category>
       </categories>
